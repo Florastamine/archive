@@ -19,7 +19,7 @@ files {
 configuration "Debug" 
 buildoptions {
     "-Wall", 
-    "-std=c++14", 
+    "-std=gnu++11", 
     "-I\"./Source/3rd/\""
 }
 
@@ -27,6 +27,6 @@ configuration "Release"
 buildoptions {
     "-Ofast", 
     "-Wall", 
-    "-std=c++14", 
+    "-std=gnu++11", 
     "-I\"./Source/3rd/\""
 }
