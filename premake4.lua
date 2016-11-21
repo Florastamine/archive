@@ -9,6 +9,7 @@ project "Hotland"
 language "C++"
 kind "WindowedApp"
 files {
+    "**.ipp", 
     "**.cpp",
     "**.hpp", 
     "**.c", 
@@ -17,12 +18,15 @@ files {
 
 configuration "Debug" 
 buildoptions {
-    "-Wall",
-    "-std=c++03"
+    "-Wall", 
+    "-std=c++14", 
+    "-I\"./Source/3rd/\""
 }
 
 configuration "Release" 
 buildoptions {
     "-Ofast", 
-    "-std=c++03"
+    "-Wall", 
+    "-std=c++14", 
+    "-I\"./Source/3rd/\""
 }
