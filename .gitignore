@@ -27,6 +27,9 @@
 *.exe
 *.out
 *.app
-*.make
-obj/
+
+# Hotland-specific 
+*.make 
 Makefile
+obj/
+main.cpp 
