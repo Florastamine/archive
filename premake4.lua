@@ -20,7 +20,8 @@ configuration "Debug"
 buildoptions {
     "-Wall", 
     "-std=gnu++11", 
-    "-I\"./Source/3rd/\""
+    "-I\"./Source/3rd/\"",
+    "-I\"./Source/Kernel/IO/\""
 }
 
 configuration "Release" 
@@ -28,5 +29,6 @@ buildoptions {
     "-Ofast", 
     "-Wall", 
     "-std=gnu++11", 
-    "-I\"./Source/3rd/\""
+    "-I\"./Source/3rd/\"", 
+    "-I\"./Source/Kernel/IO/\""
 }
