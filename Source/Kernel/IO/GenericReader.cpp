@@ -30,7 +30,7 @@ namespace Hotland {
         void GenericReader::Open(const std::string &fName, const std::string &fMode)
         {
             if(!m_pInternalBlock)
-                m_pInternalBlock = std::fopen(fName.c_str(), "r");
+                m_pInternalBlock = std::fopen(fName.c_str(), "rb");
         }
 
         void GenericReader::Close()
