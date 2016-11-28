@@ -21,11 +21,13 @@
 
 #pragma once 
 
+#include <../Compatibility/CXXCompatibility.hpp>
+
 #include <ReadWriteBase.hpp> 
 
 namespace Hotland {
     namespace IO {
-        class GenericReader : ReadWriteBase {
+        class HOTLAND_API GenericReader : ReadWriteBase {
             public:
                 GenericReader() : ReadWriteBase() {}
                 ~GenericReader() {} 

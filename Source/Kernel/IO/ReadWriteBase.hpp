@@ -21,12 +21,14 @@
 
 #pragma once 
 
+#include <../Compatibility/CXXCompatibility.hpp>
+
 #include <cstdio>
 #include <string>
 
 namespace Hotland {
     namespace IO {
-        class ReadWriteBase {
+        class HOTLAND_API ReadWriteBase {
             public:
                 ReadWriteBase() : m_fileName(std::tmpnam(NULL)), m_pInternalBlock(NULL) {}
                 ~ReadWriteBase() {}

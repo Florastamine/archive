@@ -20,3 +20,15 @@
  */
 
 #pragma once 
+
+#if defined(HOTLAND_API_DLL) 
+    #if defined(_MSC_VER_) 
+        #define HOTLAND_API __declspec(dllexport) 
+    #elif defined(__GNUC__)
+        #define HOTLAND_API __attribute__((dllexport)) 
+    #else 
+        #define HOTLAND_API 
+    #endif 
+#else 
+    #define HOTLAND_API 
+#endif 
