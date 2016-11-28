@@ -38,8 +38,8 @@ namespace Hotland {
                 void Write(const std::string &fContent);
                 const char *Read(std::size_t bSize); 
 
-                const char *ReadLine(int nThreshold = 512);
-                const char *ReadAll(int nThreshold = 65536);
+                const char *ReadLine(std::size_t nThreshold = 512); 
+                const char *ReadAll(std::size_t nThreshold = 65536); 
             private:
         };
     }

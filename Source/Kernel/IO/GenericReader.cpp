@@ -59,7 +59,7 @@ namespace Hotland {
             return NULL;
         }
 
-        const char *GenericReader::ReadLine(int nThreshold) 
+        const char *GenericReader::ReadLine(std::size_t nThreshold) 
         {
             if(m_pInternalBlock) {
                 char *c = new char[nThreshold + 1];
@@ -72,7 +72,7 @@ namespace Hotland {
             return NULL;
         } 
 
-        const char *GenericReader::ReadAll(int nThreshold)
+        const char *GenericReader::ReadAll(std::size_t nThreshold)
         {
             if(m_pInternalBlock) {
                 char *s = new char[nThreshold + 1];
