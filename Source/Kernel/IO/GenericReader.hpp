@@ -41,6 +41,8 @@ namespace Hotland {
                 const char *ReadLine(std::size_t nThreshold = 512); 
                 const char *ReadAll(std::size_t nThreshold = 65536); 
                 const char *ReadChunk(std::size_t nSize = 1024); 
+
+                std::size_t Size();
             private:
         };
     }

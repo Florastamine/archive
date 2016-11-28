@@ -78,14 +78,34 @@ namespace Hotland {
                 char *s = new char[nThreshold + 1];
                 int i = -1, c = 0;
                 
-                while((EOF != (c = std::fgetc(m_pInternalBlock))) && (i < nThreshold)) 
+                while((EOF != (c = std::fgetc(m_pInternalBlock))) && (i < (int) nThreshold)) 
                     s[++i] = (char) c;
 
                 s[i + 1] = '\0';
-                return s;
+                return reinterpret_cast<const char *>(s);
             } 
 
             return NULL;
+        } 
+
+        const char *GenericReader::ReadChunk(std::size_t nSize)
+        {
+            return GenericReader::ReadAll(nSize);
+        } 
+
+        std::size_t GenericReader::Size() 
+        {
+            std::size_t s = 0;
+
+            if(m_pInternalBlock) {
+                std::rewind(m_pInternalBlock);
+                std::fseek(m_pInternalBlock, 0, SEEK_END);
+
+                s = std::ftell(m_pInternalBlock);
+                std::rewind(m_pInternalBlock);
+            }
+
+            return s;
         }
     }
 }
