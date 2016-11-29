@@ -22,7 +22,7 @@
 #pragma once 
 
 #if defined(HOTLAND_API_DLL) 
-    #if defined(_MSC_VER_) 
+    #if defined(_MSC_VER) 
         #define HOTLAND_API __declspec(dllexport) 
     #elif defined(__GNUC__)
         #define HOTLAND_API __attribute__((dllexport)) 

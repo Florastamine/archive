@@ -93,7 +93,7 @@ namespace Hotland {
             return GenericReader::ReadAll(nSize);
         } 
 
-        std::size_t GenericReader::Size() 
+        std::size_t GenericReader::Size(int nMultiplier) 
         {
             std::size_t s = 0;
 
@@ -101,8 +101,7 @@ namespace Hotland {
                 std::rewind(m_pInternalBlock);
                 std::fseek(m_pInternalBlock, 0, SEEK_END);
 
-                s = std::ftell(m_pInternalBlock);
-                std::rewind(m_pInternalBlock);
+                s = std::ftell(m_pInternalBlock) / (nMultiplier > 0 ? nMultiplier : 1);
             }
 
             return s;
