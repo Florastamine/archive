@@ -224,7 +224,7 @@ It's recommended that binary distributions use this target for their LuaJIT buil
 
         __begin_reparse_configuration = imgui.Button("Reparse configuration file (" .. __conf_name .. ")") 
         __begin_save_configuration = imgui.Button("Save current configuration to " .. __conf_name)
-        __begin_save_configuration = imgui.Button("Begin configuring and generating " .. __script_name)
+        __begin_configuring_pressed = imgui.Button("Begin configuring and generating " .. __script_name)
     imgui.End()
 
     imgui.Render()
