@@ -41,7 +41,33 @@ function love.load(args)
     })
 end 
 
-function love.update(dt)
+local ActionConfigureAndGenerate = function () 
+end 
+
+local ActionReparseConfiguration = function () 
+end 
+
+local ActionSaveConfiguration = function () 
+end 
+
+function love.update(dt) 
+    if __begin_configuring_pressed == true then 
+        do 
+            ActionConfigureAndGenerate() 
+            __begin_configuring_pressed = false 
+        end  
+    elseif __begin_reparse_configuration == true then 
+        do 
+            ActionReparseConfiguration() 
+            __begin_reparse_configuration = false 
+        end  
+    elseif __begin_save_configuration == true then 
+        do 
+            ActionSaveConfiguration() 
+            __begin_save_configuration = false 
+        end 
+    else 
+    end 
 end 
 
 function love.textinput(t)
