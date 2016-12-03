@@ -22,9 +22,14 @@ IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 debux = {} 
 
 debux.debug = false 
+debux.name = tostring("herbal.log") 
 
 debux["is_debug"] = function () 
     return debux.debug 
 end 
+
+debux["do_if"] = function (f) 
+    if f ~= nil and type(f) == "function" and debux.is_debug() == true then f() end 
+end  
 
 return debux 
