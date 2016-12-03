@@ -17,27 +17,51 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
 IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+]]-- 
 
-------------------------------------------
-This module contains core definitions for Downpour.
-------------------------------------------
-]]--
+utils = {} 
 
-downpour = {}
+utils.boolean = {} 
 
-downpour = {
-    ["__version__"] = "0.1a"
-}
+utils.boolean.tostring = function (boolean) 
+    if boolean ~= nil and type(boolean) == "boolean" then 
+        if boolean == true then return "true" 
+        else return "false" end 
+    end 
 
-downpour["get_version"] = function ()
-    return downpour["__version__"]
-end
+    return nil 
+end 
 
-downpour["get_version_extended"] = function ()
-    local _jitver = nil
-    if type(jit) == "table" then _jitver = tostring(jit.version) else _jitver = "LuaJIT unknown version" end
+utils.boolean.tonumber = function (boolean) 
+    local r = utils.boolean.tostring(boolean) 
 
-    return ("Florastamine's Downpour API " .. downpour["__version__"] .. ", based on " .. _jitver .. " and " .. _VERSION)
-end
+    if r == tostring("true") then r = 1 
+    elseif r == tostring("false") then r = 0
+    else end 
 
-return downpour
+    return r 
+end -- // utils.boolean = {} 
+
+utils.path = {} 
+
+utils.path.make_path = function (path)
+    local p = tostring(path)  
+
+    if p ~= nil and type(p) == "string" then 
+        local b = p:byte(#p) 
+
+        if b ~= 47 and b ~= 92 then 
+            p = p .. '/' 
+        end 
+    end 
+
+    return p 
+end 
+
+utils.path.make = utils.path.make_path 
+
+utils.path.get_root = function () 
+    return love.filesystem.getSourceBaseDirectory() .. '/' 
+end -- // utils.path = {} 
+
+return utils 
