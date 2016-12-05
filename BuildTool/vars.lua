@@ -16,35 +16,89 @@ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
-IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-]]-- 
+IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.   
+]]--
 
-window_width, window_height = 640, 600   
+vars = {} 
 
-version = "Alpha"
-l2d_version_major, l2d_version_minor, l2d_version_rev, l2d_version_name = love.getVersion()
-window_title = string.format("Herbal %s (%s, Love2D %d.%d.%d %s)", version, _VERSION, l2d_version_major, l2d_version_minor, l2d_version_rev, l2d_version_name)
+local _API_version_major, _API_version_minor, _API_version_rev, _API_version_name = love.getVersion() 
 
-__window_max_width, __window_max_height = 0, 0 
+vars = {
+    version = "Alpha", 
 
-__built_target_buffer, __built_target_buffer_length = "./", 257
-__msys2_root_buffer, __msys2_root_buffer_length = "./", 257 
-__mingw_root_buffer, __mingw_root_buffer_length = "./", 257 
-__built_cmake_buffer, __built_cmake_buffer_length = "./", 257 
+    window_width = 640, 
+    window_height = 600,
+    window_max_width = 0, 
+    window_max_height = 0,
+    window_title = string.format("Herbal %s (%s, Love2D %d.%d.%d %s)", vars.version, _VERSION, _API_version_major, _API_version_minor, _API_version_rev, _API_version_name), 
 
-__begin_configuring_pressed = false
-__begin_reparse_configuration = false 
-__begin_save_configuration = false 
+    built_target = "./", 
+    built_target_length = 257,
 
-__is_build_64bit, __is_build_angelscript, __is_build_lua, __is_build_luajit, __is_build_luajit_alm = false, false, false, false, false
-__is_build_luajit_safe, __is_build_network, __is_build_physics, __is_build_nav, __is_build_mt, __is_build_2d = false, false, false, false, false, false
-__is_build_tools, __is_build_samples, __is_build_package, __is_build_profiling, __is_build_static_vcruntime, __is_build_w32console = false, false, false, false, false, false 
-__is_build_docs, __is_build_pch, __is_build_lua_rawscript = false, false, false     
+    msys2_root = "./",
+    msys2_root_length = 257, 
 
-__database_type = 1  
-__target_type = 1 
-__lib_type = 1 
-__toolchain_type = 1
+    mingw_root = "./", 
+    mingw_root_length = 257, 
 
-__conf_name = "herbal.conf" 
-__script_name = "out."
+    cmake_root = "./", 
+    cmake_root_length = 257, 
+
+    is_build_64bit_target   = false, 
+    is_build_angelscript    = false, 
+    is_build_lua            = false, 
+    is_build_luajit         = false, 
+    is_build_luajit_alm     = false, 
+    is_build_luajit_safe    = false, 
+    is_build_lua_raw_loader = false, 
+    is_build_network        = false, 
+    is_build_physics        = false, 
+    is_build_nav            = false, 
+    is_build_mt             = false, 
+    is_build_2d             = false, 
+    is_build_devtools       = false, 
+    is_build_extras         = false, 
+    is_build_samples        = false, 
+    is_build_packaging      = false, 
+    is_build_profiling      = false, 
+    is_build_static_vcpplib = false, 
+    is_build_w32_konsole    = false, 
+    is_build_docs           = false, 
+    is_build_precompiled_h  = false, 
+    is_build_gnu11          = false, 
+    is_build_gl             = false, 
+    is_build_d3d11          = false, 
+    is_strip_bin            = false, 
+
+    database_type  = 1,
+    target_type    = 1,
+    lib_type       = 1,
+    toolchain_type = 1, 
+
+    config_name = "herbal.conf", 
+    script_name = "build",
+
+    toolchain_type_enum = {
+        "Linux (native)", 
+        "Windows (with Microsoft Visual Studio)", 
+        "Windows (with MinGW/MinGW-W64)", 
+        "Windows (with MSYS2+MinGW/MinGW-W64)"
+    }, 
+
+    database_type_enum = {
+        "OBDC (*)",
+        "SQLite"
+    }, 
+
+    target_type_enum = {
+        "Linux (I'll generate a bash (.sh) script)", 
+        "Windows (I'll generate a batch (.bat) script)"
+    }, 
+
+    lib_type_enum = {
+        "Static (.a on Linux, and .lib on Windows)", 
+        "Dynamic (.so on Linux, and .dll on Windows)"
+    }
+}
+
+return vars 

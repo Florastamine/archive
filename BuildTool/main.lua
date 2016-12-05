@@ -22,49 +22,150 @@ IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 package.path = package.path .. ";./BuildTool"
 package.cpath = package.cpath .. ";./" 
 
-require("imgui") 
-require("vars") 
+local imgui = require("imgui") 
+local vars = require("vars") 
+local utils = require("utils") 
+local debug = require("debux") 
 
-function love.load(args)
-    love.window.setTitle(window_title)
+local debug_io_handle = nil 
 
+function love.load(args) 
+    debug.debug = true 
+
+    debug.do_if(
+        function () 
+            debug_io_handle = io.open(utils.path.get_root() .. debug.name, "w+") 
+            debug_io_handle:write("Logging module for Herbal opened. Will be streaming events into ", debug.name, " of ", utils.path.get_root(), "\n")  
+        end 
+    )
+
+    love.window.setTitle(vars.window_title)
     love.window.setMode(0, 0, {})
-    __window_max_width, __window_max_height = love.graphics.getDimensions()
+    vars.window_max_width, vars.window_max_height = love.graphics.getDimensions()
 
-    love.window.setMode(window_width, window_height, {
+    love.window.setMode(vars.window_width, vars.window_height, {
         fullscreen = false,
         vsync = false,
         msaa = 0,
         resizable = false,
-        x = (__window_max_width - window_width) / 2,
-        y = (__window_max_height - window_height) / 2
-    })
+        x = (vars.window_max_width - vars.window_width) / 2,
+        y = (vars.window_max_height - vars.window_height) / 2
+    }) 
+
+    debug.do_if(
+        function () 
+            local _, _, t = love.window.getMode() 
+
+            debug_io_handle:write(string.format(
+                [[
+window_title: %s  
+window_width/window_max_width: %i/%i 
+window_height/window_max_height: %i/%i 
+x/y/fullscreen/vsync: %i/%i/%i/%i 
+                ]], 
+               vars.window_title, vars.window_width, vars.window_max_width, vars.window_height, vars.window_max_height, t.x, t.y, utils.boolean.tonumber(t.fullscreen), utils.boolean.tonumber(t.vsync) 
+            )) 
+        end 
+    )
 end 
+
+local ParseToolchainType = function (function_table) 
+    if function_table ~= nil and type(function_table) == "table" then 
+        function_table[vars.toolchain_type]() 
+    end 
+end  
+
+local ActionReadConfigurationFile = function (name) 
+    if name and type(name) == "string" then 
+        local f = io.open(utils.path.get_root() .. name, 'r') 
+
+        debug.do_if(
+            function () 
+                debug_io_handle:write("Attempting to open ", name, " for reading configuration data.\n") 
+            end 
+        )
+
+        if f ~= nil then 
+            local rls = function () return (f:read("*l")):match("^%s*(.-)%s*$") end 
+            local rln = function () return tonumber(rls()) end 
+            local rlb = function () if rls() == tostring("true") then return true else return false end end 
+
+            vars.built_target = rls()
+            vars.cmake_root = rls()
+
+            vars.toolchain_type = rln() 
+            vars.target_type = rln()  
+            vars.lib_type = rln() 
+            vars.database_type = rln()
+
+            vars.is_build_64bit = rlb() 
+            vars.is_build_network = rlb() 
+            vars.is_build_physics = rlb() 
+            vars.is_build_nav = rlb() 
+            vars.is_build_2d = rlb() 
+            vars.is_build_mt = rlb() 
+            vars.is_build_profiling = rlb() 
+            vars.is_build_precompiled_h = rlb() 
+            vars.is_build_gnu11 = rlb() 
+
+            vars.is_build_angelscript = rlb() 
+
+            vars.is_build_lua = rlb() 
+            vars.is_build_luajit = rlb() 
+            vars.is_build_luajit_alm = rlb() 
+            vars.is_build_luajit_safe = rlb() 
+            vars.is_build_lua_raw_loader = rlb() 
+
+            vars.is_build_gl = rlb() 
+            vars.is_build_d3d11 = rlb() 
+
+            vars.is_build_static_vcpplib = rlb() 
+            vars.is_build_w32_konsole = rlb()
+
+            vars.is_build_samples = rlb() 
+            vars.is_build_devtools = rlb() 
+            vars.is_build_extras = rlb() 
+            vars.is_build_packaging = rlb() 
+            vars.is_build_docs = rlb() 
+
+            vars.is_strip_bin = rlb()  
+
+            f:close() 
+        end 
+    end 
+end 
+
+local ActionSaveConfigurationFile = function (name) 
+    if name and type(name) == "string" then 
+        -- 
+    end 
+end  
 
 local ActionConfigureAndGenerate = function () 
 end 
 
 local ActionReparseConfiguration = function () 
+    ActionReadConfigurationFile(vars.config_name)
 end 
 
 local ActionSaveConfiguration = function () 
 end 
 
 function love.update(dt) 
-    if __begin_configuring_pressed == true then 
+    if vars.begin_configuring_pressed == true then 
         do 
             ActionConfigureAndGenerate() 
-            __begin_configuring_pressed = false 
+            vars.begin_configuring_pressed = false 
         end  
-    elseif __begin_reparse_configuration == true then 
+    elseif vars.begin_reparse_configuration == true then 
         do 
             ActionReparseConfiguration() 
-            __begin_reparse_configuration = false 
+            vars.begin_reparse_configuration = false 
         end  
-    elseif __begin_save_configuration == true then 
+    elseif vars.begin_save_configuration == true then 
         do 
             ActionSaveConfiguration() 
-            __begin_save_configuration = false 
+            vars.begin_save_configuration = false 
         end 
     else 
     end 
@@ -98,90 +199,86 @@ function love.wheelmoved(x, y)
     imgui.WheelMoved(y)
 end 
 
-local RenderToolchainUI = function ()
-    if __toolchain_type == 1 then -- Linux (native) 
-        imgui.Text("Linux (native)")
-    elseif __toolchain_type == 2 then -- Windows (with Microsoft Visual Studio)
-        imgui.Text("Windows (with Microsoft Visual Studio)")
-    elseif __toolchain_type == 3 then -- Windows (with MinGW/MinGW-W64) 
-        _, __mingw_root_buffer = imgui.InputText("MinGW root", __mingw_root_buffer, __mingw_root_buffer_length) 
-    elseif __toolchain_type == 4 then -- Windows (with MSYS2+MinGW) 
-        _, __msys2_root_buffer = imgui.InputText("MSYS2 root", __msys2_root_buffer, __msys2_root_buffer_length) 
-    else 
-    end 
+local DrawToolchainUI = function () 
+    ParseToolchainType({
+        function () 
+            --  
+        end, 
+
+        function () 
+            --  
+        end, 
+
+        function () 
+            -- 
+        end, 
+
+        function () 
+            -- 
+        end  
+    }) 
 end  
 
 function love.draw()
     imgui.NewFrame() 
 
-    imgui.SetNextWindowSize(window_width, window_height)
+    imgui.SetNextWindowSize(vars.window_width, vars.window_height)
     imgui.SetNextWindowPos(0, 0)
 
-    imgui.Begin(window_title)
+    imgui.Begin(vars.window_title)
         if imgui.CollapsingHeader("General configuration") then 
-            _, __built_target_buffer = imgui.InputText("Built target folder", __built_target_buffer, __built_target_buffer_length)  
-            _, __built_cmake_buffer = imgui.InputText("CMake location/path", __built_cmake_buffer, __built_cmake_buffer_length)
+            _, vars.built_target = imgui.InputText("Built target folder", vars.built_target, vars.built_target_length)  
+            _, vars.cmake_root = imgui.InputText("CMake location/path", vars.cmake_root, vars.cmake_root_length)
         end 
 
         if imgui.CollapsingHeader("Toolchain") then 
             imgui.Text("Toolchain type:")
-            _, __toolchain_type = imgui.Combo("TT", __toolchain_type, {
-                "Linux (native)",
-                "Windows (with Microsoft Visual Studio)", 
-                "Windows (with MinGW/MinGW-W64)",
-                "Windows (with MSYS2+MinGW/MinGW-W64)"
-            }, 4);
-            
-            RenderToolchainUI()
+            _, vars.toolchain_type = imgui.Combo("1", vars.toolchain_type, vars.toolchain_type_enum, #vars.toolchain_type_enum)
+
+            DrawToolchainUI()
         end 
 
         if imgui.CollapsingHeader("Target configuration") then 
-            _, __target_type = imgui.Combo("TC", __target_type, {
-                "Linux (I'll generate a bash (.sh) script)", 
-                "Windows (I'll generate a batch (.bat) script)"
-            }, 2); 
+            _, vars.target_type = imgui.Combo("2", vars.target_type, vars.target_type_enum, #vars.target_type_enum)
         end 
 
         if imgui.CollapsingHeader("Build options") then 
-            _, __is_build_64bit = imgui.Checkbox("Build 64-bit targets (URHO3D_64BIT)", __is_build_64bit) 
+            _, vars.is_build_64bit = imgui.Checkbox("Build 64-bit targets (URHO3D_64BIT)", vars.is_build_64bit) 
 
-            _, __is_build_network = imgui.Checkbox("Networking support (URHO3D_NETWORK)", __is_build_network) 
+            _, vars.is_build_network = imgui.Checkbox("Networking support (URHO3D_NETWORK)", vars.is_build_network) 
 
-            _, __is_build_physics = imgui.Checkbox("Physics(*) support (URHO3D_PHYSICS)", __is_build_physics)
+            _, vars.is_build_physics = imgui.Checkbox("Physics(*) support (URHO3D_PHYSICS)", vars.is_build_physics)
             imgui.Text("(*) Physics support through Bullet.")
 
-            _, __is_build_nav = imgui.Checkbox("Navigation support (URHO3D_NAVIGATION)", __is_build_nav)
+            _, vars.is_build_nav = imgui.Checkbox("Navigation support (URHO3D_NAVIGATION)", vars.is_build_nav)
 
-            _, __is_build_2d = imgui.Checkbox("2D(*) support (URHO3D_URHO2D)", __is_build_2d) 
+            _, vars.is_build_2d = imgui.Checkbox("2D(*) support (URHO3D_URHO2D)", vars.is_build_2d) 
             imgui.Text("(*) 2D support includes both rendering and physics.")
 
-            _, __is_build_mt = imgui.Checkbox("MT support (URHO3D_THREADING)", __is_build_mt) 
+            _, vars.is_build_mt = imgui.Checkbox("MT support (URHO3D_THREADING)", vars.is_build_mt) 
 
-            _, __is_build_profiling = imgui.Checkbox("Profiling support (URHO3D_PROFILING)", __is_build_profiling) 
+            _, vars.is_build_profiling = imgui.Checkbox("Profiling support (URHO3D_PROFILING)", vars.is_build_profiling) 
 
-            _, __is_build_pch = imgui.Checkbox("Enable PCH(*) support (URHO3D_PCH)", __is_build_pch)
+            _, vars.is_build_precompiled_h = imgui.Checkbox("Enable PCH(*) support (URHO3D_PCH)", vars.is_build_precompiled_h)
             imgui.Text("(*) PCH: Precompiled header.")
 
-            _, __is_build_gnu11 = imgui.Checkbox("Enable C++11(*) support (URHO3D_C++11)", __is_build_gnu11) 
+            _, vars.is_build_gnu11 = imgui.Checkbox("Enable C++11(*) support (URHO3D_C++11)", vars.is_build_gnu11) 
             imgui.Text("C++11 (URHO3D_C++11) would also be enabled if one of the following configurations were selected: ")
             imgui.Text("- URHO3D_ANGELSCRIPT on web and Android/ARM platforms with aarch64, or")
             imgui.Text("- URHO3D_DATABASE_ODBC on all platforms.") 
 
             imgui.Text("Library type")
-            _, __lib_type = imgui.Combo("LT", __lib_type, {
-                "Static (.a on Linux, and .lib on Windows)", 
-                "Dynamic (.so on Linux, and .dll on Windows)"
-            }, 2)
+            _, vars.lib_type = imgui.Combo("3", vars.lib_type, vars.lib_type_enum, #vars.lib_type_enum)
 
             if imgui.CollapsingHeader("AngelScript") then  
-                _, __is_build_angelscript = imgui.Checkbox("AngelScript(*) support (URHO3D_ANGELSCRIPT), ", __is_build_angelscript)
+                _, vars.is_build_angelscript = imgui.Checkbox("AngelScript(*) support (URHO3D_ANGELSCRIPT), ", vars.is_build_angelscript)
                 imgui.Text("(*) AngelScript is required by the built-in scene editor.")
             end 
 
             if imgui.CollapsingHeader("Lua/LuaJIT") then 
-                _, __is_build_lua = imgui.Checkbox("Lua support (URHO3D_LUA)", __is_build_lua)
-                _, __is_build_luajit = imgui.Checkbox("LuaJIT support (URHO3D_LUAJIT)", __is_build_luajit)
-                _, __is_build_luajit_alm = imgui.Checkbox("LuaJIT amalgamated build(*) (URHO3D_LUAJIT_AMALG)", __is_build_luajit_alm)
+                _, vars.is_build_lua = imgui.Checkbox("Lua support (URHO3D_LUA)", vars.is_build_lua)
+                _, vars.is_build_luajit = imgui.Checkbox("LuaJIT support (URHO3D_LUAJIT)", vars.is_build_luajit)
+                _, vars.is_build_luajit_alm = imgui.Checkbox("LuaJIT amalgamated build(*) (URHO3D_LUAJIT_AMALG)", vars.is_build_luajit_alm)
                 imgui.Text("(*) Quoting from http://luajit.org/install.html:") 
                 imgui.Text([[
 The build system has a special target for an amalgamated build, i.e. make amalg. 
@@ -192,16 +289,16 @@ be a problem for most build farms.
 It's recommended that binary distributions use this target for their LuaJIT builds.
                 ]])
 
-                _, __is_build_luajit_safe = imgui.Checkbox("C++ wrapper safety checks(*) for Lua/LuaJIT (URHO3D_SAFE_LUA)", __is_build_luajit_safe) 
+                _, vars.is_build_luajit_safe = imgui.Checkbox("C++ wrapper safety checks(*) for Lua/LuaJIT (URHO3D_SAFE_LUA)", vars.is_build_luajit_safe) 
                 imgui.Text("(*) This can be slow.")   
 
-                _, __is_build_lua_rawscript = imgui.Checkbox("Prefer loading raw script files over the ones in Urho3D's cache. (URHO3D_LUA_RAW_SCRIPT_LOADER)", __is_build_lua_rawscript) 
+                _, vars.is_build_lua_raw_loader = imgui.Checkbox("Prefer loading raw script files over the ones in Urho3D's cache. (URHO3D_LUA_RAW_SCRIPT_LOADER)", vars.is_build_lua_raw_loader) 
                 imgui.Text("(*) This can be useful for debugging purposes, but has less performance than just loading from the resource cache.")
             end 
 
             if imgui.CollapsingHeader("Rendering") then 
-                _, __is_build_gl = imgui.Checkbox("OpenGL(*) support (URHO3D_OPENGL)", __is_build_gl) 
-                _, __is_build_d3d11 = imgui.Checkbox("Direct3D11(**) support (URHO3D_D3D11)", __is_build_d3d11)
+                _, vars.is_build_gl = imgui.Checkbox("OpenGL(*) support (URHO3D_OPENGL)", vars.is_build_gl) 
+                _, vars.is_build_d3d11 = imgui.Checkbox("Direct3D11(**) support (URHO3D_D3D11)", vars.is_build_d3d11)
                 imgui.Text("(*) Selecting OpenGL on any platform will override Direct3D, and vice versa.")  
                 imgui.Text("(**) Building on Windows with both OpenGL and Direct3D11 unselected will default to Direct3D9.")
                 imgui.Text("     Selecting both OpenGL and Direct3D11 will default to OpenGL on non-Windows platforms, and ")
@@ -209,48 +306,45 @@ It's recommended that binary distributions use this target for their LuaJIT buil
             end 
 
             if imgui.CollapsingHeader("Database") then 
-                _, __database_type = imgui.Combo("DT", __database_type, {
-                    "OBDC (*)",
-                    "SQLite"
-                }, 2) 
+                _, vars.database_type = imgui.Combo("4", vars.database_type, vars.database_type_enum, #vars.database_type_enum)
 
-                if __database_type == 1 then 
+                if vars.database_type == 1 then 
                     imgui.Text("OBDC requires vendor-specific ODBC driver.") 
                 end 
             end 
 
             if imgui.CollapsingHeader("Windows-specific settings") then 
-                _, __is_build_static_vcruntime = imgui.Checkbox("Prefer static C/C++ runtime libraries(*) (URHO3D_STATIC_RUNTIME)", __is_build_static_vcruntime)
+                _, vars.is_build_static_vcpplib = imgui.Checkbox("Prefer static C/C++ runtime libraries(*) (URHO3D_STATIC_RUNTIME)", vars.is_build_static_vcpplib)
                 imgui.Text("(*) Use static C/C++ runtime libraries and eliminate the need for runtime DLLs installation. (VS only)")
 
-                _, __is_build_w32console = imgui.Checkbox("Prefer main() over WinMain() to set up a console for logging purposes. (URHO3D_WIN32_CONSOLE)", __is_build_w32console) 
+                _, vars.is_build_w32_konsole = imgui.Checkbox("Prefer main() over WinMain() to set up a console for logging purposes. (URHO3D_WIN32_CONSOLE)", vars.is_build_w32_konsole) 
             end 
 
             if imgui.CollapsingHeader("Extras") then 
-                _, __is_build_samples = imgui.Checkbox("Build samples (URHO3D_SAMPLES)", __is_build_samples)
+                _, vars.is_build_samples = imgui.Checkbox("Build samples (URHO3D_SAMPLES)", vars.is_build_samples)
 
-                _, __is_build_tools = imgui.Checkbox("Build development tools(*) (URHO3D_TOOLS)", __is_build_tools)
+                _, vars.is_build_devtools = imgui.Checkbox("Build development tools(*) (URHO3D_TOOLS)", vars.is_build_devtools)
                 imgui.Text("(*) Include everything in Source/Tools/.")
 
-                _, __is_build_extras = imgui.Checkbox("Build extra tools(*) (URHO3D_EXTRAS)", __is_build_extras)
+                _, vars.is_build_extras = imgui.Checkbox("Build extra tools(*) (URHO3D_EXTRAS)", vars.is_build_extras)
                 imgui.Text("(*) OgreBatchConverter")
 
-                _, __is_build_package = imgui.Checkbox("Enable packaging of resources (URHO3D_PACKAGING)", __is_build_package)
+                _, vars.is_build_packaging = imgui.Checkbox("Enable packaging of resources (URHO3D_PACKAGING)", vars.is_build_packaging)
 
-                _, __is_build_docs = imgui.Checkbox("Build documentation (URHO3D_DOCS)", __is_build_docs)
+                _, vars.is_build_docs = imgui.Checkbox("Build documentation (URHO3D_DOCS)", vars.is_build_docs)
             end  
         end 
 
         if imgui.CollapsingHeader("Post-build") then 
-            _, __is_strip_bin = imgui.Checkbox("Strip symbols from binaries(*) (gcc only)", __is_strip_bin)
+            _, vars.is_strip_bin = imgui.Checkbox("Strip symbols from binaries(*) (gcc only)", vars.is_strip_bin)
             imgui.Text("(*) Only binaries produced by GCC (gcc/g++/...) can have their symbols stripped. On ")
             imgui.Text("Windows platforms and binaries are built using MSVC, symbols are stored in (a) separate")
             imgui.Text(".pdb (files).") 
         end 
 
-        __begin_reparse_configuration = imgui.Button("Reparse configuration file (" .. __conf_name .. ")") 
-        __begin_save_configuration = imgui.Button("Save current configuration to " .. __conf_name)
-        __begin_configuring_pressed = imgui.Button("Begin configuring and generating " .. __script_name)
+        vars.begin_reparse_configuration = imgui.Button("Reparse configuration file (" .. vars.config_name .. ")") 
+        vars.begin_save_configuration = imgui.Button("Save current configuration to " .. vars.config_name)
+        vars.begin_configuring_pressed = imgui.Button("Begin configuring and generating " .. vars.script_name)
     imgui.End()
 
     imgui.Render()
