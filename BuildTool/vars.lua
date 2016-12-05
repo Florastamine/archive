@@ -22,9 +22,10 @@ IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 vars = {} 
 
 local _API_version_major, _API_version_minor, _API_version_rev, _API_version_name = love.getVersion() 
+local _version = "Alpha" 
 
 vars = {
-    version = "Alpha", 
+    version = _version, 
 
     window_width = 640, 
     window_height = 600,
