@@ -21,6 +21,7 @@ buildoptions {
     "-Wall", 
     "-std=gnu++11", 
     "-I\"./Source/3rd/\"",
+    "-I\"./Source/Kernel/\"",
     "-I\"./Source/Kernel/IO/\"",
     "-I\"./Source/Kernel/Compatibility\""
 }
@@ -31,6 +32,7 @@ buildoptions {
     "-Wall", 
     "-std=gnu++11", 
     "-I\"./Source/3rd/\"", 
+    "-I\"./Source/Kernel/\"",   
     "-I\"./Source/Kernel/IO/\"", 
     "-I\"./Source/Kernel/Compatibility\""
 }
