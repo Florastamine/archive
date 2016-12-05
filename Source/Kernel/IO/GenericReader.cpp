@@ -78,8 +78,9 @@ namespace Hotland {
                 char *s = new char[nThreshold + 1];
                 int i = -1, c = 0;
                 
-                while((EOF != (c = std::fgetc(m_pInternalBlock))) && (i < (int) nThreshold)) 
+                while((EOF != (c = std::fgetc(m_pInternalBlock))) && (i < (int) nThreshold - 1)) 
                     s[++i] = (char) c;
+                
 
                 s[i + 1] = '\0';
                 return reinterpret_cast<const char *>(s);
