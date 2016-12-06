@@ -24,7 +24,17 @@
 namespace Hotland {
     namespace Error {
         enum ErrorList {
-            E_OUT_OF_MEMORY 
+            E_OK, 
+            E_FAILURE, 
+            E_BUSY, 
+            E_FILE_NOT_FOUND, 
+            E_FILE_NOT_ENOUGH_PERMISSION,   
+            E_FILE_BAD_FORMAT, 
+            E_FILE_ALREADY_EXISTS, 
+            E_FILE_ALREADY_EXISTS_NOT_EMPTY, 
+            E_OUT_OF_MEMORY, 
+            E_PARAMETER_OUT_OF_RANGE, 
+            E_PARAMETER_BAD_FORMAT, 
         };
 
         extern const char *ErrorDescriptionTable[]; 

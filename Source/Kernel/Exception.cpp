@@ -24,7 +24,17 @@
 namespace Hotland {
     namespace Error {
         const char *ErrorDescriptionTable[] = {
-            "Out of memory! HAAAAALLLPPPP"
+            "Operation successful", 
+            "Operation failed (generic failure)", 
+            "Current task is busy", 
+            "The specified file couldn't be found", 
+            "The specified file couldn't be opened: Permission denied", 
+            "Bad file format", 
+            "The file you're trying to open is already exists", 
+            "The file you're trying to open is already exists and it is not empty", 
+            "Out of memory", 
+            "Parameter out of range", 
+            "Bad parameter format"
         };
 
         const char *Get(ErrorList nCode) 
