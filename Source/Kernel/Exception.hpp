@@ -27,6 +27,7 @@ namespace Hotland {
             E_OK, 
             E_FAILURE, 
             E_BUSY, 
+            E_NOT_IMPLEMENTED_YET, 
             E_FILE_NOT_FOUND, 
             E_FILE_NOT_ENOUGH_PERMISSION,   
             E_FILE_BAD_FORMAT, 

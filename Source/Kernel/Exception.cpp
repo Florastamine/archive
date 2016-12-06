@@ -27,6 +27,7 @@ namespace Hotland {
             "Operation successful", 
             "Operation failed (generic failure)", 
             "Current task is busy", 
+            "This feature hasn't been implemented yet", 
             "The specified file couldn't be found", 
             "The specified file couldn't be opened: Permission denied", 
             "Bad file format", 
