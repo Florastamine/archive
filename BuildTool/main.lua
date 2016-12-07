@@ -214,7 +214,20 @@ local DrawToolchainUI = function ()
         end, 
 
         function () 
-            -- 
+            _, vars.msys2_root = imgui.InputText("MSYS2 root", vars.msys2_root, vars.msys2_root_length)
+
+            imgui.Text("MinGW target to use: ") 
+            _, vars.msys2_mingw_type = imgui.Combo("5", vars.msys2_mingw_type, vars.msys2_mingw_enum, #vars.msys2_mingw_enum) 
+
+            _, vars.is_auto_detect_make = imgui.Checkbox("Auto-detect make/mingw32-make", vars.is_auto_detect_make) 
+            if vars.is_auto_detect_make ~= true then  
+                _, vars.msys2_mingw_make = imgui.InputText("Manual specification of make/mingw32-make", vars.msys2_mingw_make, vars.msys2_mingw_make_length) 
+            end 
+
+            _, vars.is_auto_detect_strip = imgui.Checkbox("Auto-detect strip", vars.is_auto_detect_strip) 
+            if vars.is_auto_detect_strip ~= true then 
+                _, vars.msys2_mingw_strip = imgui.InputText("Manual specification of strip", vars.msys2_mingw_strip, vars.msys2_mingw_strip_length) 
+            end 
         end  
     }) 
 end  
@@ -333,6 +346,29 @@ It's recommended that binary distributions use this target for their LuaJIT buil
 
                 _, vars.is_build_docs = imgui.Checkbox("Build documentation (URHO3D_DOCS)", vars.is_build_docs)
             end  
+        end 
+
+        if imgui.CollapsingHeader("Compiler configuration") then 
+            if vars.toolchain_type ~= 2 then -- Which means we won't be compiling with the Microsoft toolchain. 
+                imgui.Text("gcc/make toolchain selected.") 
+
+                if imgui.CollapsingHeader("Warnings") then 
+                    _, vars.gcc.is_warning = imgui.Checkbox("Disable all warnings. (-w)", vars.gcc.is_warning)
+
+                    if vars.gcc.is_warning ~= true then 
+                        _, vars.gcc.is_warning_wall = imgui.Checkbox("Enable (almost) all warnings (-Wall)", vars.gcc.is_warning_wall) 
+                        _, vars.gcc.is_warning_wextra = imgui.Checkbox("Enable extra warnings (-Wextra)", vars.gcc.is_warning_wextra) 
+                        _, vars.gcc.is_warning_stricter = imgui.Checkbox("Stricter conformation to ISO C/ISO C++ (-Wpedantic)", vars.gcc.is_warning_wextra)
+                        _, vars.gcc.is_warning_inline = imgui.Checkbox("Warning if the specified function marked as \"inline\" cannot be inlined. (-Winline)", vars.gcc.is_warning_inline) 
+                    end 
+                end 
+
+                if imgui.CollapsingHeader("Optimizations") then 
+                    _, vars.gcc.optimization_level_type = imgui.Combo("6", vars.gcc.optimization_level_type, vars.gcc.optimization_level_enum, #vars.gcc.optimization_level_enum) 
+                end 
+            else 
+                imgui.Text("msvc/nmake toolchain selected.") 
+            end 
         end 
 
         if imgui.CollapsingHeader("Post-build") then 

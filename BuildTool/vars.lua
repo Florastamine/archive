@@ -39,6 +39,12 @@ vars = {
     msys2_root = "./",
     msys2_root_length = 257, 
 
+        msys2_mingw_make = "./", 
+        msys2_mingw_make_length = 257, 
+
+        msys2_mingw_strip = "./", 
+        msys2_mingw_strip_length = 257, 
+
     mingw_root = "./", 
     mingw_root_length = 257, 
 
@@ -71,10 +77,14 @@ vars = {
     is_build_d3d11          = false, 
     is_strip_bin            = false, 
 
-    database_type  = 1,
-    target_type    = 1,
-    lib_type       = 1,
-    toolchain_type = 1, 
+    is_auto_detect_make     = false, 
+    is_auto_detect_strip    = false, 
+
+    database_type    = 1,
+    target_type      = 1,
+    lib_type         = 1,
+    toolchain_type   = 1, 
+    msys2_mingw_type = 1, 
 
     config_name = "herbal.conf", 
     script_name = "build",
@@ -99,6 +109,28 @@ vars = {
     lib_type_enum = {
         "Static (.a on Linux, and .lib on Windows)", 
         "Dynamic (.so on Linux, and .dll on Windows)"
+    }, 
+
+    msys2_mingw_enum = {
+        "32-bit MinGW (/mingw32)", 
+        "64-bit MinGW (/mingw64)", 
+    }, 
+
+    gcc = {
+        optimization_level_type = 1, 
+
+        optimization_level_enum = { -- TODO: -Og, -Os, -O0 
+            "A little (-O/-O1)", 
+            "Slight (-O2)", 
+            "Heavy (-O3)", 
+            "Aggressive (-Ofast)"
+        }, 
+
+        is_warning = false, 
+        is_warning_wall = false, 
+        is_warning_wextra = false, 
+        is_warning_wextra = false, 
+        is_warning_inline = false 
     }
 }
 
