@@ -22,14 +22,14 @@ endif
 ifeq ($(config),debug)
   OBJDIR     = obj/Debug
   TARGETDIR  = .
-  TARGET     = $(TARGETDIR)/Hotland.exe
+  TARGET     = $(TARGETDIR)/Hotland
   DEFINES   +=
   INCLUDES  +=
   ALL_CPPFLAGS  += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES)
   ALL_CFLAGS    += $(CFLAGS) $(ALL_CPPFLAGS) $(ARCH) -Og -Wall -std=gnu++11 -I"./Source/3rd/" -I"./Source/Kernel/" -I"./Source/Kernel/IO/" -I"./Source/Kernel/Platform/" -I"./Source/Kernel/Compatibility"
   ALL_CXXFLAGS  += $(CXXFLAGS) $(ALL_CFLAGS)
   ALL_RESFLAGS  += $(RESFLAGS) $(DEFINES) $(INCLUDES)
-  ALL_LDFLAGS   += $(LDFLAGS) -s -mwindows
+  ALL_LDFLAGS   += $(LDFLAGS) -s
   LDDEPS    +=
   LIBS      += $(LDDEPS)
   LINKCMD    = $(CXX) -o $(TARGET) $(OBJECTS) $(RESOURCES) $(ARCH) $(ALL_LDFLAGS) $(LIBS)
@@ -44,14 +44,58 @@ endif
 ifeq ($(config),release)
   OBJDIR     = obj/Release
   TARGETDIR  = .
-  TARGET     = $(TARGETDIR)/Hotland.exe
+  TARGET     = $(TARGETDIR)/Hotland
   DEFINES   +=
   INCLUDES  +=
   ALL_CPPFLAGS  += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES)
   ALL_CFLAGS    += $(CFLAGS) $(ALL_CPPFLAGS) $(ARCH) -Ofast -Wall -std=gnu++11 -I"./Source/3rd/" -I"./Source/Kernel/" -I"./Source/Kernel/IO/" -I"./Source/Kernel/Platform/" -I"./Source/Kernel/Compatibility"
   ALL_CXXFLAGS  += $(CXXFLAGS) $(ALL_CFLAGS)
   ALL_RESFLAGS  += $(RESFLAGS) $(DEFINES) $(INCLUDES)
-  ALL_LDFLAGS   += $(LDFLAGS) -s -mwindows
+  ALL_LDFLAGS   += $(LDFLAGS) -s
+  LDDEPS    +=
+  LIBS      += $(LDDEPS)
+  LINKCMD    = $(CXX) -o $(TARGET) $(OBJECTS) $(RESOURCES) $(ARCH) $(ALL_LDFLAGS) $(LIBS)
+  define PREBUILDCMDS
+  endef
+  define PRELINKCMDS
+  endef
+  define POSTBUILDCMDS
+  endef
+endif
+
+ifeq ($(config),debug64)
+  OBJDIR     = obj/x64/Debug
+  TARGETDIR  = .
+  TARGET     = $(TARGETDIR)/Hotland
+  DEFINES   +=
+  INCLUDES  +=
+  ALL_CPPFLAGS  += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES)
+  ALL_CFLAGS    += $(CFLAGS) $(ALL_CPPFLAGS) $(ARCH) -m64 -Og -Wall -std=gnu++11 -I"./Source/3rd/" -I"./Source/Kernel/" -I"./Source/Kernel/IO/" -I"./Source/Kernel/Platform/" -I"./Source/Kernel/Compatibility"
+  ALL_CXXFLAGS  += $(CXXFLAGS) $(ALL_CFLAGS)
+  ALL_RESFLAGS  += $(RESFLAGS) $(DEFINES) $(INCLUDES)
+  ALL_LDFLAGS   += $(LDFLAGS) -s -m64 -L/usr/lib64
+  LDDEPS    +=
+  LIBS      += $(LDDEPS)
+  LINKCMD    = $(CXX) -o $(TARGET) $(OBJECTS) $(RESOURCES) $(ARCH) $(ALL_LDFLAGS) $(LIBS)
+  define PREBUILDCMDS
+  endef
+  define PRELINKCMDS
+  endef
+  define POSTBUILDCMDS
+  endef
+endif
+
+ifeq ($(config),release64)
+  OBJDIR     = obj/x64/Release
+  TARGETDIR  = .
+  TARGET     = $(TARGETDIR)/Hotland
+  DEFINES   +=
+  INCLUDES  +=
+  ALL_CPPFLAGS  += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES)
+  ALL_CFLAGS    += $(CFLAGS) $(ALL_CPPFLAGS) $(ARCH) -m64 -Ofast -Wall -std=gnu++11 -I"./Source/3rd/" -I"./Source/Kernel/" -I"./Source/Kernel/IO/" -I"./Source/Kernel/Platform/" -I"./Source/Kernel/Compatibility"
+  ALL_CXXFLAGS  += $(CXXFLAGS) $(ALL_CFLAGS)
+  ALL_RESFLAGS  += $(RESFLAGS) $(DEFINES) $(INCLUDES)
+  ALL_LDFLAGS   += $(LDFLAGS) -s -m64 -L/usr/lib64
   LDDEPS    +=
   LIBS      += $(LDDEPS)
   LINKCMD    = $(CXX) -o $(TARGET) $(OBJECTS) $(RESOURCES) $(ARCH) $(ALL_LDFLAGS) $(LIBS)
