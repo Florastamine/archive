@@ -29,8 +29,6 @@
 *.app
 
 # Hotland-specific 
-*.make 
-Makefile
 obj/
 main.cpp 
 *.txt
