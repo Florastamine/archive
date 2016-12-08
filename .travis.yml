@@ -4,6 +4,8 @@ compiler:
     - clang 
 sudo: required 
 script: 
+    - touch main.cpp 
+    - echo "#include \"Source/Kernel/Assertion.hpp\" int main(int argc, const char **argl) { HOTLAND_STATIC_ASSERT(21 + 21 == 42); return 0; }"	 >> main.cpp 
     - make config=release -j4 
 os:
     - linux 
