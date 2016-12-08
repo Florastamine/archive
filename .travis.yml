@@ -1,0 +1,9 @@
+language: cpp
+compiler: 
+    - gcc 
+    - clang 
+sudo: required 
+script: 
+    - make config=release -j4 
+os:
+    - linux 
