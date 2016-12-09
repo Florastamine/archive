@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="With_DLL_Debug|Win32">
+      <Configuration>With_DLL_Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="With_DLL_Release|Win32">
+      <Configuration>With_DLL_Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{C3CB48BC-D1E7-0144-8BB4-BB350E8E3191}</ProjectGuid>
+    <RootNamespace>Hotland</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='With_DLL_Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='With_DLL_Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='With_DLL_Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='With_DLL_Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>Binaries\</OutDir>
+    <IntDir>obj\Debug\</IntDir>
+    <TargetName>Hotland</TargetName>
+    <TargetExt>.exe</TargetExt>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>Binaries\</OutDir>
+    <IntDir>obj\Release\</IntDir>
+    <TargetName>Hotland</TargetName>
+    <TargetExt>.exe</TargetExt>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='With_DLL_Debug|Win32'">
+    <OutDir>Binaries\</OutDir>
+    <IntDir>obj\With_DLL_Debug\</IntDir>
+    <TargetName>Hotland</TargetName>
+    <TargetExt>.exe</TargetExt>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='With_DLL_Release|Win32'">
+    <OutDir>Binaries\</OutDir>
+    <IntDir>obj\With_DLL_Release\</IntDir>
+    <TargetName>Hotland</TargetName>
+    <TargetExt>.exe</TargetExt>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/Od /RTC /sdl /Wall %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\..\Source\3rd;..\..\Source\Kernel;..\..\Source\Kernel\IO;..\..\Source\Kernel\Platform;..\..\Source\Kernel\Compatibility;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>DEBUG;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_ALLOW_KEYWORD_MACROS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader></PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat></DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>DEBUG;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_ALLOW_KEYWORD_MACROS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\Source\3rd;..\..\Source\Kernel;..\..\Source\Kernel\IO;..\..\Source\Kernel\Platform;..\..\Source\Kernel\Compatibility;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <OutputFile>$(OutDir)Hotland.exe</OutputFile>
+      <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/Od /RTC /sdl /Wall %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\..\Source\3rd;..\..\Source\Kernel;..\..\Source\Kernel\IO;..\..\Source\Kernel\Platform;..\..\Source\Kernel\Compatibility;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>DEBUG;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_ALLOW_KEYWORD_MACROS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader></PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat></DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>DEBUG;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_ALLOW_KEYWORD_MACROS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\Source\3rd;..\..\Source\Kernel;..\..\Source\Kernel\IO;..\..\Source\Kernel\Platform;..\..\Source\Kernel\Compatibility;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <OutputFile>$(OutDir)Hotland.exe</OutputFile>
+      <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='With_DLL_Debug|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/Od /RTC /sdl /Wall %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\..\Source\3rd;..\..\Source\Kernel;..\..\Source\Kernel\IO;..\..\Source\Kernel\Platform;..\..\Source\Kernel\Compatibility;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>DEBUG;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_ALLOW_KEYWORD_MACROS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader></PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat></DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>DEBUG;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_ALLOW_KEYWORD_MACROS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\Source\3rd;..\..\Source\Kernel;..\..\Source\Kernel\IO;..\..\Source\Kernel\Platform;..\..\Source\Kernel\Compatibility;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <OutputFile>$(OutDir)Hotland.exe</OutputFile>
+      <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='With_DLL_Release|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/Od /RTC /sdl /Wall %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\..\Source\3rd;..\..\Source\Kernel;..\..\Source\Kernel\IO;..\..\Source\Kernel\Platform;..\..\Source\Kernel\Compatibility;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>DEBUG;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_ALLOW_KEYWORD_MACROS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader></PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat></DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>DEBUG;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_ALLOW_KEYWORD_MACROS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\Source\3rd;..\..\Source\Kernel;..\..\Source\Kernel\IO;..\..\Source\Kernel\Platform;..\..\Source\Kernel\Compatibility;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <OutputFile>$(OutDir)Hotland.exe</OutputFile>
+      <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Source\3rd\cereal\access.hpp" />
+    <ClInclude Include="..\..\Source\3rd\cereal\cereal.hpp" />
+    <ClInclude Include="..\..\Source\3rd\cereal\macros.hpp" />
+    <ClInclude Include="..\..\Source\3rd\cereal\archives\adapters.hpp" />
+    <ClInclude Include="..\..\Source\3rd\cereal\archives\binary.hpp" />
+    <ClInclude Include="..\..\Source\3rd\cereal\archives\json.hpp" />
+    <ClInclude Include="..\..\Source\3rd\cereal\archives\portable_binary.hpp" />
+    <ClInclude Include="..\..\Source\3rd\cereal\archives\xml.hpp" />
+    <ClInclude Include="..\..\Source\3rd\cereal\details\helpers.hpp" />
+    <ClInclude Include="..\..\Source\3rd\cereal\details\polymorphic_impl.hpp" />
+    <ClInclude Include="..\..\Source\3rd\cereal\details\polymorphic_impl_fwd.hpp" />
+    <ClInclude Include="..\..\Source\3rd\cereal\details\static_object.hpp" />
+    <ClInclude Include="..\..\Source\3rd\cereal\details\traits.hpp" />
+    <ClInclude Include="..\..\Source\3rd\cereal\details\util.hpp" />
+    <ClInclude Include="..\..\Source\3rd\cereal\external\base64.hpp" />
+    <ClInclude Include="..\..\Source\3rd\cereal\external\rapidxml\rapidxml.hpp" />
+    <ClInclude Include="..\..\Source\3rd\cereal\external\rapidxml\rapidxml_iterators.hpp" />
+    <ClInclude Include="..\..\Source\3rd\cereal\external\rapidxml\rapidxml_print.hpp" />
+    <ClInclude Include="..\..\Source\3rd\cereal\external\rapidxml\rapidxml_utils.hpp" />
+    <ClInclude Include="..\..\Source\3rd\cereal\types\array.hpp" />
+    <ClInclude Include="..\..\Source\3rd\cereal\types\base_class.hpp" />
+    <ClInclude Include="..\..\Source\3rd\cereal\types\bitset.hpp" />
+    <ClInclude Include="..\..\Source\3rd\cereal\types\boost_variant.hpp" />
+    <ClInclude Include="..\..\Source\3rd\cereal\types\chrono.hpp" />
+    <ClInclude Include="..\..\Source\3rd\cereal\types\common.hpp" />
+    <ClInclude Include="..\..\Source\3rd\cereal\types\complex.hpp" />
+    <ClInclude Include="..\..\Source\3rd\cereal\types\deque.hpp" />
+    <ClInclude Include="..\..\Source\3rd\cereal\types\forward_list.hpp" />
+    <ClInclude Include="..\..\Source\3rd\cereal\types\functional.hpp" />
+    <ClInclude Include="..\..\Source\3rd\cereal\types\list.hpp" />
+    <ClInclude Include="..\..\Source\3rd\cereal\types\map.hpp" />
+    <ClInclude Include="..\..\Source\3rd\cereal\types\memory.hpp" />
+    <ClInclude Include="..\..\Source\3rd\cereal\types\polymorphic.hpp" />
+    <ClInclude Include="..\..\Source\3rd\cereal\types\queue.hpp" />
+    <ClInclude Include="..\..\Source\3rd\cereal\types\set.hpp" />
+    <ClInclude Include="..\..\Source\3rd\cereal\types\stack.hpp" />
+    <ClInclude Include="..\..\Source\3rd\cereal\types\string.hpp" />
+    <ClInclude Include="..\..\Source\3rd\cereal\types\tuple.hpp" />
+    <ClInclude Include="..\..\Source\3rd\cereal\types\unordered_map.hpp" />
+    <ClInclude Include="..\..\Source\3rd\cereal\types\unordered_set.hpp" />
+    <ClInclude Include="..\..\Source\3rd\cereal\types\utility.hpp" />
+    <ClInclude Include="..\..\Source\3rd\cereal\types\valarray.hpp" />
+    <ClInclude Include="..\..\Source\3rd\cereal\types\vector.hpp" />
+    <ClInclude Include="..\..\Source\3rd\cereal\types\concepts\pair_associative_container.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\as_args.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\bind_traits.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\call.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\compatibility.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\container_usertype_metatable.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\coroutine.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\debug.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\demangle.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\deprecate.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\error.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\function.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\function_result.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\function_types.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\function_types_core.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\function_types_overloaded.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\function_types_stateful.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\function_types_stateless.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\function_types_templated.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\inheritance.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\in_place.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\load_result.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\object.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\optional.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\optional_implementation.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\overload.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\property.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\protect.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\protected_function.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\protected_function_result.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\proxy.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\proxy_base.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\raii.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\reference.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\resolve.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\simple_usertype_metatable.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\stack.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\stack_check.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\stack_check_get.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\stack_core.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\stack_field.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\stack_get.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\stack_guard.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\stack_pop.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\stack_probe.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\stack_proxy.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\stack_push.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\stack_reference.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\state.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\state_view.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\string_shim.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\table.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\table_core.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\table_iterator.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\thread.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\tie.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\traits.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\tuple.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\types.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\userdata.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\usertype.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\usertype_metatable.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\usertype_traits.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\variadic_args.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\wrapper.hpp" />
+    <ClInclude Include="..\..\Source\3rd\sol\compatibility\version.hpp" />
+    <ClInclude Include="..\..\Source\Kernel\Assertion.hpp" />
+    <ClInclude Include="..\..\Source\Kernel\Exception.hpp" />
+    <ClInclude Include="..\..\Source\Kernel\Compatibility\CXXCompatibility.hpp" />
+    <ClInclude Include="..\..\Source\Kernel\IO\GenericReader.hpp" />
+    <ClInclude Include="..\..\Source\Kernel\IO\GenericWriter.hpp" />
+    <ClInclude Include="..\..\Source\Kernel\IO\ReadWriteBase.hpp" />
+    <ClInclude Include="..\..\Source\Kernel\Platform\PlatformDetection.hpp" />
+    <ClInclude Include="..\..\Source\Kernel\Platform\PlatformInfoQuery.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Source\main.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\Exception.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\IO\GenericReader.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\IO\GenericWriter.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\IO\ReadWriteBase.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\Platform\PlatformDetection.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\Platform\PlatformInfoQuery.cpp">
+    </ClCompile>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

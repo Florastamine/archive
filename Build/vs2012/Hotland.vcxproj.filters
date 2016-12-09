@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source">
+      <UniqueIdentifier>{2A28887E-ABE2-C746-BE35-F538F821708C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\3rd">
+      <UniqueIdentifier>{F000312B-B478-E446-81F8-3258FA329C70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\3rd\cereal">
+      <UniqueIdentifier>{B747449C-4044-3E4D-95FC-3A0C6A32C442}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\3rd\cereal\archives">
+      <UniqueIdentifier>{40A763CA-C770-144D-9020-0296C47E2B8D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\3rd\cereal\details">
+      <UniqueIdentifier>{868061EE-0407-8A43-9C95-19E0257AC50C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\3rd\cereal\external">
+      <UniqueIdentifier>{AF423839-2E79-6340-B057-77309B16FC63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\3rd\cereal\external\rapidxml">
+      <UniqueIdentifier>{9D781D0A-67BD-3741-B5D2-F5D49332DDE9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\3rd\cereal\types">
+      <UniqueIdentifier>{B0C2040D-D450-014A-9BDD-7B82EADEBFE4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\3rd\cereal\types\concepts">
+      <UniqueIdentifier>{34299120-0C62-2542-8A01-67101B3407D8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\3rd\sol">
+      <UniqueIdentifier>{3E35D490-A030-6E4D-A0FA-7DD3DD1EAE2F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\3rd\sol\compatibility">
+      <UniqueIdentifier>{043A896F-F634-EB49-A832-E343BEBA9A05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Kernel">
+      <UniqueIdentifier>{11BF2B62-9DA0-6B4D-B169-84F984F983F6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Kernel\Compatibility">
+      <UniqueIdentifier>{F1EB8450-48A9-5E41-BE18-29934FB6B700}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Kernel\IO">
+      <UniqueIdentifier>{CA464C4B-E45C-E64B-9402-2559B8FF2D3F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Kernel\Platform">
+      <UniqueIdentifier>{4693FE40-9A17-4B42-9A81-369E65E865D9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Source\3rd\cereal\access.hpp">
+      <Filter>Source\3rd\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\cereal\cereal.hpp">
+      <Filter>Source\3rd\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\cereal\macros.hpp">
+      <Filter>Source\3rd\cereal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\cereal\archives\adapters.hpp">
+      <Filter>Source\3rd\cereal\archives</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\cereal\archives\binary.hpp">
+      <Filter>Source\3rd\cereal\archives</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\cereal\archives\json.hpp">
+      <Filter>Source\3rd\cereal\archives</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\cereal\archives\portable_binary.hpp">
+      <Filter>Source\3rd\cereal\archives</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\cereal\archives\xml.hpp">
+      <Filter>Source\3rd\cereal\archives</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\cereal\details\helpers.hpp">
+      <Filter>Source\3rd\cereal\details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\cereal\details\polymorphic_impl.hpp">
+      <Filter>Source\3rd\cereal\details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\cereal\details\polymorphic_impl_fwd.hpp">
+      <Filter>Source\3rd\cereal\details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\cereal\details\static_object.hpp">
+      <Filter>Source\3rd\cereal\details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\cereal\details\traits.hpp">
+      <Filter>Source\3rd\cereal\details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\cereal\details\util.hpp">
+      <Filter>Source\3rd\cereal\details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\cereal\external\base64.hpp">
+      <Filter>Source\3rd\cereal\external</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\cereal\external\rapidxml\rapidxml.hpp">
+      <Filter>Source\3rd\cereal\external\rapidxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\cereal\external\rapidxml\rapidxml_iterators.hpp">
+      <Filter>Source\3rd\cereal\external\rapidxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\cereal\external\rapidxml\rapidxml_print.hpp">
+      <Filter>Source\3rd\cereal\external\rapidxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\cereal\external\rapidxml\rapidxml_utils.hpp">
+      <Filter>Source\3rd\cereal\external\rapidxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\cereal\types\array.hpp">
+      <Filter>Source\3rd\cereal\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\cereal\types\base_class.hpp">
+      <Filter>Source\3rd\cereal\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\cereal\types\bitset.hpp">
+      <Filter>Source\3rd\cereal\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\cereal\types\boost_variant.hpp">
+      <Filter>Source\3rd\cereal\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\cereal\types\chrono.hpp">
+      <Filter>Source\3rd\cereal\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\cereal\types\common.hpp">
+      <Filter>Source\3rd\cereal\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\cereal\types\complex.hpp">
+      <Filter>Source\3rd\cereal\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\cereal\types\deque.hpp">
+      <Filter>Source\3rd\cereal\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\cereal\types\forward_list.hpp">
+      <Filter>Source\3rd\cereal\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\cereal\types\functional.hpp">
+      <Filter>Source\3rd\cereal\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\cereal\types\list.hpp">
+      <Filter>Source\3rd\cereal\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\cereal\types\map.hpp">
+      <Filter>Source\3rd\cereal\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\cereal\types\memory.hpp">
+      <Filter>Source\3rd\cereal\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\cereal\types\polymorphic.hpp">
+      <Filter>Source\3rd\cereal\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\cereal\types\queue.hpp">
+      <Filter>Source\3rd\cereal\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\cereal\types\set.hpp">
+      <Filter>Source\3rd\cereal\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\cereal\types\stack.hpp">
+      <Filter>Source\3rd\cereal\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\cereal\types\string.hpp">
+      <Filter>Source\3rd\cereal\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\cereal\types\tuple.hpp">
+      <Filter>Source\3rd\cereal\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\cereal\types\unordered_map.hpp">
+      <Filter>Source\3rd\cereal\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\cereal\types\unordered_set.hpp">
+      <Filter>Source\3rd\cereal\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\cereal\types\utility.hpp">
+      <Filter>Source\3rd\cereal\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\cereal\types\valarray.hpp">
+      <Filter>Source\3rd\cereal\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\cereal\types\vector.hpp">
+      <Filter>Source\3rd\cereal\types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\cereal\types\concepts\pair_associative_container.hpp">
+      <Filter>Source\3rd\cereal\types\concepts</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\as_args.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\bind_traits.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\call.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\compatibility.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\container_usertype_metatable.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\coroutine.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\debug.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\demangle.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\deprecate.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\error.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\function.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\function_result.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\function_types.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\function_types_core.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\function_types_overloaded.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\function_types_stateful.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\function_types_stateless.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\function_types_templated.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\inheritance.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\in_place.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\load_result.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\object.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\optional.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\optional_implementation.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\overload.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\property.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\protect.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\protected_function.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\protected_function_result.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\proxy.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\proxy_base.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\raii.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\reference.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\resolve.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\simple_usertype_metatable.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\stack.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\stack_check.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\stack_check_get.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\stack_core.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\stack_field.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\stack_get.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\stack_guard.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\stack_pop.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\stack_probe.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\stack_proxy.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\stack_push.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\stack_reference.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\state.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\state_view.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\string_shim.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\table.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\table_core.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\table_iterator.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\thread.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\tie.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\traits.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\tuple.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\types.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\userdata.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\usertype.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\usertype_metatable.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\usertype_traits.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\variadic_args.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\wrapper.hpp">
+      <Filter>Source\3rd\sol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\3rd\sol\compatibility\version.hpp">
+      <Filter>Source\3rd\sol\compatibility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Kernel\Assertion.hpp">
+      <Filter>Source\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Kernel\Exception.hpp">
+      <Filter>Source\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Kernel\Compatibility\CXXCompatibility.hpp">
+      <Filter>Source\Kernel\Compatibility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Kernel\IO\GenericReader.hpp">
+      <Filter>Source\Kernel\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Kernel\IO\GenericWriter.hpp">
+      <Filter>Source\Kernel\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Kernel\IO\ReadWriteBase.hpp">
+      <Filter>Source\Kernel\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Kernel\Platform\PlatformDetection.hpp">
+      <Filter>Source\Kernel\Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Kernel\Platform\PlatformInfoQuery.hpp">
+      <Filter>Source\Kernel\Platform</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Source\main.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\Exception.cpp">
+      <Filter>Source\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\IO\GenericReader.cpp">
+      <Filter>Source\Kernel\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\IO\GenericWriter.cpp">
+      <Filter>Source\Kernel\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\IO\ReadWriteBase.cpp">
+      <Filter>Source\Kernel\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\Platform\PlatformDetection.cpp">
+      <Filter>Source\Kernel\Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\Platform\PlatformInfoQuery.cpp">
+      <Filter>Source\Kernel\Platform</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

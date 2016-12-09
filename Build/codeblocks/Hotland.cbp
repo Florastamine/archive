@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Hotland" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="Binaries/Hotland.exe" prefix_auto="0" extension_auto="0" />
+				<Option object_output="obj/Debug" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add directory="../../Source/3rd" />
+					<Add directory="../../Source/Kernel" />
+					<Add directory="../../Source/Kernel/IO" />
+					<Add directory="../../Source/Kernel/Platform" />
+					<Add directory="../../Source/Kernel/Compatibility" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add option="-mwindows" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="Binaries/Hotland.exe" prefix_auto="0" extension_auto="0" />
+				<Option object_output="obj/Release" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add directory="../../Source/3rd" />
+					<Add directory="../../Source/Kernel" />
+					<Add directory="../../Source/Kernel/IO" />
+					<Add directory="../../Source/Kernel/Platform" />
+					<Add directory="../../Source/Kernel/Compatibility" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add option="-mwindows" />
+				</Linker>
+			</Target>
+			<Target title="With_DLL_Debug">
+				<Option output="Binaries/Hotland.exe" prefix_auto="0" extension_auto="0" />
+				<Option object_output="obj/With_DLL_Debug" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add directory="../../Source/3rd" />
+					<Add directory="../../Source/Kernel" />
+					<Add directory="../../Source/Kernel/IO" />
+					<Add directory="../../Source/Kernel/Platform" />
+					<Add directory="../../Source/Kernel/Compatibility" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add option="-mwindows" />
+				</Linker>
+			</Target>
+			<Target title="With_DLL_Release">
+				<Option output="Binaries/Hotland.exe" prefix_auto="0" extension_auto="0" />
+				<Option object_output="obj/With_DLL_Release" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add directory="../../Source/3rd" />
+					<Add directory="../../Source/Kernel" />
+					<Add directory="../../Source/Kernel/IO" />
+					<Add directory="../../Source/Kernel/Platform" />
+					<Add directory="../../Source/Kernel/Compatibility" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add option="-mwindows" />
+				</Linker>
+			</Target>
+		</Build>
+		<Unit filename="../../Source/3rd/cereal/access.hpp">
+			<Option virtualFolder="Source/3rd/cereal" />
+		</Unit>
+		<Unit filename="../../Source/3rd/cereal/cereal.hpp">
+			<Option virtualFolder="Source/3rd/cereal" />
+		</Unit>
+		<Unit filename="../../Source/3rd/cereal/macros.hpp">
+			<Option virtualFolder="Source/3rd/cereal" />
+		</Unit>
+		<Unit filename="../../Source/3rd/cereal/archives/adapters.hpp">
+			<Option virtualFolder="Source/3rd/cereal/archives" />
+		</Unit>
+		<Unit filename="../../Source/3rd/cereal/archives/binary.hpp">
+			<Option virtualFolder="Source/3rd/cereal/archives" />
+		</Unit>
+		<Unit filename="../../Source/3rd/cereal/archives/json.hpp">
+			<Option virtualFolder="Source/3rd/cereal/archives" />
+		</Unit>
+		<Unit filename="../../Source/3rd/cereal/archives/portable_binary.hpp">
+			<Option virtualFolder="Source/3rd/cereal/archives" />
+		</Unit>
+		<Unit filename="../../Source/3rd/cereal/archives/xml.hpp">
+			<Option virtualFolder="Source/3rd/cereal/archives" />
+		</Unit>
+		<Unit filename="../../Source/3rd/cereal/details/helpers.hpp">
+			<Option virtualFolder="Source/3rd/cereal/details" />
+		</Unit>
+		<Unit filename="../../Source/3rd/cereal/details/polymorphic_impl.hpp">
+			<Option virtualFolder="Source/3rd/cereal/details" />
+		</Unit>
+		<Unit filename="../../Source/3rd/cereal/details/polymorphic_impl_fwd.hpp">
+			<Option virtualFolder="Source/3rd/cereal/details" />
+		</Unit>
+		<Unit filename="../../Source/3rd/cereal/details/static_object.hpp">
+			<Option virtualFolder="Source/3rd/cereal/details" />
+		</Unit>
+		<Unit filename="../../Source/3rd/cereal/details/traits.hpp">
+			<Option virtualFolder="Source/3rd/cereal/details" />
+		</Unit>
+		<Unit filename="../../Source/3rd/cereal/details/util.hpp">
+			<Option virtualFolder="Source/3rd/cereal/details" />
+		</Unit>
+		<Unit filename="../../Source/3rd/cereal/external/base64.hpp">
+			<Option virtualFolder="Source/3rd/cereal/external" />
+		</Unit>
+		<Unit filename="../../Source/3rd/cereal/external/rapidxml/rapidxml.hpp">
+			<Option virtualFolder="Source/3rd/cereal/external/rapidxml" />
+		</Unit>
+		<Unit filename="../../Source/3rd/cereal/external/rapidxml/rapidxml_iterators.hpp">
+			<Option virtualFolder="Source/3rd/cereal/external/rapidxml" />
+		</Unit>
+		<Unit filename="../../Source/3rd/cereal/external/rapidxml/rapidxml_print.hpp">
+			<Option virtualFolder="Source/3rd/cereal/external/rapidxml" />
+		</Unit>
+		<Unit filename="../../Source/3rd/cereal/external/rapidxml/rapidxml_utils.hpp">
+			<Option virtualFolder="Source/3rd/cereal/external/rapidxml" />
+		</Unit>
+		<Unit filename="../../Source/3rd/cereal/types/array.hpp">
+			<Option virtualFolder="Source/3rd/cereal/types" />
+		</Unit>
+		<Unit filename="../../Source/3rd/cereal/types/base_class.hpp">
+			<Option virtualFolder="Source/3rd/cereal/types" />
+		</Unit>
+		<Unit filename="../../Source/3rd/cereal/types/bitset.hpp">
+			<Option virtualFolder="Source/3rd/cereal/types" />
+		</Unit>
+		<Unit filename="../../Source/3rd/cereal/types/boost_variant.hpp">
+			<Option virtualFolder="Source/3rd/cereal/types" />
+		</Unit>
+		<Unit filename="../../Source/3rd/cereal/types/chrono.hpp">
+			<Option virtualFolder="Source/3rd/cereal/types" />
+		</Unit>
+		<Unit filename="../../Source/3rd/cereal/types/common.hpp">
+			<Option virtualFolder="Source/3rd/cereal/types" />
+		</Unit>
+		<Unit filename="../../Source/3rd/cereal/types/complex.hpp">
+			<Option virtualFolder="Source/3rd/cereal/types" />
+		</Unit>
+		<Unit filename="../../Source/3rd/cereal/types/deque.hpp">
+			<Option virtualFolder="Source/3rd/cereal/types" />
+		</Unit>
+		<Unit filename="../../Source/3rd/cereal/types/forward_list.hpp">
+			<Option virtualFolder="Source/3rd/cereal/types" />
+		</Unit>
+		<Unit filename="../../Source/3rd/cereal/types/functional.hpp">
+			<Option virtualFolder="Source/3rd/cereal/types" />
+		</Unit>
+		<Unit filename="../../Source/3rd/cereal/types/list.hpp">
+			<Option virtualFolder="Source/3rd/cereal/types" />
+		</Unit>
+		<Unit filename="../../Source/3rd/cereal/types/map.hpp">
+			<Option virtualFolder="Source/3rd/cereal/types" />
+		</Unit>
+		<Unit filename="../../Source/3rd/cereal/types/memory.hpp">
+			<Option virtualFolder="Source/3rd/cereal/types" />
+		</Unit>
+		<Unit filename="../../Source/3rd/cereal/types/polymorphic.hpp">
+			<Option virtualFolder="Source/3rd/cereal/types" />
+		</Unit>
+		<Unit filename="../../Source/3rd/cereal/types/queue.hpp">
+			<Option virtualFolder="Source/3rd/cereal/types" />
+		</Unit>
+		<Unit filename="../../Source/3rd/cereal/types/set.hpp">
+			<Option virtualFolder="Source/3rd/cereal/types" />
+		</Unit>
+		<Unit filename="../../Source/3rd/cereal/types/stack.hpp">
+			<Option virtualFolder="Source/3rd/cereal/types" />
+		</Unit>
+		<Unit filename="../../Source/3rd/cereal/types/string.hpp">
+			<Option virtualFolder="Source/3rd/cereal/types" />
+		</Unit>
+		<Unit filename="../../Source/3rd/cereal/types/tuple.hpp">
+			<Option virtualFolder="Source/3rd/cereal/types" />
+		</Unit>
+		<Unit filename="../../Source/3rd/cereal/types/unordered_map.hpp">
+			<Option virtualFolder="Source/3rd/cereal/types" />
+		</Unit>
+		<Unit filename="../../Source/3rd/cereal/types/unordered_set.hpp">
+			<Option virtualFolder="Source/3rd/cereal/types" />
+		</Unit>
+		<Unit filename="../../Source/3rd/cereal/types/utility.hpp">
+			<Option virtualFolder="Source/3rd/cereal/types" />
+		</Unit>
+		<Unit filename="../../Source/3rd/cereal/types/valarray.hpp">
+			<Option virtualFolder="Source/3rd/cereal/types" />
+		</Unit>
+		<Unit filename="../../Source/3rd/cereal/types/vector.hpp">
+			<Option virtualFolder="Source/3rd/cereal/types" />
+		</Unit>
+		<Unit filename="../../Source/3rd/cereal/types/concepts/pair_associative_container.hpp">
+			<Option virtualFolder="Source/3rd/cereal/types/concepts" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/as_args.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/bind_traits.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/call.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/compatibility.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/container_usertype_metatable.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/coroutine.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/debug.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/demangle.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/deprecate.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/error.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/function.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/function_result.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/function_types.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/function_types_core.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/function_types_overloaded.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/function_types_stateful.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/function_types_stateless.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/function_types_templated.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/inheritance.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/in_place.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/load_result.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/object.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/optional.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/optional_implementation.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/overload.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/property.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/protect.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/protected_function.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/protected_function_result.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/proxy.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/proxy_base.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/raii.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/reference.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/resolve.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/simple_usertype_metatable.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/stack.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/stack_check.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/stack_check_get.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/stack_core.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/stack_field.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/stack_get.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/stack_guard.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/stack_pop.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/stack_probe.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/stack_proxy.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/stack_push.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/stack_reference.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/state.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/state_view.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/string_shim.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/table.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/table_core.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/table_iterator.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/thread.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/tie.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/traits.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/tuple.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/types.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/userdata.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/usertype.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/usertype_metatable.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/usertype_traits.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/variadic_args.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/wrapper.hpp">
+			<Option virtualFolder="Source/3rd/sol" />
+		</Unit>
+		<Unit filename="../../Source/3rd/sol/compatibility/version.hpp">
+			<Option virtualFolder="Source/3rd/sol/compatibility" />
+		</Unit>
+		<Unit filename="../../Source/Kernel/Assertion.hpp">
+			<Option virtualFolder="Source/Kernel" />
+		</Unit>
+		<Unit filename="../../Source/Kernel/Exception.hpp">
+			<Option virtualFolder="Source/Kernel" />
+		</Unit>
+		<Unit filename="../../Source/Kernel/Compatibility/CXXCompatibility.hpp">
+			<Option virtualFolder="Source/Kernel/Compatibility" />
+		</Unit>
+		<Unit filename="../../Source/Kernel/IO/GenericReader.hpp">
+			<Option virtualFolder="Source/Kernel/IO" />
+		</Unit>
+		<Unit filename="../../Source/Kernel/IO/GenericWriter.hpp">
+			<Option virtualFolder="Source/Kernel/IO" />
+		</Unit>
+		<Unit filename="../../Source/Kernel/IO/ReadWriteBase.hpp">
+			<Option virtualFolder="Source/Kernel/IO" />
+		</Unit>
+		<Unit filename="../../Source/Kernel/Platform/PlatformDetection.hpp">
+			<Option virtualFolder="Source/Kernel/Platform" />
+		</Unit>
+		<Unit filename="../../Source/Kernel/Platform/PlatformInfoQuery.hpp">
+			<Option virtualFolder="Source/Kernel/Platform" />
+		</Unit>
+		<Unit filename="../../Source/main.cpp">
+			<Option virtualFolder="Source" />
+		</Unit>
+		<Unit filename="../../Source/Kernel/Exception.cpp">
+			<Option virtualFolder="Source/Kernel" />
+		</Unit>
+		<Unit filename="../../Source/Kernel/IO/GenericReader.cpp">
+			<Option virtualFolder="Source/Kernel/IO" />
+		</Unit>
+		<Unit filename="../../Source/Kernel/IO/GenericWriter.cpp">
+			<Option virtualFolder="Source/Kernel/IO" />
+		</Unit>
+		<Unit filename="../../Source/Kernel/IO/ReadWriteBase.cpp">
+			<Option virtualFolder="Source/Kernel/IO" />
+		</Unit>
+		<Unit filename="../../Source/Kernel/Platform/PlatformDetection.cpp">
+			<Option virtualFolder="Source/Kernel/Platform" />
+		</Unit>
+		<Unit filename="../../Source/Kernel/Platform/PlatformInfoQuery.cpp">
+			<Option virtualFolder="Source/Kernel/Platform" />
+		</Unit>
+		<Extensions>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
+

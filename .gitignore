@@ -32,3 +32,6 @@
 obj/
 main.cpp 
 *.txt
+*.sdf
+*.opensdf
+*.suo

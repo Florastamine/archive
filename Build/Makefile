@@ -14,10 +14,10 @@ all: $(PROJECTS)
 
 Hotland: 
 	@echo "==== Building Hotland ($(config)) ===="
-	@${MAKE} --no-print-directory -C . -f Hotland.make
+	@${MAKE} --no-print-directory -C gmake -f Makefile
 
 clean:
-	@${MAKE} --no-print-directory -C . -f Hotland.make clean
+	@${MAKE} --no-print-directory -C gmake -f Makefile clean
 
 help:
 	@echo "Usage: make [config=name] [target]"
@@ -25,8 +25,12 @@ help:
 	@echo "CONFIGURATIONS:"
 	@echo "   debug"
 	@echo "   release"
-	@echo "   debug64"
-	@echo "   release64"
+	@echo "   with_dll_debug"
+	@echo "   with_dll_release"
+	@echo "   debug32"
+	@echo "   release32"
+	@echo "   with_dll_debug32"
+	@echo "   with_dll_release32"
 	@echo ""
 	@echo "TARGETS:"
 	@echo "   all (default)"

@@ -12,8 +12,10 @@ addons:
         packages:
         - g++-5
 script: 
+    - cd Source 
     - touch main.cpp 
-    - printf "%s\n%s" "#include \"Source/Kernel/Assertion.hpp\"" "int main(int argc, const char **argl) { HOTLAND_STATIC_ASSERT(21 + 21 == 42); return 0; }" >> main.cpp 
+    - printf "%s\n%s" "#include \"Kernel/Assertion.hpp\"" "int main(int argc, const char **argl) { HOTLAND_STATIC_ASSERT(21 + 21 == 42); return 0; }" >> main.cpp 
+    - cd ../Build/gmake 
     - make clean && make config=debug -j2 
 os:
     - linux 
