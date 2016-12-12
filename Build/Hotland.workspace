@@ -1,7 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
-<CodeBlocks_workspace_file>
-	<Workspace title="Hotland">
-		<Project filename="codeblocks/Hotland.cbp" active="1">
-		</Project>
-	</Workspace>
-</CodeBlocks_workspace_file>
+<?xml version="1.0" encoding="utf-8"?>
+<CodeLite_Workspace Name="Hotland" Database="./Hotland.tags">
+  <Project Name="Hotland" Path="codelite/Hotland.project" Active="Yes" />
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="Debug" Selected="yes">
+      <Project Name="Hotland" ConfigName="Debug"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="Release" Selected="yes">
+      <Project Name="Hotland" ConfigName="Release"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="With_DLL_Debug" Selected="yes">
+      <Project Name="Hotland" ConfigName="With_DLL_Debug"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="With_DLL_Release" Selected="yes">
+      <Project Name="Hotland" ConfigName="With_DLL_Release"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix>
+</CodeLite_Workspace>

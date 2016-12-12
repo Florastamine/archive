@@ -22,14 +22,14 @@ endif
 ifeq ($(config),debug)
   OBJDIR     = obj/Debug
   TARGETDIR  = Binaries
-  TARGET     = $(TARGETDIR)/Hotland
+  TARGET     = $(TARGETDIR)/Hotland.exe
   DEFINES   +=
   INCLUDES  += -I../../Source/3rd -I../../Source/Kernel -I../../Source/Kernel/IO -I../../Source/Kernel/Platform -I../../Source/Kernel/Compatibility
   ALL_CPPFLAGS  += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES)
   ALL_CFLAGS    += $(CFLAGS) $(ALL_CPPFLAGS) $(ARCH) -Og -Wall -std=gnu++11 -Ofast
   ALL_CXXFLAGS  += $(CXXFLAGS) $(ALL_CFLAGS)
   ALL_RESFLAGS  += $(RESFLAGS) $(DEFINES) $(INCLUDES)
-  ALL_LDFLAGS   += $(LDFLAGS) -s
+  ALL_LDFLAGS   += $(LDFLAGS) -s -mwindows
   LDDEPS    +=
   LIBS      += $(LDDEPS)
   LINKCMD    = $(CXX) -o $(TARGET) $(OBJECTS) $(RESOURCES) $(ARCH) $(ALL_LDFLAGS) $(LIBS)
@@ -44,14 +44,14 @@ endif
 ifeq ($(config),release)
   OBJDIR     = obj/Release
   TARGETDIR  = Binaries
-  TARGET     = $(TARGETDIR)/Hotland
+  TARGET     = $(TARGETDIR)/Hotland.exe
   DEFINES   +=
   INCLUDES  += -I../../Source/3rd -I../../Source/Kernel -I../../Source/Kernel/IO -I../../Source/Kernel/Platform -I../../Source/Kernel/Compatibility
   ALL_CPPFLAGS  += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES)
   ALL_CFLAGS    += $(CFLAGS) $(ALL_CPPFLAGS) $(ARCH) -Og -Wall -std=gnu++11 -Ofast
   ALL_CXXFLAGS  += $(CXXFLAGS) $(ALL_CFLAGS)
   ALL_RESFLAGS  += $(RESFLAGS) $(DEFINES) $(INCLUDES)
-  ALL_LDFLAGS   += $(LDFLAGS) -s
+  ALL_LDFLAGS   += $(LDFLAGS) -s -mwindows
   LDDEPS    +=
   LIBS      += $(LDDEPS)
   LINKCMD    = $(CXX) -o $(TARGET) $(OBJECTS) $(RESOURCES) $(ARCH) $(ALL_LDFLAGS) $(LIBS)
@@ -66,14 +66,14 @@ endif
 ifeq ($(config),with_dll_debug)
   OBJDIR     = obj/With_DLL_Debug
   TARGETDIR  = Binaries
-  TARGET     = $(TARGETDIR)/Hotland
+  TARGET     = $(TARGETDIR)/Hotland.exe
   DEFINES   +=
   INCLUDES  += -I../../Source/3rd -I../../Source/Kernel -I../../Source/Kernel/IO -I../../Source/Kernel/Platform -I../../Source/Kernel/Compatibility
   ALL_CPPFLAGS  += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES)
   ALL_CFLAGS    += $(CFLAGS) $(ALL_CPPFLAGS) $(ARCH) -Og -Wall -std=gnu++11 -Ofast
   ALL_CXXFLAGS  += $(CXXFLAGS) $(ALL_CFLAGS)
   ALL_RESFLAGS  += $(RESFLAGS) $(DEFINES) $(INCLUDES)
-  ALL_LDFLAGS   += $(LDFLAGS) -s
+  ALL_LDFLAGS   += $(LDFLAGS) -s -mwindows
   LDDEPS    +=
   LIBS      += $(LDDEPS)
   LINKCMD    = $(CXX) -o $(TARGET) $(OBJECTS) $(RESOURCES) $(ARCH) $(ALL_LDFLAGS) $(LIBS)
@@ -88,102 +88,14 @@ endif
 ifeq ($(config),with_dll_release)
   OBJDIR     = obj/With_DLL_Release
   TARGETDIR  = Binaries
-  TARGET     = $(TARGETDIR)/Hotland
+  TARGET     = $(TARGETDIR)/Hotland.exe
   DEFINES   +=
   INCLUDES  += -I../../Source/3rd -I../../Source/Kernel -I../../Source/Kernel/IO -I../../Source/Kernel/Platform -I../../Source/Kernel/Compatibility
   ALL_CPPFLAGS  += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES)
   ALL_CFLAGS    += $(CFLAGS) $(ALL_CPPFLAGS) $(ARCH) -Og -Wall -std=gnu++11 -Ofast
   ALL_CXXFLAGS  += $(CXXFLAGS) $(ALL_CFLAGS)
   ALL_RESFLAGS  += $(RESFLAGS) $(DEFINES) $(INCLUDES)
-  ALL_LDFLAGS   += $(LDFLAGS) -s
-  LDDEPS    +=
-  LIBS      += $(LDDEPS)
-  LINKCMD    = $(CXX) -o $(TARGET) $(OBJECTS) $(RESOURCES) $(ARCH) $(ALL_LDFLAGS) $(LIBS)
-  define PREBUILDCMDS
-  endef
-  define PRELINKCMDS
-  endef
-  define POSTBUILDCMDS
-  endef
-endif
-
-ifeq ($(config),debug32)
-  OBJDIR     = obj/x32/Debug
-  TARGETDIR  = Binaries
-  TARGET     = $(TARGETDIR)/Hotland
-  DEFINES   +=
-  INCLUDES  += -I../../Source/3rd -I../../Source/Kernel -I../../Source/Kernel/IO -I../../Source/Kernel/Platform -I../../Source/Kernel/Compatibility
-  ALL_CPPFLAGS  += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES)
-  ALL_CFLAGS    += $(CFLAGS) $(ALL_CPPFLAGS) $(ARCH) -m32 -Og -Wall -std=gnu++11 -Ofast
-  ALL_CXXFLAGS  += $(CXXFLAGS) $(ALL_CFLAGS)
-  ALL_RESFLAGS  += $(RESFLAGS) $(DEFINES) $(INCLUDES)
-  ALL_LDFLAGS   += $(LDFLAGS) -s -m32 -L/usr/lib32
-  LDDEPS    +=
-  LIBS      += $(LDDEPS)
-  LINKCMD    = $(CXX) -o $(TARGET) $(OBJECTS) $(RESOURCES) $(ARCH) $(ALL_LDFLAGS) $(LIBS)
-  define PREBUILDCMDS
-  endef
-  define PRELINKCMDS
-  endef
-  define POSTBUILDCMDS
-  endef
-endif
-
-ifeq ($(config),release32)
-  OBJDIR     = obj/x32/Release
-  TARGETDIR  = Binaries
-  TARGET     = $(TARGETDIR)/Hotland
-  DEFINES   +=
-  INCLUDES  += -I../../Source/3rd -I../../Source/Kernel -I../../Source/Kernel/IO -I../../Source/Kernel/Platform -I../../Source/Kernel/Compatibility
-  ALL_CPPFLAGS  += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES)
-  ALL_CFLAGS    += $(CFLAGS) $(ALL_CPPFLAGS) $(ARCH) -m32 -Og -Wall -std=gnu++11 -Ofast
-  ALL_CXXFLAGS  += $(CXXFLAGS) $(ALL_CFLAGS)
-  ALL_RESFLAGS  += $(RESFLAGS) $(DEFINES) $(INCLUDES)
-  ALL_LDFLAGS   += $(LDFLAGS) -s -m32 -L/usr/lib32
-  LDDEPS    +=
-  LIBS      += $(LDDEPS)
-  LINKCMD    = $(CXX) -o $(TARGET) $(OBJECTS) $(RESOURCES) $(ARCH) $(ALL_LDFLAGS) $(LIBS)
-  define PREBUILDCMDS
-  endef
-  define PRELINKCMDS
-  endef
-  define POSTBUILDCMDS
-  endef
-endif
-
-ifeq ($(config),with_dll_debug32)
-  OBJDIR     = obj/x32/With_DLL_Debug
-  TARGETDIR  = Binaries
-  TARGET     = $(TARGETDIR)/Hotland
-  DEFINES   +=
-  INCLUDES  += -I../../Source/3rd -I../../Source/Kernel -I../../Source/Kernel/IO -I../../Source/Kernel/Platform -I../../Source/Kernel/Compatibility
-  ALL_CPPFLAGS  += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES)
-  ALL_CFLAGS    += $(CFLAGS) $(ALL_CPPFLAGS) $(ARCH) -m32 -Og -Wall -std=gnu++11 -Ofast
-  ALL_CXXFLAGS  += $(CXXFLAGS) $(ALL_CFLAGS)
-  ALL_RESFLAGS  += $(RESFLAGS) $(DEFINES) $(INCLUDES)
-  ALL_LDFLAGS   += $(LDFLAGS) -s -m32 -L/usr/lib32
-  LDDEPS    +=
-  LIBS      += $(LDDEPS)
-  LINKCMD    = $(CXX) -o $(TARGET) $(OBJECTS) $(RESOURCES) $(ARCH) $(ALL_LDFLAGS) $(LIBS)
-  define PREBUILDCMDS
-  endef
-  define PRELINKCMDS
-  endef
-  define POSTBUILDCMDS
-  endef
-endif
-
-ifeq ($(config),with_dll_release32)
-  OBJDIR     = obj/x32/With_DLL_Release
-  TARGETDIR  = Binaries
-  TARGET     = $(TARGETDIR)/Hotland
-  DEFINES   +=
-  INCLUDES  += -I../../Source/3rd -I../../Source/Kernel -I../../Source/Kernel/IO -I../../Source/Kernel/Platform -I../../Source/Kernel/Compatibility
-  ALL_CPPFLAGS  += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES)
-  ALL_CFLAGS    += $(CFLAGS) $(ALL_CPPFLAGS) $(ARCH) -m32 -Og -Wall -std=gnu++11 -Ofast
-  ALL_CXXFLAGS  += $(CXXFLAGS) $(ALL_CFLAGS)
-  ALL_RESFLAGS  += $(RESFLAGS) $(DEFINES) $(INCLUDES)
-  ALL_LDFLAGS   += $(LDFLAGS) -s -m32 -L/usr/lib32
+  ALL_LDFLAGS   += $(LDFLAGS) -s -mwindows
   LDDEPS    +=
   LIBS      += $(LDDEPS)
   LINKCMD    = $(CXX) -o $(TARGET) $(OBJECTS) $(RESOURCES) $(ARCH) $(ALL_LDFLAGS) $(LIBS)
@@ -197,6 +109,9 @@ endif
 
 OBJECTS := \
 	$(OBJDIR)/main.o \
+	$(OBJDIR)/src.o \
+	$(OBJDIR)/adapt_adt_named.o \
+	$(OBJDIR)/create_tables.o \
 	$(OBJDIR)/Exception.o \
 	$(OBJDIR)/GenericReader.o \
 	$(OBJDIR)/GenericWriter.o \
@@ -263,6 +178,18 @@ $(GCH): $(PCH)
 endif
 
 $(OBJDIR)/main.o: ../../Source/main.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
+
+$(OBJDIR)/src.o: ../../Source/3rd/boost/asio/impl/src.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
+
+$(OBJDIR)/adapt_adt_named.o: ../../Source/3rd/boost/fusion/include/adapt_adt_named.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
+
+$(OBJDIR)/create_tables.o: ../../Source/3rd/boost/spirit/home/support/char_encoding/unicode/create_tables.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
 

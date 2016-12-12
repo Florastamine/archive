@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Hotland", "vs2012\Hotland.vcxproj", "{C3CB48BC-D1E7-0144-8BB4-BB350E8E3191}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Hotland", "vs2012\Hotland.vcxproj", "{EC807C75-A089-0F4A-B52A-A60BF9EE1762}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,14 +11,14 @@ Global
 		With_DLL_Release|Win32 = With_DLL_Release|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C3CB48BC-D1E7-0144-8BB4-BB350E8E3191}.Debug|Win32.ActiveCfg = Debug|Win32
-		{C3CB48BC-D1E7-0144-8BB4-BB350E8E3191}.Debug|Win32.Build.0 = Debug|Win32
-		{C3CB48BC-D1E7-0144-8BB4-BB350E8E3191}.Release|Win32.ActiveCfg = Release|Win32
-		{C3CB48BC-D1E7-0144-8BB4-BB350E8E3191}.Release|Win32.Build.0 = Release|Win32
-		{C3CB48BC-D1E7-0144-8BB4-BB350E8E3191}.With_DLL_Debug|Win32.ActiveCfg = With_DLL_Debug|Win32
-		{C3CB48BC-D1E7-0144-8BB4-BB350E8E3191}.With_DLL_Debug|Win32.Build.0 = With_DLL_Debug|Win32
-		{C3CB48BC-D1E7-0144-8BB4-BB350E8E3191}.With_DLL_Release|Win32.ActiveCfg = With_DLL_Release|Win32
-		{C3CB48BC-D1E7-0144-8BB4-BB350E8E3191}.With_DLL_Release|Win32.Build.0 = With_DLL_Release|Win32
+		{EC807C75-A089-0F4A-B52A-A60BF9EE1762}.Debug|Win32.ActiveCfg = Debug|Win32
+		{EC807C75-A089-0F4A-B52A-A60BF9EE1762}.Debug|Win32.Build.0 = Debug|Win32
+		{EC807C75-A089-0F4A-B52A-A60BF9EE1762}.Release|Win32.ActiveCfg = Release|Win32
+		{EC807C75-A089-0F4A-B52A-A60BF9EE1762}.Release|Win32.Build.0 = Release|Win32
+		{EC807C75-A089-0F4A-B52A-A60BF9EE1762}.With_DLL_Debug|Win32.ActiveCfg = With_DLL_Debug|Win32
+		{EC807C75-A089-0F4A-B52A-A60BF9EE1762}.With_DLL_Debug|Win32.Build.0 = With_DLL_Debug|Win32
+		{EC807C75-A089-0F4A-B52A-A60BF9EE1762}.With_DLL_Release|Win32.ActiveCfg = With_DLL_Release|Win32
+		{EC807C75-A089-0F4A-B52A-A60BF9EE1762}.With_DLL_Release|Win32.Build.0 = With_DLL_Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

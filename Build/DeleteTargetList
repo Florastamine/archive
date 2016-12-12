@@ -1,0 +1,7 @@
+*.sln 
+*.workspace 
+*.make 
+*.sdf 
+*.opensdf 
+*.suo 
+Makefile 
