@@ -29,9 +29,14 @@
 *.app
 
 # Hotland-specific 
-obj/
+obj/ 
+Binaries/ 
 main.cpp 
 *.txt
+
+# VS and msvc-specific 
 *.sdf
 *.opensdf
-*.suo
+*.suo 
+*.ilk 
+*.pdb 

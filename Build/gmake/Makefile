@@ -109,9 +109,6 @@ endif
 
 OBJECTS := \
 	$(OBJDIR)/main.o \
-	$(OBJDIR)/src.o \
-	$(OBJDIR)/adapt_adt_named.o \
-	$(OBJDIR)/create_tables.o \
 	$(OBJDIR)/Exception.o \
 	$(OBJDIR)/GenericReader.o \
 	$(OBJDIR)/GenericWriter.o \
@@ -178,18 +175,6 @@ $(GCH): $(PCH)
 endif
 
 $(OBJDIR)/main.o: ../../Source/main.cpp
-	@echo $(notdir $<)
-	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
-
-$(OBJDIR)/src.o: ../../Source/3rd/boost/asio/impl/src.cpp
-	@echo $(notdir $<)
-	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
-
-$(OBJDIR)/adapt_adt_named.o: ../../Source/3rd/boost/fusion/include/adapt_adt_named.cpp
-	@echo $(notdir $<)
-	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
-
-$(OBJDIR)/create_tables.o: ../../Source/3rd/boost/spirit/home/support/char_encoding/unicode/create_tables.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
 
