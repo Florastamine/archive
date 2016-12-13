@@ -24,7 +24,7 @@ ifeq ($(config),debug)
   TARGETDIR  = Binaries
   TARGET     = $(TARGETDIR)/Hotland.exe
   DEFINES   +=
-  INCLUDES  += -I../../Source/3rd -I../../Source/Kernel -I../../Source/Kernel/IO -I../../Source/Kernel/Platform -I../../Source/Kernel/Compatibility
+  INCLUDES  += -I../../Source/3rd/boost -I../../Source/3rd/cereal/include -I../../Source/3rd/EASTL/include -I../../Source/3rd/EASTL/test/packages/EABase/include/Common -I../../Source/3rd/EASTL/test/packages/EAStdC/include -I../../Source/3rd/EASTL/test/packages/EAAssert/include -I../../Source/3rd/rapidjson/include -I../../Source/Kernel -I../../Source/Kernel/IO -I../../Source/Kernel/Platform -I../../Source/Kernel/Compatibility
   ALL_CPPFLAGS  += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES)
   ALL_CFLAGS    += $(CFLAGS) $(ALL_CPPFLAGS) $(ARCH) -Og -Wall -std=gnu++11 -Ofast
   ALL_CXXFLAGS  += $(CXXFLAGS) $(ALL_CFLAGS)
@@ -46,7 +46,7 @@ ifeq ($(config),release)
   TARGETDIR  = Binaries
   TARGET     = $(TARGETDIR)/Hotland.exe
   DEFINES   +=
-  INCLUDES  += -I../../Source/3rd -I../../Source/Kernel -I../../Source/Kernel/IO -I../../Source/Kernel/Platform -I../../Source/Kernel/Compatibility
+  INCLUDES  += -I../../Source/3rd/boost -I../../Source/3rd/cereal/include -I../../Source/3rd/EASTL/include -I../../Source/3rd/EASTL/test/packages/EABase/include/Common -I../../Source/3rd/EASTL/test/packages/EAStdC/include -I../../Source/3rd/EASTL/test/packages/EAAssert/include -I../../Source/3rd/rapidjson/include -I../../Source/Kernel -I../../Source/Kernel/IO -I../../Source/Kernel/Platform -I../../Source/Kernel/Compatibility
   ALL_CPPFLAGS  += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES)
   ALL_CFLAGS    += $(CFLAGS) $(ALL_CPPFLAGS) $(ARCH) -Og -Wall -std=gnu++11 -Ofast
   ALL_CXXFLAGS  += $(CXXFLAGS) $(ALL_CFLAGS)
@@ -68,7 +68,7 @@ ifeq ($(config),with_dll_debug)
   TARGETDIR  = Binaries
   TARGET     = $(TARGETDIR)/Hotland.exe
   DEFINES   +=
-  INCLUDES  += -I../../Source/3rd -I../../Source/Kernel -I../../Source/Kernel/IO -I../../Source/Kernel/Platform -I../../Source/Kernel/Compatibility
+  INCLUDES  += -I../../Source/3rd/boost -I../../Source/3rd/cereal/include -I../../Source/3rd/EASTL/include -I../../Source/3rd/EASTL/test/packages/EABase/include/Common -I../../Source/3rd/EASTL/test/packages/EAStdC/include -I../../Source/3rd/EASTL/test/packages/EAAssert/include -I../../Source/3rd/rapidjson/include -I../../Source/Kernel -I../../Source/Kernel/IO -I../../Source/Kernel/Platform -I../../Source/Kernel/Compatibility
   ALL_CPPFLAGS  += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES)
   ALL_CFLAGS    += $(CFLAGS) $(ALL_CPPFLAGS) $(ARCH) -Og -Wall -std=gnu++11 -Ofast
   ALL_CXXFLAGS  += $(CXXFLAGS) $(ALL_CFLAGS)
@@ -90,7 +90,7 @@ ifeq ($(config),with_dll_release)
   TARGETDIR  = Binaries
   TARGET     = $(TARGETDIR)/Hotland.exe
   DEFINES   +=
-  INCLUDES  += -I../../Source/3rd -I../../Source/Kernel -I../../Source/Kernel/IO -I../../Source/Kernel/Platform -I../../Source/Kernel/Compatibility
+  INCLUDES  += -I../../Source/3rd/boost -I../../Source/3rd/cereal/include -I../../Source/3rd/EASTL/include -I../../Source/3rd/EASTL/test/packages/EABase/include/Common -I../../Source/3rd/EASTL/test/packages/EAStdC/include -I../../Source/3rd/EASTL/test/packages/EAAssert/include -I../../Source/3rd/rapidjson/include -I../../Source/Kernel -I../../Source/Kernel/IO -I../../Source/Kernel/Platform -I../../Source/Kernel/Compatibility
   ALL_CPPFLAGS  += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES)
   ALL_CFLAGS    += $(CFLAGS) $(ALL_CPPFLAGS) $(ARCH) -Og -Wall -std=gnu++11 -Ofast
   ALL_CXXFLAGS  += $(CXXFLAGS) $(ALL_CFLAGS)
@@ -109,6 +109,17 @@ endif
 
 OBJECTS := \
 	$(OBJDIR)/main.o \
+	$(OBJDIR)/allocator_eastl.o \
+	$(OBJDIR)/assert.o \
+	$(OBJDIR)/fixed_pool.o \
+	$(OBJDIR)/hashtable.o \
+	$(OBJDIR)/intrusive_list.o \
+	$(OBJDIR)/numeric_limits.o \
+	$(OBJDIR)/red_black_tree.o \
+	$(OBJDIR)/string.o \
+	$(OBJDIR)/thread_support.o \
+	$(OBJDIR)/EAMemory.o \
+	$(OBJDIR)/EASprintf.o \
 	$(OBJDIR)/Exception.o \
 	$(OBJDIR)/GenericReader.o \
 	$(OBJDIR)/GenericWriter.o \
@@ -175,6 +186,50 @@ $(GCH): $(PCH)
 endif
 
 $(OBJDIR)/main.o: ../../Source/main.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
+
+$(OBJDIR)/allocator_eastl.o: ../../Source/3rd/EASTL/source/allocator_eastl.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
+
+$(OBJDIR)/assert.o: ../../Source/3rd/EASTL/source/assert.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
+
+$(OBJDIR)/fixed_pool.o: ../../Source/3rd/EASTL/source/fixed_pool.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
+
+$(OBJDIR)/hashtable.o: ../../Source/3rd/EASTL/source/hashtable.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
+
+$(OBJDIR)/intrusive_list.o: ../../Source/3rd/EASTL/source/intrusive_list.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
+
+$(OBJDIR)/numeric_limits.o: ../../Source/3rd/EASTL/source/numeric_limits.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
+
+$(OBJDIR)/red_black_tree.o: ../../Source/3rd/EASTL/source/red_black_tree.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
+
+$(OBJDIR)/string.o: ../../Source/3rd/EASTL/source/string.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
+
+$(OBJDIR)/thread_support.o: ../../Source/3rd/EASTL/source/thread_support.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
+
+$(OBJDIR)/EAMemory.o: ../../Source/3rd/EASTL/test/packages/EAStdC/source/EAMemory.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
+
+$(OBJDIR)/EASprintf.o: ../../Source/3rd/EASTL/test/packages/EAStdC/source/EASprintf.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF $(@:%.o=%.d) -c "$<"
 
