@@ -24,9 +24,9 @@ ifeq ($(config),debug)
   TARGETDIR  = Binaries
   TARGET     = $(TARGETDIR)/Hotland.exe
   DEFINES   +=
-  INCLUDES  += -I../../Source/3rd/boost -I../../Source/3rd/cereal/include -I../../Source/3rd/EASTL/include -I../../Source/3rd/EASTL/test/packages/EABase/include/Common -I../../Source/3rd/EASTL/test/packages/EAStdC/include -I../../Source/3rd/EASTL/test/packages/EAAssert/include -I../../Source/3rd/rapidjson/include -I../../Source/Kernel -I../../Source/Kernel/IO -I../../Source/Kernel/Platform -I../../Source/Kernel/Compatibility
+  INCLUDES  += -I../../Source/3rd/boost -I../../Source/3rd/cereal/include -I../../Source/3rd/EASTL/include -I../../Source/3rd/EASTL/source -I../../Source/3rd/EASTL/test/packages/EABase/include/Common -I../../Source/3rd/EASTL/test/packages/EAStdC/include -I../../Source/3rd/EASTL/test/packages/EAAssert/include -I../../Source/3rd/rapidjson/include -I../../Source/Kernel -I../../Source/Kernel/IO -I../../Source/Kernel/Platform -I../../Source/Kernel/Compatibility
   ALL_CPPFLAGS  += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES)
-  ALL_CFLAGS    += $(CFLAGS) $(ALL_CPPFLAGS) $(ARCH) -Og -Wall -std=gnu++11 -Ofast
+  ALL_CFLAGS    += $(CFLAGS) $(ALL_CPPFLAGS) $(ARCH) -Og -Wall -std=gnu++11 -DEASTL_DLL=1 -DEA_PLATFORM_MINGW=1 -Ofast
   ALL_CXXFLAGS  += $(CXXFLAGS) $(ALL_CFLAGS)
   ALL_RESFLAGS  += $(RESFLAGS) $(DEFINES) $(INCLUDES)
   ALL_LDFLAGS   += $(LDFLAGS) -s -mwindows
@@ -46,9 +46,9 @@ ifeq ($(config),release)
   TARGETDIR  = Binaries
   TARGET     = $(TARGETDIR)/Hotland.exe
   DEFINES   +=
-  INCLUDES  += -I../../Source/3rd/boost -I../../Source/3rd/cereal/include -I../../Source/3rd/EASTL/include -I../../Source/3rd/EASTL/test/packages/EABase/include/Common -I../../Source/3rd/EASTL/test/packages/EAStdC/include -I../../Source/3rd/EASTL/test/packages/EAAssert/include -I../../Source/3rd/rapidjson/include -I../../Source/Kernel -I../../Source/Kernel/IO -I../../Source/Kernel/Platform -I../../Source/Kernel/Compatibility
+  INCLUDES  += -I../../Source/3rd/boost -I../../Source/3rd/cereal/include -I../../Source/3rd/EASTL/include -I../../Source/3rd/EASTL/source -I../../Source/3rd/EASTL/test/packages/EABase/include/Common -I../../Source/3rd/EASTL/test/packages/EAStdC/include -I../../Source/3rd/EASTL/test/packages/EAAssert/include -I../../Source/3rd/rapidjson/include -I../../Source/Kernel -I../../Source/Kernel/IO -I../../Source/Kernel/Platform -I../../Source/Kernel/Compatibility
   ALL_CPPFLAGS  += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES)
-  ALL_CFLAGS    += $(CFLAGS) $(ALL_CPPFLAGS) $(ARCH) -Og -Wall -std=gnu++11 -Ofast
+  ALL_CFLAGS    += $(CFLAGS) $(ALL_CPPFLAGS) $(ARCH) -Og -Wall -std=gnu++11 -DEASTL_DLL=1 -DEA_PLATFORM_MINGW=1 -Ofast
   ALL_CXXFLAGS  += $(CXXFLAGS) $(ALL_CFLAGS)
   ALL_RESFLAGS  += $(RESFLAGS) $(DEFINES) $(INCLUDES)
   ALL_LDFLAGS   += $(LDFLAGS) -s -mwindows
@@ -68,9 +68,9 @@ ifeq ($(config),with_dll_debug)
   TARGETDIR  = Binaries
   TARGET     = $(TARGETDIR)/Hotland.exe
   DEFINES   +=
-  INCLUDES  += -I../../Source/3rd/boost -I../../Source/3rd/cereal/include -I../../Source/3rd/EASTL/include -I../../Source/3rd/EASTL/test/packages/EABase/include/Common -I../../Source/3rd/EASTL/test/packages/EAStdC/include -I../../Source/3rd/EASTL/test/packages/EAAssert/include -I../../Source/3rd/rapidjson/include -I../../Source/Kernel -I../../Source/Kernel/IO -I../../Source/Kernel/Platform -I../../Source/Kernel/Compatibility
+  INCLUDES  += -I../../Source/3rd/boost -I../../Source/3rd/cereal/include -I../../Source/3rd/EASTL/include -I../../Source/3rd/EASTL/source -I../../Source/3rd/EASTL/test/packages/EABase/include/Common -I../../Source/3rd/EASTL/test/packages/EAStdC/include -I../../Source/3rd/EASTL/test/packages/EAAssert/include -I../../Source/3rd/rapidjson/include -I../../Source/Kernel -I../../Source/Kernel/IO -I../../Source/Kernel/Platform -I../../Source/Kernel/Compatibility
   ALL_CPPFLAGS  += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES)
-  ALL_CFLAGS    += $(CFLAGS) $(ALL_CPPFLAGS) $(ARCH) -Og -Wall -std=gnu++11 -Ofast
+  ALL_CFLAGS    += $(CFLAGS) $(ALL_CPPFLAGS) $(ARCH) -Og -Wall -std=gnu++11 -DEASTL_DLL=1 -DEA_PLATFORM_MINGW=1 -Ofast
   ALL_CXXFLAGS  += $(CXXFLAGS) $(ALL_CFLAGS)
   ALL_RESFLAGS  += $(RESFLAGS) $(DEFINES) $(INCLUDES)
   ALL_LDFLAGS   += $(LDFLAGS) -s -mwindows
@@ -90,9 +90,9 @@ ifeq ($(config),with_dll_release)
   TARGETDIR  = Binaries
   TARGET     = $(TARGETDIR)/Hotland.exe
   DEFINES   +=
-  INCLUDES  += -I../../Source/3rd/boost -I../../Source/3rd/cereal/include -I../../Source/3rd/EASTL/include -I../../Source/3rd/EASTL/test/packages/EABase/include/Common -I../../Source/3rd/EASTL/test/packages/EAStdC/include -I../../Source/3rd/EASTL/test/packages/EAAssert/include -I../../Source/3rd/rapidjson/include -I../../Source/Kernel -I../../Source/Kernel/IO -I../../Source/Kernel/Platform -I../../Source/Kernel/Compatibility
+  INCLUDES  += -I../../Source/3rd/boost -I../../Source/3rd/cereal/include -I../../Source/3rd/EASTL/include -I../../Source/3rd/EASTL/source -I../../Source/3rd/EASTL/test/packages/EABase/include/Common -I../../Source/3rd/EASTL/test/packages/EAStdC/include -I../../Source/3rd/EASTL/test/packages/EAAssert/include -I../../Source/3rd/rapidjson/include -I../../Source/Kernel -I../../Source/Kernel/IO -I../../Source/Kernel/Platform -I../../Source/Kernel/Compatibility
   ALL_CPPFLAGS  += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES)
-  ALL_CFLAGS    += $(CFLAGS) $(ALL_CPPFLAGS) $(ARCH) -Og -Wall -std=gnu++11 -Ofast
+  ALL_CFLAGS    += $(CFLAGS) $(ALL_CPPFLAGS) $(ARCH) -Og -Wall -std=gnu++11 -DEASTL_DLL=1 -DEA_PLATFORM_MINGW=1 -Ofast
   ALL_CXXFLAGS  += $(CXXFLAGS) $(ALL_CFLAGS)
   ALL_RESFLAGS  += $(RESFLAGS) $(DEFINES) $(INCLUDES)
   ALL_LDFLAGS   += $(LDFLAGS) -s -mwindows

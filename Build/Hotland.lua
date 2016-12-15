@@ -48,6 +48,7 @@ project("Hotland")
         "../Source/3rd/boost", 
         "../Source/3rd/cereal/include", 
         "../Source/3rd/EASTL/include", 
+        "../Source/3rd/EASTL/source", 
         "../Source/3rd/EASTL/test/packages/EABase/include/Common", 
         "../Source/3rd/EASTL/test/packages/EAStdC/include", 
         "../Source/3rd/EASTL/test/packages/EAAssert/include", 
@@ -75,7 +76,9 @@ project("Hotland")
             buildoptions({
                 "-Og", -- https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html 
                 "-Wall", 
-                "-std=gnu++11" 
+                "-std=gnu++11", 
+                "-DEASTL_DLL=1", 
+                "-DEA_PLATFORM_MINGW=1"
             })
 
         configuration("vs*") 
@@ -94,7 +97,8 @@ project("Hotland")
             buildoptions({
                 "-Ofast", 
                 "-Wall", 
-                "-std=gnu++11" 
+                "-std=gnu++11", 
+                "-DEASTL_DLL=1"
             })
 
         configuration("vs*") 
