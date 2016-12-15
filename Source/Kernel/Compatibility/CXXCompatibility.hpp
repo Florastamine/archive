@@ -32,7 +32,3 @@
 #else 
     #define HOTLAND_API 
 #endif 
-
-#if __cplusplus < 201103L // So we'll be able to compile on non-C++1x platforms. 
-    #define nullptr NULL 
-#endif 
