@@ -99,28 +99,4 @@ namespace Hotland {
 
             void SetVariableDefaults(int cType);
     }; 
-
-    class HOTLAND_API Node {
-        public:
-            Node();
-            Node(const Node &N);
-            Node(const Node &&N);
-
-            ~Node();
-
-            Node &operator=(const Node &N); 
-
-            bool IsEmpty() const;
-            void ConnectIn(const Node &N, int nIFrom, int nITo);
-            void ConnectOut(const Node &N, int nIFrom, int nITo);
-
-            void PushIn(const Variable &V);
-            void PushOut(const Variable &V);
-
-            void PopIn();
-            void PopOut();
-        private:
-            std::vector<Variable> m_listIn;
-            std::vector<Variable> m_listOut;
-    }; 
 }
