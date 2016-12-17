@@ -78,6 +78,11 @@ namespace Hotland {
                 return *this;
             }
 
+            inline bool operator==(const Variable &V) const 
+            {
+                return IsConvertible(V);
+            }
+
             int GetType() const;
             bool IsConvertible(const Variable &V) const; 
             std::string GetName() const; 
