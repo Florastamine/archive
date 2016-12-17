@@ -24,6 +24,8 @@
 					<Add directory="../../Source/Kernel/IO" />
 					<Add directory="../../Source/Kernel/Platform" />
 					<Add directory="../../Source/Kernel/Compatibility" />
+					<Add directory="../../Source/Plugins" />
+					<Add directory="../../Source/Plugins/NodeGraph" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -48,6 +50,8 @@
 					<Add directory="../../Source/Kernel/IO" />
 					<Add directory="../../Source/Kernel/Platform" />
 					<Add directory="../../Source/Kernel/Compatibility" />
+					<Add directory="../../Source/Plugins" />
+					<Add directory="../../Source/Plugins/NodeGraph" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -72,6 +76,8 @@
 					<Add directory="../../Source/Kernel/IO" />
 					<Add directory="../../Source/Kernel/Platform" />
 					<Add directory="../../Source/Kernel/Compatibility" />
+					<Add directory="../../Source/Plugins" />
+					<Add directory="../../Source/Plugins/NodeGraph" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -96,6 +102,8 @@
 					<Add directory="../../Source/Kernel/IO" />
 					<Add directory="../../Source/Kernel/Platform" />
 					<Add directory="../../Source/Kernel/Compatibility" />
+					<Add directory="../../Source/Plugins" />
+					<Add directory="../../Source/Plugins/NodeGraph" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -17014,6 +17022,9 @@
 		<Unit filename="../../Source/Kernel/Platform/PlatformInfoQuery.hpp">
 			<Option virtualFolder="Source/Kernel/Platform" />
 		</Unit>
+		<Unit filename="../../Source/Plugins/NodeGraph/Variable.hpp">
+			<Option virtualFolder="Source/Plugins/NodeGraph" />
+		</Unit>
 		<Unit filename="../../Source/main.cpp">
 			<Option virtualFolder="Source" />
 		</Unit>
@@ -17067,6 +17078,9 @@
 		</Unit>
 		<Unit filename="../../Source/Kernel/Platform/PlatformInfoQuery.cpp">
 			<Option virtualFolder="Source/Kernel/Platform" />
+		</Unit>
+		<Unit filename="../../Source/Plugins/NodeGraph/Variable.cpp">
+			<Option virtualFolder="Source/Plugins/NodeGraph" />
 		</Unit>
 		<Extensions>
 		</Extensions>

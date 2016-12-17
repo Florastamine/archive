@@ -6586,6 +6586,12 @@
           <File Name="../../Source/Kernel/Platform/PlatformInfoQuery.hpp"/>
         </VirtualDirectory>
       </VirtualDirectory>
+      <VirtualDirectory Name="Plugins">
+        <VirtualDirectory Name="NodeGraph">
+          <File Name="../../Source/Plugins/NodeGraph/Variable.cpp"/>
+          <File Name="../../Source/Plugins/NodeGraph/Variable.hpp"/>
+        </VirtualDirectory>
+      </VirtualDirectory>
       <File Name="../../Source/main.cpp"/>
     </VirtualDirectory>
   </VirtualDirectory>
@@ -6605,6 +6611,8 @@
         <IncludePath Value="../../Source/Kernel/IO"/>
         <IncludePath Value="../../Source/Kernel/Platform"/>
         <IncludePath Value="../../Source/Kernel/Compatibility"/>
+        <IncludePath Value="../../Source/Plugins"/>
+        <IncludePath Value="../../Source/Plugins/NodeGraph"/>
       </Compiler>
       <Linker Required="yes" Options="-s;-mwindows">
       </Linker>
@@ -6637,6 +6645,8 @@
         <IncludePath Value="../../Source/Kernel/IO"/>
         <IncludePath Value="../../Source/Kernel/Platform"/>
         <IncludePath Value="../../Source/Kernel/Compatibility"/>
+        <IncludePath Value="../../Source/Plugins"/>
+        <IncludePath Value="../../Source/Plugins/NodeGraph"/>
       </Compiler>
       <Linker Required="yes" Options="-s;-mwindows">
       </Linker>
@@ -6669,6 +6679,8 @@
         <IncludePath Value="../../Source/Kernel/IO"/>
         <IncludePath Value="../../Source/Kernel/Platform"/>
         <IncludePath Value="../../Source/Kernel/Compatibility"/>
+        <IncludePath Value="../../Source/Plugins"/>
+        <IncludePath Value="../../Source/Plugins/NodeGraph"/>
       </Compiler>
       <Linker Required="yes" Options="-s;-mwindows">
       </Linker>
@@ -6701,6 +6713,8 @@
         <IncludePath Value="../../Source/Kernel/IO"/>
         <IncludePath Value="../../Source/Kernel/Platform"/>
         <IncludePath Value="../../Source/Kernel/Compatibility"/>
+        <IncludePath Value="../../Source/Plugins"/>
+        <IncludePath Value="../../Source/Plugins/NodeGraph"/>
       </Compiler>
       <Linker Required="yes" Options="-s;-mwindows">
       </Linker>

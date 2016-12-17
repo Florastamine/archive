@@ -41,7 +41,7 @@ project("Hotland")
     }) 
 
     excludes({ -- Files to be excluded out of the project. 
-        -- 
+        "../UTs/**.*"
     })
 
     includedirs({
@@ -57,7 +57,10 @@ project("Hotland")
         "../Source/Kernel",
         "../Source/Kernel/IO",
         "../Source/Kernel/Platform",
-        "../Source/Kernel/Compatibility" 
+        "../Source/Kernel/Compatibility",
+
+        "../Source/Plugins", 
+        "../Source/Plugins/NodeGraph", 
     }) 
 
     libdirs({
