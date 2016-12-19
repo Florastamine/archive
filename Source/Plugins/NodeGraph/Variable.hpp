@@ -25,8 +25,9 @@
 
 #include "../../Source/Kernel/Compatibility/CXXCompatibility.hpp" 
 
-#include <string>
-#include <vector> 
+#include <stdint.h> // Somehow Visual Studio Code slashes a line under the inclusion of <cstdint>, 
+                    // So I have to resort back to <stdint.h>. For uint32_t. 
+#include <string> 
 
 #define HOTLAND_DEFINE_CONSTANT_VARIABLE_BASE_TYPE(TypeID) \
     template <int nType> struct CTypeName { \
@@ -42,7 +43,13 @@
             static std::string tName(TypeValue); \
             return tName; \
         }; \
-    };
+    }; 
+
+#define HOTLAND_DEFINE_CONSTANT_VARIABLE_CASE(cType) \
+    case cType : { \
+        m_typeName = CTypeName<cType>::GetName(); \
+        break; \
+    }
 
 namespace Hotland { 
     enum 
@@ -53,39 +60,77 @@ namespace Hotland {
         TYPE_DOUBLE 
     }; 
 
-    HOTLAND_DEFINE_CONSTANT_VARIABLE_BASE_TYPE(void);
+    HOTLAND_DEFINE_CONSTANT_VARIABLE_BASE_TYPE();
     HOTLAND_DEFINE_CONSTANT_VARIABLE_TYPE(TYPE_INT, "Integer type");
     HOTLAND_DEFINE_CONSTANT_VARIABLE_TYPE(TYPE_LONG, "Long type");
     HOTLAND_DEFINE_CONSTANT_VARIABLE_TYPE(TYPE_FLOAT, "Float type");
-    HOTLAND_DEFINE_CONSTANT_VARIABLE_TYPE(TYPE_DOUBLE, "Double type");
+    HOTLAND_DEFINE_CONSTANT_VARIABLE_TYPE(TYPE_DOUBLE, "Double type"); 
 
     class HOTLAND_API Variable {
-        public:
-            Variable(int cType = TYPE_INT);
-            Variable(const Variable &V);
-            Variable(const Variable &&V);
+        public: 
+            Variable() : 
+                m_typeID(TYPE_INT), 
+                m_typeName(CTypeName<TYPE_INT>::GetName()), 
+                m_ID(reinterpret_cast<uint32_t>(this)), 
+                m_name() 
+            {
+            }
 
-            ~Variable();
+            Variable(int cType) 
+            {
+                m_typeID = cType;
 
-            inline Variable &operator=(const Variable &V)
+                switch(m_typeID = cType, cType) {
+                    HOTLAND_DEFINE_CONSTANT_VARIABLE_CASE(TYPE_INT);
+                    HOTLAND_DEFINE_CONSTANT_VARIABLE_CASE(TYPE_LONG);
+                    HOTLAND_DEFINE_CONSTANT_VARIABLE_CASE(TYPE_FLOAT);
+                    HOTLAND_DEFINE_CONSTANT_VARIABLE_CASE(TYPE_DOUBLE);
+                }
+
+                m_ID = reinterpret_cast<uint32_t>(this); 
+            }
+
+            Variable(const Variable &V)
             {
                 if(this != &V) {
-                    this->m_typeID = V.m_typeID;
-                    this->m_typeName = V.m_typeName;
-                    this->m_typeContainer = V.m_typeContainer;
+                    m_typeID = V.m_typeID;
+                    m_typeName = V.m_typeName;
+                    m_typeContainer = V.m_typeContainer;
+                }
+            }
+
+            Variable(Variable &&) = default;
+
+            ~Variable()
+            {
+            } 
+
+            inline auto operator=(const Variable &V) -> Variable & 
+            {
+                if(this != &V) {
+                    m_typeID = V.m_typeID;
+                    m_typeName = V.m_typeName;
+                    m_typeContainer = V.m_typeContainer;
                 }
 
                 return *this;
             }
 
-            inline bool operator==(const Variable &V) const 
-            {
-                return IsConvertible(V);
-            }
+            inline auto operator==(const Variable &V) const -> bool { return IsConvertible(V); } 
 
-            int GetType() const;
-            bool IsConvertible(const Variable &V) const; 
-            std::string GetName() const; 
+            inline auto IsConvertible(const Variable &V) const -> bool { return m_typeID == V.m_typeID; }
+
+            inline auto GetTypeID() const -> int { return m_typeID; }
+
+            inline auto GetTypeName() const -> std::string { return m_typeName; } 
+
+            inline auto GetID() const -> uint32_t { return m_ID; }
+
+            inline auto GetName() const -> std::string { return m_name; }
+
+            inline auto SetName(const char *s) -> void { m_name = std::string(s); } 
+
+            inline auto SetName(const std::string &s) -> void { m_name = s; } 
         private:
             boost::variant<
                 int,         // TYPE_INT 
@@ -94,9 +139,11 @@ namespace Hotland {
                 double       // TYPE_DOUBLE 
             > m_typeContainer; 
 
-            int         m_typeID;
-            std::string m_typeName; 
+            std::string m_name;
+            uint32_t    m_ID;
 
-            void SetVariableDefaults(int cType);
+            std::string m_typeName; 
+            int         m_typeID;
     }; 
 }
+

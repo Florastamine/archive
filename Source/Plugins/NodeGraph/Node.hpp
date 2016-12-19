@@ -25,30 +25,83 @@
 
 #include "Variable.hpp" 
 
+#include <stdint.h>  
 #include <vector> 
 
 namespace Hotland { 
     class HOTLAND_API Node {
-        public:
-            Node();
-            Node(const Node &N);
+        public: 
+            Node() : 
+                m_listIn(), 
+                m_listOut(), 
+                m_ID(reinterpret_cast<uint32_t>(this)),
+                m_name()
+            {
+            }
+
+            Node(const Node &N)
+            {
+                if(this != &N) {
+                    this->m_listIn = N.m_listIn;
+                    this->m_listOut = N.m_listOut;
+                    this->m_name = N.m_name;
+                    this->m_ID = reinterpret_cast<uint32_t>(this);
+                }
+            }
+
             Node(Node &&N) = default;
 
-            ~Node();
+            ~Node()
+            {
+            }
 
-            Node &operator=(const Node &N); 
+            inline auto operator=(const Node &N) -> Node & 
+            {
+                if(this != &N) {
+                    this->m_listIn = N.m_listIn;
+                    this->m_listOut = N.m_listOut;
+                    this->m_name = N.m_name;
+                    this->m_ID = reinterpret_cast<uint32_t>(this);
+                }
 
-            bool IsEmpty() const;
-            void ConnectIn(const Node &N, int nIFrom, int nITo);
-            void ConnectOut(const Node &N, int nIFrom, int nITo);
+                return *this;
+            }
 
-            void PushIn(const Variable &V);
-            void PushOut(const Variable &V);
+            inline auto operator==(const Node &N) -> bool 
+            {
+                return (this->m_listIn == N.m_listIn) && (this->m_listOut == N.m_listOut);
+            } 
 
-            void PopIn();
-            void PopOut();
+            inline auto IsEmpty() const -> bool { return ((this->m_listIn).size() == 0) && ((this->m_listOut).size() == 0); }
+
+            inline auto PushIn(const Variable &V) -> void { (this->m_listIn).push_back(V); }
+
+            inline auto PushOut(const Variable &V) -> void { (this->m_listOut).push_back(V); }
+
+            inline auto PopIn() -> void { (this->m_listIn).pop_back(); }
+
+            inline auto PopOut() -> void { (this->m_listOut).pop_back(); }
+
+            inline auto JoinIn() -> void {}
+
+            inline auto JoinOut() -> void {} 
+
+            inline auto GetINodeSize() const -> std::vector<Variable>::size_type { return m_listIn.size(); }
+
+            inline auto GetONodeSize() const -> std::vector<Variable>::size_type { return m_listOut.size(); } 
+
+            inline auto GetName() const -> std::string { return m_name; } 
+
+            inline auto GetID() const -> uint32_t { return m_ID; }
+
+            inline auto SetName(const char *s) -> void { m_name = std::string(s); }
+
+            inline auto SetName(const std::string &s) -> void { m_name = s; } 
         private:
             std::vector<Variable> m_listIn;
-            std::vector<Variable> m_listOut;
+            std::vector<Variable> m_listOut; 
+
+            std::string m_name;
+            uint32_t    m_ID;
     }; 
 }

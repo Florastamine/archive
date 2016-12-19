@@ -21,11 +21,5 @@
 
 #pragma once 
 
-#include "../NodeGraph/Variable.hpp"
-
-inline std::ostream &operator<<(std::ostream &stream, const Hotland::Variable &V)
-{
-    stream << "Variable content: Name: [" << V.GetName() << "]; Type: [" << V.GetType() << "]" << std::endl; 
-
-    return stream; 
-}
+#include "NodeGraph/Variable.hpp"
+#include "NodeGraph/Node.hpp" 
