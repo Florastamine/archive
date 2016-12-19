@@ -23,6 +23,8 @@
 
 #include "../../Source/Kernel/Compatibility/CXXCompatibility.hpp" 
 
+#include "Variable.hpp" 
+
 #include <vector> 
 
 namespace Hotland { 
@@ -30,7 +32,7 @@ namespace Hotland {
         public:
             Node();
             Node(const Node &N);
-            Node(const Node &&N);
+            Node(Node &&N) = default;
 
             ~Node();
 

@@ -37,7 +37,14 @@ namespace Hotland {
             HOTLAND_DEFINE_CONSTANT_VARIABLE_CASE(TYPE_LONG);
             HOTLAND_DEFINE_CONSTANT_VARIABLE_CASE(TYPE_FLOAT);
             HOTLAND_DEFINE_CONSTANT_VARIABLE_CASE(TYPE_DOUBLE);
-        }
+        } 
+
+        SetVariableID();
+    }
+
+    void Variable::SetVariableID()
+    {
+        this->m_ID = reinterpret_cast<uint32_t>(this); 
     }
 
     Variable::Variable(int cType)
@@ -56,7 +63,7 @@ namespace Hotland {
             this->m_typeName = V.m_typeName;
             this->m_typeContainer = V.m_typeContainer;
         }
-    }
+    } 
 
     int Variable::GetType() const 
     {
@@ -71,6 +78,10 @@ namespace Hotland {
     std::string Variable::GetName() const 
     {
         return this->m_typeName; 
-    } 
-}
+    }  
 
+    uint32_t Variable::GetID() const
+    {
+        return this->m_ID;
+    }
+}
