@@ -59,8 +59,7 @@ project("Hotland")
         "../Source/Kernel/Platform",
         "../Source/Kernel/Compatibility",
 
-        "../Source/Plugins", 
-        "../Source/Plugins/NodeGraph", 
+        "../Source/Plugins" 
     }) 
 
     libdirs({
