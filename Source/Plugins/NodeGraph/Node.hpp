@@ -25,83 +25,90 @@
 
 #include "Variable.hpp" 
 
-#include <stdint.h>  
+#include <stdint.h> 
 #include <vector> 
 
 namespace Hotland { 
-    class HOTLAND_API Node {
+    enum { IN, OUT }; 
+
+    class /* HOTLAND_API */ Node { 
         public: 
-            Node() : 
-                m_listIn(), 
-                m_listOut(), 
-                m_ID(reinterpret_cast<uint32_t>(this)),
-                m_name()
-            {
-            }
-
-            Node(const Node &N)
-            {
-                if(this != &N) {
-                    this->m_listIn = N.m_listIn;
-                    this->m_listOut = N.m_listOut;
-                    this->m_name = N.m_name;
-                    this->m_ID = reinterpret_cast<uint32_t>(this);
-                }
-            }
-
-            Node(Node &&N) = default;
-
-            ~Node()
-            {
-            }
-
-            inline auto operator=(const Node &N) -> Node & 
-            {
-                if(this != &N) {
-                    this->m_listIn = N.m_listIn;
-                    this->m_listOut = N.m_listOut;
-                    this->m_name = N.m_name;
-                    this->m_ID = reinterpret_cast<uint32_t>(this);
-                }
-
-                return *this;
-            }
-
-            inline auto operator==(const Node &N) -> bool 
-            {
-                return (this->m_listIn == N.m_listIn) && (this->m_listOut == N.m_listOut);
-            } 
-
-            inline auto IsEmpty() const -> bool { return ((this->m_listIn).size() == 0) && ((this->m_listOut).size() == 0); }
-
-            inline auto PushIn(const Variable &V) -> void { (this->m_listIn).push_back(V); }
-
-            inline auto PushOut(const Variable &V) -> void { (this->m_listOut).push_back(V); }
-
-            inline auto PopIn() -> void { (this->m_listIn).pop_back(); }
-
-            inline auto PopOut() -> void { (this->m_listOut).pop_back(); }
-
-            inline auto JoinIn() -> void {}
-
-            inline auto JoinOut() -> void {} 
-
-            inline auto GetINodeSize() const -> std::vector<Variable>::size_type { return m_listIn.size(); }
-
-            inline auto GetONodeSize() const -> std::vector<Variable>::size_type { return m_listOut.size(); } 
+            virtual auto IsEmpty() const -> bool = 0; 
+            virtual auto Get() const -> std::vector<Variable> = 0;
+            virtual auto Push(const Variable &) -> void = 0;
+            virtual auto Pop() -> void = 0;
+            virtual auto Size() const -> std::vector<Variable>::size_type = 0;
+            virtual auto Join() -> void = 0; 
 
             inline auto GetName() const -> std::string { return m_name; } 
-
-            inline auto GetID() const -> uint32_t { return m_ID; }
+            inline auto GetID() const -> uint32_t { return m_ID; } 
 
             inline auto SetName(const char *s) -> void { m_name = std::string(s); }
-
             inline auto SetName(const std::string &s) -> void { m_name = s; } 
-        private:
-            std::vector<Variable> m_listIn;
-            std::vector<Variable> m_listOut; 
-
+        protected:
             std::string m_name;
             uint32_t    m_ID;
+    };
+
+    class HOTLAND_API INode : public virtual Node {
+        public:
+            inline auto IsEmpty() const -> bool { return !(this->m_listIn.size()); } 
+
+            inline auto Push(const Variable &V) -> void { (this->m_listIn).push_back(V); } 
+
+            inline auto Pop() -> void { (this->m_listIn).pop_back(); }
+
+            inline auto Size() const -> std::vector<Variable>::size_type { return m_listIn.size(); } 
+
+            inline auto Get() const -> std::vector<Variable> { return m_listIn; }
+
+            inline auto Join() -> void {}
+        protected:
+            std::vector<Variable> m_listIn;
     }; 
+
+    class HOTLAND_API ONode : public virtual Node {
+        public:
+            inline auto IsEmpty() const -> bool { return !(this->m_listOut.size()); } 
+
+            inline auto Push(const Variable &V) -> void { (this->m_listOut).push_back(V); }
+
+            inline auto Pop() -> void { (this->m_listOut).pop_back(); } 
+
+            inline auto Size() const -> std::vector<Variable>::size_type { return m_listOut.size(); } 
+
+            inline auto Get() const -> std::vector<Variable> { return m_listOut; }
+
+            inline auto Join() -> void {} 
+        protected:
+            std::vector<Variable> m_listOut;
+    };
+
+    #define TERNARY_STATEMENT(c, s, t) \
+        do { \
+            if ((c) == true) { s; } \
+            else { t; } \
+        } while(false) 
+
+    class HOTLAND_API IONode : public INode, public ONode { 
+        public: 
+            inline auto IsEmpty() const -> bool { return ((this->m_listIn).size() <= 0) && ((this->m_listOut).size() <= 0); } 
+
+            inline auto Push(const Variable &V) -> void { TERNARY_STATEMENT(m_mode == IN, INode::Push(V), ONode::Push(V));  }
+
+            inline auto Pop() -> void { TERNARY_STATEMENT(m_mode == IN, INode::Pop(), ONode::Pop()); }
+
+            inline auto Size() const -> std::vector<Variable>::size_type { return INode::Size() + ONode::Size(); }  
+
+            inline auto Get() const -> std::vector<Variable> { return (m_mode == IN ? INode::Get() : ONode::Get()); }
+
+            inline auto Join() -> void {}
+
+            inline auto GetRWMode() -> int { return m_mode; } 
+
+            inline auto SetRWMode(const int &i) -> void { m_mode = i; }
+        private: 
+            // 
+            int m_mode;
+    };
 }
