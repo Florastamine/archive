@@ -57,7 +57,8 @@ namespace Hotland {
         TYPE_INT, 
         TYPE_LONG, 
         TYPE_FLOAT, 
-        TYPE_DOUBLE 
+        TYPE_DOUBLE, 
+        TYPE_STRING 
     }; 
 
     HOTLAND_DEFINE_CONSTANT_VARIABLE_BASE_TYPE();
@@ -65,9 +66,18 @@ namespace Hotland {
     HOTLAND_DEFINE_CONSTANT_VARIABLE_TYPE(TYPE_LONG, "Long type");
     HOTLAND_DEFINE_CONSTANT_VARIABLE_TYPE(TYPE_FLOAT, "Float type");
     HOTLAND_DEFINE_CONSTANT_VARIABLE_TYPE(TYPE_DOUBLE, "Double type"); 
+    HOTLAND_DEFINE_CONSTANT_VARIABLE_TYPE(TYPE_STRING, "String type"); 
 
-    class HOTLAND_API Variable {
-        public: 
+    class HOTLAND_API Variable { 
+        public:
+            typedef boost::variant<
+                int,          // TYPE_INT
+                long,         // TYPE_LONG
+                float,        // TYPE_FLOAT
+                double,       // TYPE_DOUBLE
+                std::string   // TYPE_STRING
+            > VariantType; 
+
             Variable() : 
                 m_typeID(TYPE_INT), 
                 m_typeName(CTypeName<TYPE_INT>::GetName()), 
@@ -85,6 +95,7 @@ namespace Hotland {
                     HOTLAND_DEFINE_CONSTANT_VARIABLE_CASE(TYPE_LONG);
                     HOTLAND_DEFINE_CONSTANT_VARIABLE_CASE(TYPE_FLOAT);
                     HOTLAND_DEFINE_CONSTANT_VARIABLE_CASE(TYPE_DOUBLE);
+                    HOTLAND_DEFINE_CONSTANT_VARIABLE_CASE(TYPE_STRING);
                 }
 
                 m_ID = reinterpret_cast<uint32_t>(this); 
@@ -114,7 +125,13 @@ namespace Hotland {
                 }
 
                 return *this;
-            }
+            } 
+
+            template <typename T> 
+            inline auto Set(const T &t) -> void { m_typeContainer = t; } 
+            
+            template <typename T> 
+            inline auto Get() const -> T { return boost::get<T>(this->m_typeContainer); }
 
             inline auto operator==(const Variable &V) const -> bool { return IsConvertible(V); } 
 
@@ -124,26 +141,28 @@ namespace Hotland {
 
             inline auto GetTypeName() const -> std::string { return m_typeName; } 
 
-            inline auto GetID() const -> uint32_t { return m_ID; }
+            inline auto GetID() const -> uint32_t { return m_ID; } 
 
+            inline auto GetVariant() const -> VariantType /* decltype(this->m_typeContainer) */ { return this->m_typeContainer; }
+            
             inline auto GetName() const -> std::string { return m_name; }
 
             inline auto SetName(const char *s) -> void { m_name = std::string(s); } 
 
-            inline auto SetName(const std::string &s) -> void { m_name = s; } 
+            inline auto SetName(const std::string &s) -> void { m_name = s;} 
         private:
-            boost::variant<
-                int,         // TYPE_INT 
-                long,        // TYPE_LONG 
-                float,       // TYPE_FLOAT 
-                double       // TYPE_DOUBLE 
-            > m_typeContainer; 
+            VariantType m_typeContainer; 
 
             std::string m_name;
             uint32_t    m_ID;
 
             std::string m_typeName; 
             int         m_typeID;
-    }; 
-}
+    };
 
+    template <> 
+        inline auto Variable::Set<std::string>(const std::string &s) -> void  
+        {
+            this->m_typeContainer = std::string(s); 
+        }
+}
