@@ -47,11 +47,11 @@ project("Hotland")
     includedirs({
         "../Source/3rd/boost", 
         "../Source/3rd/cereal/include", 
-        "../Source/3rd/EASTL/include", 
-        "../Source/3rd/EASTL/source", 
-        "../Source/3rd/EASTL/test/packages/EABase/include/Common", 
-        "../Source/3rd/EASTL/test/packages/EAStdC/include", 
-        "../Source/3rd/EASTL/test/packages/EAAssert/include", 
+        -- "../Source/3rd/EASTL/include", 
+        -- "../Source/3rd/EASTL/source", 
+        -- "../Source/3rd/EASTL/test/packages/EABase/include/Common", 
+        -- "../Source/3rd/EASTL/test/packages/EAStdC/include", 
+        -- "../Source/3rd/EASTL/test/packages/EAAssert/include", 
         "../Source/3rd/rapidjson/include", 
 
         "../Source/Kernel",

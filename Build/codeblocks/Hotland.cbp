@@ -14,11 +14,6 @@
 				<Compiler>
 					<Add directory="../../Source/3rd/boost" />
 					<Add directory="../../Source/3rd/cereal/include" />
-					<Add directory="../../Source/3rd/EASTL/include" />
-					<Add directory="../../Source/3rd/EASTL/source" />
-					<Add directory="../../Source/3rd/EASTL/test/packages/EABase/include/Common" />
-					<Add directory="../../Source/3rd/EASTL/test/packages/EAStdC/include" />
-					<Add directory="../../Source/3rd/EASTL/test/packages/EAAssert/include" />
 					<Add directory="../../Source/3rd/rapidjson/include" />
 					<Add directory="../../Source/Kernel" />
 					<Add directory="../../Source/Kernel/IO" />
@@ -39,11 +34,6 @@
 				<Compiler>
 					<Add directory="../../Source/3rd/boost" />
 					<Add directory="../../Source/3rd/cereal/include" />
-					<Add directory="../../Source/3rd/EASTL/include" />
-					<Add directory="../../Source/3rd/EASTL/source" />
-					<Add directory="../../Source/3rd/EASTL/test/packages/EABase/include/Common" />
-					<Add directory="../../Source/3rd/EASTL/test/packages/EAStdC/include" />
-					<Add directory="../../Source/3rd/EASTL/test/packages/EAAssert/include" />
 					<Add directory="../../Source/3rd/rapidjson/include" />
 					<Add directory="../../Source/Kernel" />
 					<Add directory="../../Source/Kernel/IO" />
@@ -64,11 +54,6 @@
 				<Compiler>
 					<Add directory="../../Source/3rd/boost" />
 					<Add directory="../../Source/3rd/cereal/include" />
-					<Add directory="../../Source/3rd/EASTL/include" />
-					<Add directory="../../Source/3rd/EASTL/source" />
-					<Add directory="../../Source/3rd/EASTL/test/packages/EABase/include/Common" />
-					<Add directory="../../Source/3rd/EASTL/test/packages/EAStdC/include" />
-					<Add directory="../../Source/3rd/EASTL/test/packages/EAAssert/include" />
 					<Add directory="../../Source/3rd/rapidjson/include" />
 					<Add directory="../../Source/Kernel" />
 					<Add directory="../../Source/Kernel/IO" />
@@ -89,11 +74,6 @@
 				<Compiler>
 					<Add directory="../../Source/3rd/boost" />
 					<Add directory="../../Source/3rd/cereal/include" />
-					<Add directory="../../Source/3rd/EASTL/include" />
-					<Add directory="../../Source/3rd/EASTL/source" />
-					<Add directory="../../Source/3rd/EASTL/test/packages/EABase/include/Common" />
-					<Add directory="../../Source/3rd/EASTL/test/packages/EAStdC/include" />
-					<Add directory="../../Source/3rd/EASTL/test/packages/EAAssert/include" />
 					<Add directory="../../Source/3rd/rapidjson/include" />
 					<Add directory="../../Source/Kernel" />
 					<Add directory="../../Source/Kernel/IO" />
@@ -12895,12 +12875,6 @@
 		</Unit>
 		<Unit filename="../../Source/Kernel/Platform/PlatformInfoQuery.cpp">
 			<Option virtualFolder="Source/Kernel/Platform" />
-		</Unit>
-		<Unit filename="../../Source/Plugins/NodeGraph/Node.cpp">
-			<Option virtualFolder="Source/Plugins/NodeGraph" />
-		</Unit>
-		<Unit filename="../../Source/Plugins/NodeGraph/Variable.cpp">
-			<Option virtualFolder="Source/Plugins/NodeGraph" />
 		</Unit>
 		<Extensions>
 		</Extensions>
