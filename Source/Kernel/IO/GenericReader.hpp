@@ -27,7 +27,7 @@
 
 namespace Hotland {
     namespace IO {
-        class HOTLAND_API GenericReader : ReadWriteBase {
+        class HOTLAND_API GenericReader : public ReadWriteBase {
             public:
                 GenericReader() : ReadWriteBase() {}
                 ~GenericReader() {} 
