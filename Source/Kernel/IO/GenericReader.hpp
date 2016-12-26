@@ -21,6 +21,8 @@
 
 #pragma once 
 
+#include <string> 
+
 #include <../Compatibility/CXXCompatibility.hpp>
 
 #include <ReadWriteBase.hpp> 

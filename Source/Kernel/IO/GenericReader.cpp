@@ -19,9 +19,10 @@
  * IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#include <GenericReader.hpp>
+#include <string>
+#include <cstdio>
 
-#include <cstdio>  
+#include <GenericReader.hpp>  
 
 namespace Hotland {
     namespace IO {

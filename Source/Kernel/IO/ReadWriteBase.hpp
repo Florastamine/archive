@@ -21,10 +21,10 @@
 
 #pragma once 
 
-#include <../Compatibility/CXXCompatibility.hpp>
-
 #include <cstdio>
 #include <string>
+
+#include <../Compatibility/CXXCompatibility.hpp>
 
 namespace Hotland {
     namespace IO {
@@ -41,7 +41,7 @@ namespace Hotland {
             
             protected:
                 std::string m_fileName;
-                std::FILE *m_pInternalBlock;
+                std::FILE  *m_pInternalBlock;
         };
     }
 }
