@@ -19,4 +19,4 @@
  * IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */ 
 
-#include <PlatformInfoQuery.hpp> 
+#include "PlatformInfoQuery.hpp" 

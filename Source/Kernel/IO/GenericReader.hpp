@@ -23,9 +23,9 @@
 
 #include <string> 
 
-#include <../Compatibility/CXXCompatibility.hpp>
+#include "../Compatibility/CXXCompatibility.hpp"
 
-#include <ReadWriteBase.hpp> 
+#include "ReadWriteBase.hpp" 
 
 namespace Hotland {
     namespace IO {
@@ -45,6 +45,8 @@ namespace Hotland {
                 const char *ReadChunk(std::size_t nSize = 1024); 
 
                 std::size_t Size(int nMultiplier = 1);
+
+                std::FILE *Get() const;
             private:
         };
     }

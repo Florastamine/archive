@@ -24,7 +24,7 @@
 #include <cstdio>
 #include <string>
 
-#include <../Compatibility/CXXCompatibility.hpp>
+#include "../Compatibility/CXXCompatibility.hpp" 
 
 namespace Hotland {
     namespace IO {
@@ -38,7 +38,8 @@ namespace Hotland {
 
                 virtual void Write(const std::string &fContent) = 0;
                 virtual const char *Read(std::size_t bSize) = 0; 
-            
+
+                virtual std::FILE *Get() const = 0;
             protected:
                 std::string m_fileName;
                 std::FILE  *m_pInternalBlock;

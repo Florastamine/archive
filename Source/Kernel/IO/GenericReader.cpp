@@ -22,7 +22,7 @@
 #include <string>
 #include <cstdio>
 
-#include <GenericReader.hpp>  
+#include "GenericReader.hpp" 
 
 namespace Hotland {
     namespace IO {
@@ -105,6 +105,11 @@ namespace Hotland {
             }
 
             return s;
+        }
+
+        std::FILE *GenericReader::Get() const 
+        {
+            return m_pInternalBlock;
         }
     }
 }
