@@ -29,13 +29,15 @@ for i = 1, #UTBase, 1 do
         kind("WindowedApp") 
 
         location(UTBase[i] .. '_' .. _ACTION) 
-        targetdir(tostring(UTBase[i] .. '_' .. _ACTION .. "/Binaries")) 
+        targetdir(tostring(UTBase[i] .. '_' .. _ACTION .. "/Binaries"))  
 
-        files({tostring(UTBase[i] .. ".cpp")}) 
-
-        excludes({
-            -- 
+        files({
+            tostring(UTBase[i] .. ".cpp"), 
+            "../Source/**.cpp", 
+            "../Source/**.hpp"
         })
+
+        excludes({"../Source/main.cpp"})
 
         includedirs({
             "../Source/3rd/boost", 
@@ -47,11 +49,7 @@ for i = 1, #UTBase, 1 do
             "../Source/3rd/EASTL/test/packages/EAAssert/include", 
             "../Source/3rd/rapidjson/include", 
 
-            "../Source/Kernel",
-            "../Source/Kernel/IO",
-            "../Source/Kernel/Platform",
-            "../Source/Kernel/Compatibility", 
-
+            "../Source", 
             "./3rd"
         }) 
 
