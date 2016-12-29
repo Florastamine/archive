@@ -23,3 +23,4 @@
 
 #include "NodeGraph/Variable.hpp"
 #include "NodeGraph/Node.hpp" 
+#include "NodeGraph/Connector.hpp" 

@@ -110,5 +110,21 @@ namespace Hotland {
         private: 
             // 
             int m_mode;
-    };
+    }; 
+
+    // RendererNode is just a INode with a fixed bunch of input slots which correspond to different 
+    // properties of a typical material: ambient, reflective/gloss, emissive, and such. This is the ending 
+    // node in the node graph and it's used for rendering the final result. 
+    class HOTLAND_API RendererNode : public INode {
+        public: 
+            enum 
+            {
+                AMBIENT,   // Should be a float? 
+                ALBEDO,    // Ditto 
+                EMISSIVE,  // Should be a vec4()? Or vec3() in exchange for the absence of alpha? 
+                SPECULAR,  // Ditto? 
+                DIFFUSE    // Ditto. 
+            };  
+        private: 
+    }; 
 }
