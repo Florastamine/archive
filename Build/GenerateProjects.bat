@@ -5,7 +5,7 @@ call ICommon.bat
 
 rem Batch is a retarded language  
 for /f "delims=" %%f in (.\BuildTargetList) do (
-    IF %%f == "gmake" (
+    IF "%%f" == "gmake" (
         %INVOKE_PREMAKE% --cc=gcc --os=linux --platform=x32 %%f
     ) ELSE (
 	%INVOKE_PREMAKE% %%f 

@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{D0C3CD72-93A6-7044-8C10-07D9631CEE9C}</ProjectGuid>
+    <ProjectGuid>{2DB9EB6E-6604-F042-9D05-200460456B4A}</ProjectGuid>
     <RootNamespace>Hotland</RootNamespace>
     <Keyword>Win32Proj</Keyword>
   </PropertyGroup>
@@ -3313,6 +3313,7 @@
     <ClInclude Include="..\..\Source\Kernel\Platform\PlatformInfoQuery.hpp" />
     <ClInclude Include="..\..\Source\Plugins\NodeGraph.hpp" />
     <ClInclude Include="..\..\Source\Plugins\ostream.hpp" />
+    <ClInclude Include="..\..\Source\Plugins\NodeGraph\Connector.hpp" />
     <ClInclude Include="..\..\Source\Plugins\NodeGraph\Node.hpp" />
     <ClInclude Include="..\..\Source\Plugins\NodeGraph\Variable.hpp" />
   </ItemGroup>
@@ -3352,6 +3353,92 @@
     <ClCompile Include="..\..\Source\Kernel\Platform\PlatformDetection.cpp">
     </ClCompile>
     <ClCompile Include="..\..\Source\Kernel\Platform\PlatformInfoQuery.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\Steamworks\sdk\glmgr\cglmbuffer.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\Steamworks\sdk\glmgr\cglmfbo.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\Steamworks\sdk\glmgr\cglmprogram.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\Steamworks\sdk\glmgr\cglmquery.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\Steamworks\sdk\glmgr\cglmtex.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\Steamworks\sdk\glmgr\dx9asmtogl2.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\Steamworks\sdk\glmgr\dxabstract.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\Steamworks\sdk\glmgr\glmgr.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\Steamworks\sdk\glmgr\glmgrbasics.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\Steamworks\sdk\glmgr\glmgrext.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\Steamworks\sdk\glmgr\mathlite.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\Steamworks\sdk\steamworksexample\BaseMenu.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\Steamworks\sdk\steamworksexample\clanchatroom.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\Steamworks\sdk\steamworksexample\connectingmenu.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\Steamworks\sdk\steamworksexample\Friends.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\Steamworks\sdk\steamworksexample\gameengineps3.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\Steamworks\sdk\steamworksexample\gameenginesdl.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\Steamworks\sdk\steamworksexample\gameenginewin32.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\Steamworks\sdk\steamworksexample\htmlsurface.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\Steamworks\sdk\steamworksexample\Inventory.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\Steamworks\sdk\steamworksexample\Leaderboards.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\Steamworks\sdk\steamworksexample\Lobby.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\Steamworks\sdk\steamworksexample\Main.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\Steamworks\sdk\steamworksexample\MainMenu.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\Steamworks\sdk\steamworksexample\musicplayer.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\Steamworks\sdk\steamworksexample\p2pauth.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\Steamworks\sdk\steamworksexample\PhotonBeam.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\Steamworks\sdk\steamworksexample\QuitMenu.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\Steamworks\sdk\steamworksexample\RemoteStorage.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\Steamworks\sdk\steamworksexample\remotestoragesync.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\Steamworks\sdk\steamworksexample\ServerBrowser.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\Steamworks\sdk\steamworksexample\Ship.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\Steamworks\sdk\steamworksexample\SimpleProtobuf.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\Steamworks\sdk\steamworksexample\SpaceWarClient.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\Steamworks\sdk\steamworksexample\SpaceWarEntity.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\Steamworks\sdk\steamworksexample\SpaceWarServer.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\Steamworks\sdk\steamworksexample\StarField.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\Steamworks\sdk\steamworksexample\StatsAndAchievements.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\Steamworks\sdk\steamworksexample\stdafx.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\Steamworks\sdk\steamworksexample\Sun.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\Steamworks\sdk\steamworksexample\VectorEntity.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\Steamworks\sdk\steamworksexample\voicechat.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Kernel\Steamworks\sdk\steamworksexample\glew.c">
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
