@@ -109,7 +109,7 @@ namespace Hotland {
 
         std::FILE *GenericReader::Get() const 
         {
-            return m_pInternalBlock;
+            return this->m_pInternalBlock;
         }
     }
 }
