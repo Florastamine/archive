@@ -3636,57 +3636,6 @@
           <File Name="../../Source/Kernel/Platform/PlatformInfoQuery.cpp"/>
           <File Name="../../Source/Kernel/Platform/PlatformInfoQuery.hpp"/>
         </VirtualDirectory>
-        <VirtualDirectory Name="Steamworks">
-          <VirtualDirectory Name="sdk">
-            <VirtualDirectory Name="glmgr">
-              <File Name="../../Source/Kernel/Steamworks/sdk/glmgr/cglmbuffer.cpp"/>
-              <File Name="../../Source/Kernel/Steamworks/sdk/glmgr/cglmfbo.cpp"/>
-              <File Name="../../Source/Kernel/Steamworks/sdk/glmgr/cglmprogram.cpp"/>
-              <File Name="../../Source/Kernel/Steamworks/sdk/glmgr/cglmquery.cpp"/>
-              <File Name="../../Source/Kernel/Steamworks/sdk/glmgr/cglmtex.cpp"/>
-              <File Name="../../Source/Kernel/Steamworks/sdk/glmgr/dx9asmtogl2.cpp"/>
-              <File Name="../../Source/Kernel/Steamworks/sdk/glmgr/dxabstract.cpp"/>
-              <File Name="../../Source/Kernel/Steamworks/sdk/glmgr/glmgr.cpp"/>
-              <File Name="../../Source/Kernel/Steamworks/sdk/glmgr/glmgrbasics.cpp"/>
-              <File Name="../../Source/Kernel/Steamworks/sdk/glmgr/glmgrext.cpp"/>
-              <File Name="../../Source/Kernel/Steamworks/sdk/glmgr/mathlite.cpp"/>
-            </VirtualDirectory>
-            <VirtualDirectory Name="steamworksexample">
-              <File Name="../../Source/Kernel/Steamworks/sdk/steamworksexample/BaseMenu.cpp"/>
-              <File Name="../../Source/Kernel/Steamworks/sdk/steamworksexample/Friends.cpp"/>
-              <File Name="../../Source/Kernel/Steamworks/sdk/steamworksexample/Inventory.cpp"/>
-              <File Name="../../Source/Kernel/Steamworks/sdk/steamworksexample/Leaderboards.cpp"/>
-              <File Name="../../Source/Kernel/Steamworks/sdk/steamworksexample/Lobby.cpp"/>
-              <File Name="../../Source/Kernel/Steamworks/sdk/steamworksexample/Main.cpp"/>
-              <File Name="../../Source/Kernel/Steamworks/sdk/steamworksexample/MainMenu.cpp"/>
-              <File Name="../../Source/Kernel/Steamworks/sdk/steamworksexample/PhotonBeam.cpp"/>
-              <File Name="../../Source/Kernel/Steamworks/sdk/steamworksexample/QuitMenu.cpp"/>
-              <File Name="../../Source/Kernel/Steamworks/sdk/steamworksexample/RemoteStorage.cpp"/>
-              <File Name="../../Source/Kernel/Steamworks/sdk/steamworksexample/ServerBrowser.cpp"/>
-              <File Name="../../Source/Kernel/Steamworks/sdk/steamworksexample/Ship.cpp"/>
-              <File Name="../../Source/Kernel/Steamworks/sdk/steamworksexample/SimpleProtobuf.cpp"/>
-              <File Name="../../Source/Kernel/Steamworks/sdk/steamworksexample/SpaceWarClient.cpp"/>
-              <File Name="../../Source/Kernel/Steamworks/sdk/steamworksexample/SpaceWarEntity.cpp"/>
-              <File Name="../../Source/Kernel/Steamworks/sdk/steamworksexample/SpaceWarServer.cpp"/>
-              <File Name="../../Source/Kernel/Steamworks/sdk/steamworksexample/StarField.cpp"/>
-              <File Name="../../Source/Kernel/Steamworks/sdk/steamworksexample/StatsAndAchievements.cpp"/>
-              <File Name="../../Source/Kernel/Steamworks/sdk/steamworksexample/Sun.cpp"/>
-              <File Name="../../Source/Kernel/Steamworks/sdk/steamworksexample/VectorEntity.cpp"/>
-              <File Name="../../Source/Kernel/Steamworks/sdk/steamworksexample/clanchatroom.cpp"/>
-              <File Name="../../Source/Kernel/Steamworks/sdk/steamworksexample/connectingmenu.cpp"/>
-              <File Name="../../Source/Kernel/Steamworks/sdk/steamworksexample/gameengineps3.cpp"/>
-              <File Name="../../Source/Kernel/Steamworks/sdk/steamworksexample/gameenginesdl.cpp"/>
-              <File Name="../../Source/Kernel/Steamworks/sdk/steamworksexample/gameenginewin32.cpp"/>
-              <File Name="../../Source/Kernel/Steamworks/sdk/steamworksexample/glew.c"/>
-              <File Name="../../Source/Kernel/Steamworks/sdk/steamworksexample/htmlsurface.cpp"/>
-              <File Name="../../Source/Kernel/Steamworks/sdk/steamworksexample/musicplayer.cpp"/>
-              <File Name="../../Source/Kernel/Steamworks/sdk/steamworksexample/p2pauth.cpp"/>
-              <File Name="../../Source/Kernel/Steamworks/sdk/steamworksexample/remotestoragesync.cpp"/>
-              <File Name="../../Source/Kernel/Steamworks/sdk/steamworksexample/stdafx.cpp"/>
-              <File Name="../../Source/Kernel/Steamworks/sdk/steamworksexample/voicechat.cpp"/>
-            </VirtualDirectory>
-          </VirtualDirectory>
-        </VirtualDirectory>
       </VirtualDirectory>
       <VirtualDirectory Name="Plugins">
         <VirtualDirectory Name="NodeGraph">

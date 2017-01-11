@@ -41,7 +41,8 @@ project("Hotland")
     }) 
 
     excludes({ -- Files to be excluded out of the project. 
-        "../UTs/**.*"
+        "../UTs/**.*", 
+        "../Source/Kernel/Steamworks/sdk/**.*"
     })
 
     includedirs({
