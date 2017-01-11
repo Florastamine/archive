@@ -41,3 +41,6 @@ main.cpp
 *.ilk 
 *.pdb 
 *.db 
+
+# Steam 
+Source/Kernel/Steamworks/sdk
