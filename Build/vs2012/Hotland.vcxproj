@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{778A0D6D-9F39-9046-BEBA-C239F6406DE8}</ProjectGuid>
+    <ProjectGuid>{14CF1EEF-E668-3447-999D-63DD035C6F14}</ProjectGuid>
     <RootNamespace>Hotland</RootNamespace>
     <Keyword>Win32Proj</Keyword>
   </PropertyGroup>
@@ -96,7 +96,7 @@
     <ClCompile>
       <AdditionalOptions>/Od /RTC /sdl /Wall %(AdditionalOptions)</AdditionalOptions>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\..\Source\3rd\boost;..\..\Source\3rd\cereal\include;..\..\Source\3rd\EASTL\include;..\..\Source\3rd\EASTL\source;..\..\Source\3rd\EASTL\test\packages\EABase\include\Common;..\..\Source\3rd\EASTL\test\packages\EAStdC\include;..\..\Source\3rd\EASTL\test\packages\EAAssert\include;..\..\Source\3rd\rapidjson\include;..\..\Source\Kernel;..\..\Source\Kernel\IO;..\..\Source\Kernel\Platform;..\..\Source\Kernel\Compatibility;..\..\Source\Plugins;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\Source\3rd\boost;..\..\Source\3rd\cereal\include;..\..\Source\3rd\rapidjson\include;..\..\Source\Kernel;..\..\Source\Kernel\IO;..\..\Source\Kernel\Platform;..\..\Source\Kernel\Compatibility;..\..\Source\Plugins;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>DEBUG;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_ALLOW_KEYWORD_MACROS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -108,7 +108,7 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>DEBUG;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_ALLOW_KEYWORD_MACROS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\..\Source\3rd\boost;..\..\Source\3rd\cereal\include;..\..\Source\3rd\EASTL\include;..\..\Source\3rd\EASTL\source;..\..\Source\3rd\EASTL\test\packages\EABase\include\Common;..\..\Source\3rd\EASTL\test\packages\EAStdC\include;..\..\Source\3rd\EASTL\test\packages\EAAssert\include;..\..\Source\3rd\rapidjson\include;..\..\Source\Kernel;..\..\Source\Kernel\IO;..\..\Source\Kernel\Platform;..\..\Source\Kernel\Compatibility;..\..\Source\Plugins;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\Source\3rd\boost;..\..\Source\3rd\cereal\include;..\..\Source\3rd\rapidjson\include;..\..\Source\Kernel;..\..\Source\Kernel\IO;..\..\Source\Kernel\Platform;..\..\Source\Kernel\Compatibility;..\..\Source\Plugins;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -121,7 +121,7 @@
     <ClCompile>
       <AdditionalOptions>/Od /RTC /sdl /Wall %(AdditionalOptions)</AdditionalOptions>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\..\Source\3rd\boost;..\..\Source\3rd\cereal\include;..\..\Source\3rd\EASTL\include;..\..\Source\3rd\EASTL\source;..\..\Source\3rd\EASTL\test\packages\EABase\include\Common;..\..\Source\3rd\EASTL\test\packages\EAStdC\include;..\..\Source\3rd\EASTL\test\packages\EAAssert\include;..\..\Source\3rd\rapidjson\include;..\..\Source\Kernel;..\..\Source\Kernel\IO;..\..\Source\Kernel\Platform;..\..\Source\Kernel\Compatibility;..\..\Source\Plugins;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\Source\3rd\boost;..\..\Source\3rd\cereal\include;..\..\Source\3rd\rapidjson\include;..\..\Source\Kernel;..\..\Source\Kernel\IO;..\..\Source\Kernel\Platform;..\..\Source\Kernel\Compatibility;..\..\Source\Plugins;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>DEBUG;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_ALLOW_KEYWORD_MACROS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -133,7 +133,7 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>DEBUG;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_ALLOW_KEYWORD_MACROS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\..\Source\3rd\boost;..\..\Source\3rd\cereal\include;..\..\Source\3rd\EASTL\include;..\..\Source\3rd\EASTL\source;..\..\Source\3rd\EASTL\test\packages\EABase\include\Common;..\..\Source\3rd\EASTL\test\packages\EAStdC\include;..\..\Source\3rd\EASTL\test\packages\EAAssert\include;..\..\Source\3rd\rapidjson\include;..\..\Source\Kernel;..\..\Source\Kernel\IO;..\..\Source\Kernel\Platform;..\..\Source\Kernel\Compatibility;..\..\Source\Plugins;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\Source\3rd\boost;..\..\Source\3rd\cereal\include;..\..\Source\3rd\rapidjson\include;..\..\Source\Kernel;..\..\Source\Kernel\IO;..\..\Source\Kernel\Platform;..\..\Source\Kernel\Compatibility;..\..\Source\Plugins;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -146,7 +146,7 @@
     <ClCompile>
       <AdditionalOptions>/Od /RTC /sdl /Wall %(AdditionalOptions)</AdditionalOptions>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\..\Source\3rd\boost;..\..\Source\3rd\cereal\include;..\..\Source\3rd\EASTL\include;..\..\Source\3rd\EASTL\source;..\..\Source\3rd\EASTL\test\packages\EABase\include\Common;..\..\Source\3rd\EASTL\test\packages\EAStdC\include;..\..\Source\3rd\EASTL\test\packages\EAAssert\include;..\..\Source\3rd\rapidjson\include;..\..\Source\Kernel;..\..\Source\Kernel\IO;..\..\Source\Kernel\Platform;..\..\Source\Kernel\Compatibility;..\..\Source\Plugins;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\Source\3rd\boost;..\..\Source\3rd\cereal\include;..\..\Source\3rd\rapidjson\include;..\..\Source\Kernel;..\..\Source\Kernel\IO;..\..\Source\Kernel\Platform;..\..\Source\Kernel\Compatibility;..\..\Source\Plugins;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>DEBUG;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_ALLOW_KEYWORD_MACROS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -158,7 +158,7 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>DEBUG;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_ALLOW_KEYWORD_MACROS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\..\Source\3rd\boost;..\..\Source\3rd\cereal\include;..\..\Source\3rd\EASTL\include;..\..\Source\3rd\EASTL\source;..\..\Source\3rd\EASTL\test\packages\EABase\include\Common;..\..\Source\3rd\EASTL\test\packages\EAStdC\include;..\..\Source\3rd\EASTL\test\packages\EAAssert\include;..\..\Source\3rd\rapidjson\include;..\..\Source\Kernel;..\..\Source\Kernel\IO;..\..\Source\Kernel\Platform;..\..\Source\Kernel\Compatibility;..\..\Source\Plugins;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\Source\3rd\boost;..\..\Source\3rd\cereal\include;..\..\Source\3rd\rapidjson\include;..\..\Source\Kernel;..\..\Source\Kernel\IO;..\..\Source\Kernel\Platform;..\..\Source\Kernel\Compatibility;..\..\Source\Plugins;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -171,7 +171,7 @@
     <ClCompile>
       <AdditionalOptions>/Od /RTC /sdl /Wall %(AdditionalOptions)</AdditionalOptions>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\..\Source\3rd\boost;..\..\Source\3rd\cereal\include;..\..\Source\3rd\EASTL\include;..\..\Source\3rd\EASTL\source;..\..\Source\3rd\EASTL\test\packages\EABase\include\Common;..\..\Source\3rd\EASTL\test\packages\EAStdC\include;..\..\Source\3rd\EASTL\test\packages\EAAssert\include;..\..\Source\3rd\rapidjson\include;..\..\Source\Kernel;..\..\Source\Kernel\IO;..\..\Source\Kernel\Platform;..\..\Source\Kernel\Compatibility;..\..\Source\Plugins;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\Source\3rd\boost;..\..\Source\3rd\cereal\include;..\..\Source\3rd\rapidjson\include;..\..\Source\Kernel;..\..\Source\Kernel\IO;..\..\Source\Kernel\Platform;..\..\Source\Kernel\Compatibility;..\..\Source\Plugins;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>DEBUG;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_ALLOW_KEYWORD_MACROS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -183,7 +183,7 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>DEBUG;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_ALLOW_KEYWORD_MACROS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\..\Source\3rd\boost;..\..\Source\3rd\cereal\include;..\..\Source\3rd\EASTL\include;..\..\Source\3rd\EASTL\source;..\..\Source\3rd\EASTL\test\packages\EABase\include\Common;..\..\Source\3rd\EASTL\test\packages\EAStdC\include;..\..\Source\3rd\EASTL\test\packages\EAAssert\include;..\..\Source\3rd\rapidjson\include;..\..\Source\Kernel;..\..\Source\Kernel\IO;..\..\Source\Kernel\Platform;..\..\Source\Kernel\Compatibility;..\..\Source\Plugins;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\Source\3rd\boost;..\..\Source\3rd\cereal\include;..\..\Source\3rd\rapidjson\include;..\..\Source\Kernel;..\..\Source\Kernel\IO;..\..\Source\Kernel\Platform;..\..\Source\Kernel\Compatibility;..\..\Source\Plugins;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -3313,34 +3313,13 @@
     <ClInclude Include="..\..\Source\Kernel\Platform\PlatformInfoQuery.hpp" />
     <ClInclude Include="..\..\Source\Plugins\NodeGraph.hpp" />
     <ClInclude Include="..\..\Source\Plugins\ostream.hpp" />
+    <ClInclude Include="..\..\Source\Plugins\NodeGraph\BaseType.hpp" />
     <ClInclude Include="..\..\Source\Plugins\NodeGraph\Connector.hpp" />
     <ClInclude Include="..\..\Source\Plugins\NodeGraph\Node.hpp" />
     <ClInclude Include="..\..\Source\Plugins\NodeGraph\Variable.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\main.cpp">
-    </ClCompile>
-    <ClCompile Include="..\..\Source\3rd\EASTL\source\allocator_eastl.cpp">
-    </ClCompile>
-    <ClCompile Include="..\..\Source\3rd\EASTL\source\assert.cpp">
-    </ClCompile>
-    <ClCompile Include="..\..\Source\3rd\EASTL\source\fixed_pool.cpp">
-    </ClCompile>
-    <ClCompile Include="..\..\Source\3rd\EASTL\source\hashtable.cpp">
-    </ClCompile>
-    <ClCompile Include="..\..\Source\3rd\EASTL\source\intrusive_list.cpp">
-    </ClCompile>
-    <ClCompile Include="..\..\Source\3rd\EASTL\source\numeric_limits.cpp">
-    </ClCompile>
-    <ClCompile Include="..\..\Source\3rd\EASTL\source\red_black_tree.cpp">
-    </ClCompile>
-    <ClCompile Include="..\..\Source\3rd\EASTL\source\string.cpp">
-    </ClCompile>
-    <ClCompile Include="..\..\Source\3rd\EASTL\source\thread_support.cpp">
-    </ClCompile>
-    <ClCompile Include="..\..\Source\3rd\EASTL\test\packages\EAStdC\source\EAMemory.cpp">
-    </ClCompile>
-    <ClCompile Include="..\..\Source\3rd\EASTL\test\packages\EAStdC\source\EASprintf.cpp">
     </ClCompile>
     <ClCompile Include="..\..\Source\Kernel\Exception.cpp">
     </ClCompile>

@@ -14,11 +14,6 @@
 				<Compiler>
 					<Add directory="../../Source/3rd/boost" />
 					<Add directory="../../Source/3rd/cereal/include" />
-					<Add directory="../../Source/3rd/EASTL/include" />
-					<Add directory="../../Source/3rd/EASTL/source" />
-					<Add directory="../../Source/3rd/EASTL/test/packages/EABase/include/Common" />
-					<Add directory="../../Source/3rd/EASTL/test/packages/EAStdC/include" />
-					<Add directory="../../Source/3rd/EASTL/test/packages/EAAssert/include" />
 					<Add directory="../../Source/3rd/rapidjson/include" />
 					<Add directory="../../Source/Kernel" />
 					<Add directory="../../Source/Kernel/IO" />
@@ -39,11 +34,6 @@
 				<Compiler>
 					<Add directory="../../Source/3rd/boost" />
 					<Add directory="../../Source/3rd/cereal/include" />
-					<Add directory="../../Source/3rd/EASTL/include" />
-					<Add directory="../../Source/3rd/EASTL/source" />
-					<Add directory="../../Source/3rd/EASTL/test/packages/EABase/include/Common" />
-					<Add directory="../../Source/3rd/EASTL/test/packages/EAStdC/include" />
-					<Add directory="../../Source/3rd/EASTL/test/packages/EAAssert/include" />
 					<Add directory="../../Source/3rd/rapidjson/include" />
 					<Add directory="../../Source/Kernel" />
 					<Add directory="../../Source/Kernel/IO" />
@@ -64,11 +54,6 @@
 				<Compiler>
 					<Add directory="../../Source/3rd/boost" />
 					<Add directory="../../Source/3rd/cereal/include" />
-					<Add directory="../../Source/3rd/EASTL/include" />
-					<Add directory="../../Source/3rd/EASTL/source" />
-					<Add directory="../../Source/3rd/EASTL/test/packages/EABase/include/Common" />
-					<Add directory="../../Source/3rd/EASTL/test/packages/EAStdC/include" />
-					<Add directory="../../Source/3rd/EASTL/test/packages/EAAssert/include" />
 					<Add directory="../../Source/3rd/rapidjson/include" />
 					<Add directory="../../Source/Kernel" />
 					<Add directory="../../Source/Kernel/IO" />
@@ -89,11 +74,6 @@
 				<Compiler>
 					<Add directory="../../Source/3rd/boost" />
 					<Add directory="../../Source/3rd/cereal/include" />
-					<Add directory="../../Source/3rd/EASTL/include" />
-					<Add directory="../../Source/3rd/EASTL/source" />
-					<Add directory="../../Source/3rd/EASTL/test/packages/EABase/include/Common" />
-					<Add directory="../../Source/3rd/EASTL/test/packages/EAStdC/include" />
-					<Add directory="../../Source/3rd/EASTL/test/packages/EAAssert/include" />
 					<Add directory="../../Source/3rd/rapidjson/include" />
 					<Add directory="../../Source/Kernel" />
 					<Add directory="../../Source/Kernel/IO" />
@@ -9473,6 +9453,9 @@
 		<Unit filename="../../Source/Plugins/ostream.hpp">
 			<Option virtualFolder="Source/Plugins" />
 		</Unit>
+		<Unit filename="../../Source/Plugins/NodeGraph/BaseType.hpp">
+			<Option virtualFolder="Source/Plugins/NodeGraph" />
+		</Unit>
 		<Unit filename="../../Source/Plugins/NodeGraph/Connector.hpp">
 			<Option virtualFolder="Source/Plugins/NodeGraph" />
 		</Unit>
@@ -9484,39 +9467,6 @@
 		</Unit>
 		<Unit filename="../../Source/main.cpp">
 			<Option virtualFolder="Source" />
-		</Unit>
-		<Unit filename="../../Source/3rd/EASTL/source/allocator_eastl.cpp">
-			<Option virtualFolder="Source/3rd/EASTL/source" />
-		</Unit>
-		<Unit filename="../../Source/3rd/EASTL/source/assert.cpp">
-			<Option virtualFolder="Source/3rd/EASTL/source" />
-		</Unit>
-		<Unit filename="../../Source/3rd/EASTL/source/fixed_pool.cpp">
-			<Option virtualFolder="Source/3rd/EASTL/source" />
-		</Unit>
-		<Unit filename="../../Source/3rd/EASTL/source/hashtable.cpp">
-			<Option virtualFolder="Source/3rd/EASTL/source" />
-		</Unit>
-		<Unit filename="../../Source/3rd/EASTL/source/intrusive_list.cpp">
-			<Option virtualFolder="Source/3rd/EASTL/source" />
-		</Unit>
-		<Unit filename="../../Source/3rd/EASTL/source/numeric_limits.cpp">
-			<Option virtualFolder="Source/3rd/EASTL/source" />
-		</Unit>
-		<Unit filename="../../Source/3rd/EASTL/source/red_black_tree.cpp">
-			<Option virtualFolder="Source/3rd/EASTL/source" />
-		</Unit>
-		<Unit filename="../../Source/3rd/EASTL/source/string.cpp">
-			<Option virtualFolder="Source/3rd/EASTL/source" />
-		</Unit>
-		<Unit filename="../../Source/3rd/EASTL/source/thread_support.cpp">
-			<Option virtualFolder="Source/3rd/EASTL/source" />
-		</Unit>
-		<Unit filename="../../Source/3rd/EASTL/test/packages/EAStdC/source/EAMemory.cpp">
-			<Option virtualFolder="Source/3rd/EASTL/test/packages/EAStdC/source" />
-		</Unit>
-		<Unit filename="../../Source/3rd/EASTL/test/packages/EAStdC/source/EASprintf.cpp">
-			<Option virtualFolder="Source/3rd/EASTL/test/packages/EAStdC/source" />
 		</Unit>
 		<Unit filename="../../Source/Kernel/Exception.cpp">
 			<Option virtualFolder="Source/Kernel" />

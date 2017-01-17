@@ -3,29 +3,6 @@
   <VirtualDirectory Name="Hotland">
     <VirtualDirectory Name="Source">
       <VirtualDirectory Name="3rd">
-        <VirtualDirectory Name="EASTL">
-          <VirtualDirectory Name="source">
-            <File Name="../../Source/3rd/EASTL/source/allocator_eastl.cpp"/>
-            <File Name="../../Source/3rd/EASTL/source/assert.cpp"/>
-            <File Name="../../Source/3rd/EASTL/source/fixed_pool.cpp"/>
-            <File Name="../../Source/3rd/EASTL/source/hashtable.cpp"/>
-            <File Name="../../Source/3rd/EASTL/source/intrusive_list.cpp"/>
-            <File Name="../../Source/3rd/EASTL/source/numeric_limits.cpp"/>
-            <File Name="../../Source/3rd/EASTL/source/red_black_tree.cpp"/>
-            <File Name="../../Source/3rd/EASTL/source/string.cpp"/>
-            <File Name="../../Source/3rd/EASTL/source/thread_support.cpp"/>
-          </VirtualDirectory>
-          <VirtualDirectory Name="test">
-            <VirtualDirectory Name="packages">
-              <VirtualDirectory Name="EAStdC">
-                <VirtualDirectory Name="source">
-                  <File Name="../../Source/3rd/EASTL/test/packages/EAStdC/source/EAMemory.cpp"/>
-                  <File Name="../../Source/3rd/EASTL/test/packages/EAStdC/source/EASprintf.cpp"/>
-                </VirtualDirectory>
-              </VirtualDirectory>
-            </VirtualDirectory>
-          </VirtualDirectory>
-        </VirtualDirectory>
         <VirtualDirectory Name="boost">
           <VirtualDirectory Name="boost">
             <VirtualDirectory Name="align">
@@ -3639,6 +3616,7 @@
       </VirtualDirectory>
       <VirtualDirectory Name="Plugins">
         <VirtualDirectory Name="NodeGraph">
+          <File Name="../../Source/Plugins/NodeGraph/BaseType.hpp"/>
           <File Name="../../Source/Plugins/NodeGraph/Connector.hpp"/>
           <File Name="../../Source/Plugins/NodeGraph/Node.hpp"/>
           <File Name="../../Source/Plugins/NodeGraph/Variable.hpp"/>
@@ -3655,11 +3633,6 @@
       <Compiler Required="yes" Options="">
         <IncludePath Value="../../Source/3rd/boost"/>
         <IncludePath Value="../../Source/3rd/cereal/include"/>
-        <IncludePath Value="../../Source/3rd/EASTL/include"/>
-        <IncludePath Value="../../Source/3rd/EASTL/source"/>
-        <IncludePath Value="../../Source/3rd/EASTL/test/packages/EABase/include/Common"/>
-        <IncludePath Value="../../Source/3rd/EASTL/test/packages/EAStdC/include"/>
-        <IncludePath Value="../../Source/3rd/EASTL/test/packages/EAAssert/include"/>
         <IncludePath Value="../../Source/3rd/rapidjson/include"/>
         <IncludePath Value="../../Source/Kernel"/>
         <IncludePath Value="../../Source/Kernel/IO"/>
@@ -3688,11 +3661,6 @@
       <Compiler Required="yes" Options="">
         <IncludePath Value="../../Source/3rd/boost"/>
         <IncludePath Value="../../Source/3rd/cereal/include"/>
-        <IncludePath Value="../../Source/3rd/EASTL/include"/>
-        <IncludePath Value="../../Source/3rd/EASTL/source"/>
-        <IncludePath Value="../../Source/3rd/EASTL/test/packages/EABase/include/Common"/>
-        <IncludePath Value="../../Source/3rd/EASTL/test/packages/EAStdC/include"/>
-        <IncludePath Value="../../Source/3rd/EASTL/test/packages/EAAssert/include"/>
         <IncludePath Value="../../Source/3rd/rapidjson/include"/>
         <IncludePath Value="../../Source/Kernel"/>
         <IncludePath Value="../../Source/Kernel/IO"/>
@@ -3721,11 +3689,6 @@
       <Compiler Required="yes" Options="">
         <IncludePath Value="../../Source/3rd/boost"/>
         <IncludePath Value="../../Source/3rd/cereal/include"/>
-        <IncludePath Value="../../Source/3rd/EASTL/include"/>
-        <IncludePath Value="../../Source/3rd/EASTL/source"/>
-        <IncludePath Value="../../Source/3rd/EASTL/test/packages/EABase/include/Common"/>
-        <IncludePath Value="../../Source/3rd/EASTL/test/packages/EAStdC/include"/>
-        <IncludePath Value="../../Source/3rd/EASTL/test/packages/EAAssert/include"/>
         <IncludePath Value="../../Source/3rd/rapidjson/include"/>
         <IncludePath Value="../../Source/Kernel"/>
         <IncludePath Value="../../Source/Kernel/IO"/>
@@ -3754,11 +3717,6 @@
       <Compiler Required="yes" Options="">
         <IncludePath Value="../../Source/3rd/boost"/>
         <IncludePath Value="../../Source/3rd/cereal/include"/>
-        <IncludePath Value="../../Source/3rd/EASTL/include"/>
-        <IncludePath Value="../../Source/3rd/EASTL/source"/>
-        <IncludePath Value="../../Source/3rd/EASTL/test/packages/EABase/include/Common"/>
-        <IncludePath Value="../../Source/3rd/EASTL/test/packages/EAStdC/include"/>
-        <IncludePath Value="../../Source/3rd/EASTL/test/packages/EAAssert/include"/>
         <IncludePath Value="../../Source/3rd/rapidjson/include"/>
         <IncludePath Value="../../Source/Kernel"/>
         <IncludePath Value="../../Source/Kernel/IO"/>
