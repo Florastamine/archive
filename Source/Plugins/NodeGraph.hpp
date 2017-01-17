@@ -21,6 +21,7 @@
 
 #pragma once 
 
+#include "NodeGraph/BaseType.hpp" 
 #include "NodeGraph/Variable.hpp"
 #include "NodeGraph/Node.hpp" 
-#include "NodeGraph/Connector.hpp" 
+// #include "NodeGraph/Connector.hpp" 

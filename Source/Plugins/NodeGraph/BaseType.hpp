@@ -21,18 +21,18 @@
 
 #pragma once 
 
-#include "NodeGraph.hpp" 
+namespace Hotland { namespace Plugins { namespace NodeGraph { 
+    namespace BaseType {
+        enum 
+        {
+            TYPE_INT, TYPE_LONG, TYPE_FLOAT, TYPE_DOUBLE, TYPE_STRING 
+        }; 
+    } 
 
-static auto Get42Line() -> std::string { static const std::string line('_', 42); return line; }
-
-inline auto operator<<(std::ostream &stream, const Hotland::Plugins::NodeGraph::Variable &V) -> std::ostream & 
-{
-    stream << Get42Line() << '\n'; 
-    stream << "Variable [" << &V << "]'s contents:\n"; 
-    stream << "Real name: [" << V.GetName() << "]; Unique ID: " << V.GetID() << "]\n"; 
-    stream << "Underlying type name: [" << V.GetTypeName() << "]; Underlying type ID: [" << V.GetTypeID() << "]\n"; 
-    stream << Get42Line() << '\n'; 
-    stream << std::flush;
-
-    return stream;
-}
+    namespace BaseIOMode { 
+        enum 
+        {
+            IN, OUT 
+        }; 
+    }
+} } } 

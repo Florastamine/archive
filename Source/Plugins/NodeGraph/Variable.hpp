@@ -24,10 +24,14 @@
 #include <boost/variant.hpp> 
 
 #include "../../Source/Kernel/Compatibility/CXXCompatibility.hpp" 
+#include "BaseType.hpp" 
 
 #include <stdint.h> // Somehow Visual Studio Code slashes a line under the inclusion of <cstdint>, 
                     // So I have to resort back to <stdint.h>. For uint32_t. 
+
 #include <string> 
+
+using namespace Hotland::Plugins::NodeGraph::BaseType;
 
 #define HOTLAND_DEFINE_CONSTANT_VARIABLE_BASE_TYPE(TypeID) \
     template <int nType> struct CTypeName { \
@@ -51,16 +55,7 @@
         break; \
     }
 
-namespace Hotland { 
-    enum 
-    {
-        TYPE_INT, 
-        TYPE_LONG, 
-        TYPE_FLOAT, 
-        TYPE_DOUBLE, 
-        TYPE_STRING 
-    }; 
-
+namespace Hotland { namespace Plugins { namespace NodeGraph { 
     HOTLAND_DEFINE_CONSTANT_VARIABLE_BASE_TYPE();
     HOTLAND_DEFINE_CONSTANT_VARIABLE_TYPE(TYPE_INT, "Integer type");
     HOTLAND_DEFINE_CONSTANT_VARIABLE_TYPE(TYPE_LONG, "Long type");
@@ -86,7 +81,8 @@ namespace Hotland {
             {
             }
 
-            Variable(int cType) 
+            Variable(int cType) : 
+                m_ID()
             {
                 switch(m_typeID = cType, cType) {
                     HOTLAND_DEFINE_CONSTANT_VARIABLE_CASE(TYPE_INT);
@@ -95,8 +91,6 @@ namespace Hotland {
                     HOTLAND_DEFINE_CONSTANT_VARIABLE_CASE(TYPE_DOUBLE);
                     HOTLAND_DEFINE_CONSTANT_VARIABLE_CASE(TYPE_STRING);
                 }
-
-                m_ID = 0; 
             }
 
             Variable(const Variable &V)
@@ -163,4 +157,4 @@ namespace Hotland {
         {
             this->m_typeContainer = std::string(s); 
         }
-}
+} } } 

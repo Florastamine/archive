@@ -23,15 +23,16 @@
 
 #include "../../Source/Kernel/Compatibility/CXXCompatibility.hpp" 
 
+#include "BaseType.hpp" 
 #include "Variable.hpp" 
 
 #include <stdint.h> 
 #include <vector> 
 
-namespace Hotland { 
-    enum { IN, OUT }; 
+using namespace Hotland::Plugins::NodeGraph::BaseIOMode;
 
-    class /* HOTLAND_API */ Node { 
+namespace Hotland { namespace Plugins { namespace NodeGraph { 
+    class /* HOTLAND_API */ BaseNode { 
         public: 
             virtual auto IsEmpty() const -> bool = 0; 
             virtual auto Get() const -> std::vector<Variable> = 0;
@@ -50,7 +51,7 @@ namespace Hotland {
             uint32_t    m_ID;
     };
 
-    class HOTLAND_API INode : public virtual Node {
+    class HOTLAND_API INode : public virtual BaseNode {
         public:
             inline auto IsEmpty() const -> bool { return !(this->m_listIn.size()); } 
 
@@ -67,7 +68,7 @@ namespace Hotland {
             std::vector<Variable> m_listIn;
     }; 
 
-    class HOTLAND_API ONode : public virtual Node {
+    class HOTLAND_API ONode : public virtual BaseNode {
         public:
             inline auto IsEmpty() const -> bool { return !(this->m_listOut.size()); } 
 
@@ -127,4 +128,4 @@ namespace Hotland {
             };  
         private: 
     }; 
-}
+} } } 
