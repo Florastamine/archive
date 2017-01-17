@@ -81,15 +81,13 @@ namespace Hotland {
             Variable() : 
                 m_typeID(TYPE_INT), 
                 m_typeName(CTypeName<TYPE_INT>::GetName()), 
-                m_ID(reinterpret_cast<uint32_t>(this)), 
+                m_ID(), 
                 m_name() 
             {
             }
 
             Variable(int cType) 
             {
-                m_typeID = cType;
-
                 switch(m_typeID = cType, cType) {
                     HOTLAND_DEFINE_CONSTANT_VARIABLE_CASE(TYPE_INT);
                     HOTLAND_DEFINE_CONSTANT_VARIABLE_CASE(TYPE_LONG);
@@ -98,7 +96,7 @@ namespace Hotland {
                     HOTLAND_DEFINE_CONSTANT_VARIABLE_CASE(TYPE_STRING);
                 }
 
-                m_ID = reinterpret_cast<uint32_t>(this); 
+                m_ID = 0; 
             }
 
             Variable(const Variable &V)
