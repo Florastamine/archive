@@ -1,5 +1,7 @@
 # Hotland 
 
+Hotland aims to be a core set of functionalities for subsystem initialization, logging, I/O, serialization, MT, Unicode and bootstrapping engine for applications, specifically game engines.
+
 [![Build Status](https://travis-ci.org/Florastamine/Hotland.svg?branch=master)](https://travis-ci.org/Florastamine/Hotland)
 
 ## Build instructions 
