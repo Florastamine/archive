@@ -41,7 +41,7 @@ unsigned nc_terminal_get_height();
 WINDOW *nc_window_new(int w, int h, int x, int y, const char *title);
 void nc_window_free(WINDOW *window);
 
-void nc_window_add_string(WINDOW *window, const char *string, int x, int y);
+void nc_window_draw_string(WINDOW *window, const char *string, int x, int y);
 void nc_window_draw_rectangle(WINDOW *window, int x1, int y1, int x2, int y2);
 void nc_window_draw_circle(WINDOW *window, int x, int y, int radius, const char *filler);
 

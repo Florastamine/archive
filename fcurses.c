@@ -58,7 +58,7 @@ WINDOW *nc_window_new(int w, int h, int x, int y, const char *title)
   wrefresh(window);
   
   if (NULL != title)
-    nc_window_add_string(window, title, (nc_window_get_width(window) - strlen(title)) / 2, 0);
+    nc_window_draw_string(window, title, (nc_window_get_width(window) - strlen(title)) / 2, 0);
   
   return window;
 }
@@ -69,7 +69,7 @@ void nc_window_free(WINDOW *window)
     delwin(window);
 }
 
-void nc_window_add_string(WINDOW *window, const char *string, int x, int y)
+void nc_window_draw_string(WINDOW *window, const char *string, int x, int y)
 {
   if (NULL != window && NULL != string)
   {
