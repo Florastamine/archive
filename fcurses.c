@@ -34,7 +34,7 @@
 
 #include <string.h>
 
-int nc_init()
+int fc_init()
 {
   initscr();
   noecho();
@@ -45,12 +45,12 @@ int nc_init()
     start_color();
 }
 
-int nc_deinit()
+int fc_deinit()
 {
   endwin();
 }
 
-WINDOW *nc_window_new(int w, int h, int x, int y, const char *title)
+WINDOW *fc_window_new(int w, int h, int x, int y, const char *title)
 {
   WINDOW *window = newwin(h, w, y, x);
   
@@ -58,18 +58,18 @@ WINDOW *nc_window_new(int w, int h, int x, int y, const char *title)
   wrefresh(window);
   
   if (NULL != title)
-    nc_window_draw_string(window, title, (nc_window_get_width(window) - strlen(title)) / 2, 0);
+    fc_window_draw_string(window, title, (fc_window_get_width(window) - strlen(title)) / 2, 0);
   
   return window;
 }
 
-void nc_window_free(WINDOW *window)
+void fc_window_free(WINDOW *window)
 {
   if (NULL != window)
     delwin(window);
 }
 
-void nc_window_draw_string(WINDOW *window, const char *string, int x, int y)
+void fc_window_draw_string(WINDOW *window, const char *string, int x, int y)
 {
   if (NULL != window && NULL != string)
   {
@@ -92,7 +92,7 @@ void window_get_size(WINDOW *window, unsigned *width, unsigned *height)
     *height = h;
 }
 
-unsigned nc_window_get_width(WINDOW *window)
+unsigned fc_window_get_width(WINDOW *window)
 {
   unsigned width = 0u;
   window_get_size(window, &width, NULL);
@@ -100,7 +100,7 @@ unsigned nc_window_get_width(WINDOW *window)
   return width;
 }
 
-unsigned nc_window_get_height(WINDOW *window)
+unsigned fc_window_get_height(WINDOW *window)
 {
   unsigned height = 0u;
   window_get_size(window, NULL, &height);
@@ -108,7 +108,7 @@ unsigned nc_window_get_height(WINDOW *window)
   return height;
 }
 
-void nc_window_set_color(WINDOW *window, int index)
+void fc_window_set_color(WINDOW *window, int index)
 {
   if (NULL != window)
   {
@@ -117,17 +117,17 @@ void nc_window_set_color(WINDOW *window, int index)
   }
 }
 
-unsigned nc_terminal_get_height()
+unsigned fc_terminal_get_height()
 {
   return LINES;
 }
 
-unsigned nc_terminal_get_width()
+unsigned fc_terminal_get_width()
 {
   return COLS;
 }
 
-void nc_window_draw_rectangle(WINDOW *window, int x1, int y1, int x2, int y2)
+void fc_window_draw_rectangle(WINDOW *window, int x1, int y1, int x2, int y2)
 {
   if (NULL != window)
   {
@@ -144,7 +144,7 @@ void nc_window_draw_rectangle(WINDOW *window, int x1, int y1, int x2, int y2)
   }
 }
 
-static void static_nc_draw_8point(WINDOW *window, int xc, int yc, int x, int y, const char *filler)
+static void static_fc_draw_8point(WINDOW *window, int xc, int yc, int x, int y, const char *filler)
 {
   mvwaddstr(window, xc+x, yc+y, filler);
   mvwaddstr(window, xc-x, yc+y, filler);
@@ -156,13 +156,13 @@ static void static_nc_draw_8point(WINDOW *window, int xc, int yc, int x, int y, 
   mvwaddstr(window, xc-y, yc-x, filler);
 }
 
-void nc_window_draw_circle(WINDOW *window, int xc, int yc, int r, const char *filler)
+void fc_window_draw_circle(WINDOW *window, int xc, int yc, int r, const char *filler)
 {
   int x = 0, y = r;
   int d = 3 - 2 * r;
   while (y >= x)
   {
-    static_nc_draw_8point(window, xc, yc, x, y, filler);
+    static_fc_draw_8point(window, xc, yc, x, y, filler);
     x++;
     
     if (d > 0)
@@ -173,7 +173,7 @@ void nc_window_draw_circle(WINDOW *window, int xc, int yc, int r, const char *fi
     else
       d = d + 4 * x + 6;
     
-    static_nc_draw_8point(window, xc, yc, x, y, filler);
+    static_fc_draw_8point(window, xc, yc, x, y, filler);
   }
   wrefresh(window);
 }

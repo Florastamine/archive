@@ -32,20 +32,20 @@
 
 #include <curses.h>
 
-int nc_init();
-int nc_deinit();
+int fc_init();
+int fc_deinit();
 
-unsigned nc_terminal_get_width();
-unsigned nc_terminal_get_height();
+unsigned fc_terminal_get_width();
+unsigned fc_terminal_get_height();
 
-WINDOW *nc_window_new(int w, int h, int x, int y, const char *title);
-void nc_window_free(WINDOW *window);
+WINDOW *fc_window_new(int w, int h, int x, int y, const char *title);
+void fc_window_free(WINDOW *window);
 
-void nc_window_draw_string(WINDOW *window, const char *string, int x, int y);
-void nc_window_draw_rectangle(WINDOW *window, int x1, int y1, int x2, int y2);
-void nc_window_draw_circle(WINDOW *window, int x, int y, int radius, const char *filler);
+void fc_window_draw_string(WINDOW *window, const char *string, int x, int y);
+void fc_window_draw_rectangle(WINDOW *window, int x1, int y1, int x2, int y2);
+void fc_window_draw_circle(WINDOW *window, int x, int y, int radius, const char *filler);
 
-void nc_window_set_color(WINDOW *window, int index);
+void fc_window_set_color(WINDOW *window, int index);
 
-unsigned nc_window_get_width(WINDOW *window);
-unsigned nc_window_get_height(WINDOW *window);
+unsigned fc_window_get_width(WINDOW *window);
+unsigned fc_window_get_height(WINDOW *window);
