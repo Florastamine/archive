@@ -127,6 +127,35 @@ unsigned fc_terminal_get_width()
   return COLS;
 }
 
+void fc_window_draw_line(WINDOW *window, int x0, int y0, int x1, int y1, char c)
+{
+  if (NULL != window)
+  {
+    int dx = x1 - x0,
+        dy = y1 - y0,
+        x = x0,
+        y = y0,
+        p = 2*dy - dx;
+
+    while(x < x1)
+    {
+      if(p >= 0)
+      {
+        mvwaddch(window, x, y, c);
+        y += 1;
+        p += 2*dy - 2*dx;
+      }
+      else
+      {
+        mvwaddch(window, x, y, c);
+        p += 2*dy;
+      }
+      x += 1;
+    }
+    wrefresh(window);
+  }
+}
+
 void fc_window_draw_rectangle(WINDOW *window, int x1, int y1, int x2, int y2)
 {
   if (NULL != window)
@@ -144,25 +173,25 @@ void fc_window_draw_rectangle(WINDOW *window, int x1, int y1, int x2, int y2)
   }
 }
 
-static void static_fc_draw_8point(WINDOW *window, int xc, int yc, int x, int y, const char *filler)
+static void static_fc_draw_8point(WINDOW *window, int xc, int yc, int x, int y, char c)
 {
-  mvwaddstr(window, xc+x, yc+y, filler);
-  mvwaddstr(window, xc-x, yc+y, filler);
-  mvwaddstr(window, xc+x, yc-y, filler);
-  mvwaddstr(window, xc-x, yc-y, filler);
-  mvwaddstr(window, xc+y, yc+x, filler);
-  mvwaddstr(window, xc-y, yc+x, filler);
-  mvwaddstr(window, xc+y, yc-x, filler);
-  mvwaddstr(window, xc-y, yc-x, filler);
+  mvwaddch(window, xc+x, yc+y, c);
+  mvwaddch(window, xc-x, yc+y, c);
+  mvwaddch(window, xc+x, yc-y, c);
+  mvwaddch(window, xc-x, yc-y, c);
+  mvwaddch(window, xc+y, yc+x, c);
+  mvwaddch(window, xc-y, yc+x, c);
+  mvwaddch(window, xc+y, yc-x, c);
+  mvwaddch(window, xc-y, yc-x, c);
 }
 
-void fc_window_draw_circle(WINDOW *window, int xc, int yc, int r, const char *filler)
+void fc_window_draw_circle(WINDOW *window, int xc, int yc, int r, char c)
 {
   int x = 0, y = r;
   int d = 3 - 2 * r;
   while (y >= x)
   {
-    static_fc_draw_8point(window, xc, yc, x, y, filler);
+    static_fc_draw_8point(window, xc, yc, x, y, c);
     x++;
     
     if (d > 0)
@@ -173,7 +202,7 @@ void fc_window_draw_circle(WINDOW *window, int xc, int yc, int r, const char *fi
     else
       d = d + 4 * x + 6;
     
-    static_fc_draw_8point(window, xc, yc, x, y, filler);
+    static_fc_draw_8point(window, xc, yc, x, y, c);
   }
   wrefresh(window);
 }
