@@ -41,7 +41,7 @@ int fc_init()
   cbreak();
   keypad(stdscr, TRUE);
   
-  if (has_colors())
+  if (has_colors() && can_change_color())
     start_color();
 }
 
@@ -132,7 +132,7 @@ void fc_window_draw_string(fc_window_t *window, const char *string, int x, int y
   }
 }
 
-void window_get_size(fc_window_t *window, unsigned *width, unsigned *height)
+void fc_window_get_size(fc_window_t *window, unsigned *width, unsigned *height)
 {
   unsigned w = -1, h = -1;
   
@@ -149,7 +149,7 @@ void window_get_size(fc_window_t *window, unsigned *width, unsigned *height)
 unsigned fc_window_get_width(fc_window_t *window)
 {
   unsigned width = 0u;
-  window_get_size(window, &width, NULL);
+  fc_window_get_size(window, &width, NULL);
   
   return width;
 }
@@ -157,7 +157,7 @@ unsigned fc_window_get_width(fc_window_t *window)
 unsigned fc_window_get_height(fc_window_t *window)
 {
   unsigned height = 0u;
-  window_get_size(window, NULL, &height);
+  fc_window_get_size(window, NULL, &height);
   
   return height;
 }
