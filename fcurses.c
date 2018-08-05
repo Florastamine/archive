@@ -162,6 +162,36 @@ unsigned fc_window_get_height(fc_window_t *window)
   return height;
 }
 
+void fc_window_get_position(fc_window_t *window, unsigned *xp, unsigned *yp)
+{
+  unsigned x = -1, y = -1;
+  
+  if (NULL != window)
+    getbegyx(window->window, y, x);
+  
+  if (NULL != x)
+    *xp = x;
+  
+  if (NULL != y)
+    *yp = y;
+}
+
+unsigned fc_window_get_x(fc_window_t *window)
+{
+  unsigned x = 0u;
+  fc_window_get_position(window, &x, NULL);
+  
+  return x;
+}
+
+unsigned fc_window_get_y(fc_window_t *window)
+{
+  unsigned y = 0u;
+  fc_window_get_position(window, NULL, &y);
+  
+  return y;
+}
+
 void fc_window_set_color(fc_window_t *window, int index)
 {
   if (NULL != window)

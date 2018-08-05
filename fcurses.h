@@ -71,3 +71,6 @@ int fc_window_get_color(fc_window_t *window);
 
 unsigned fc_window_get_width(fc_window_t *window);
 unsigned fc_window_get_height(fc_window_t *window);
+
+unsigned fc_window_get_x(fc_window_t *window);
+unsigned fc_window_get_y(fc_window_t *window);
