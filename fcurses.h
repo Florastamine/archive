@@ -31,6 +31,22 @@
  */
 
 #include <curses.h>
+#include <stdbool.h>
+#include <stdlib.h>
+
+#if !defined(FC_MALLOC)
+#define FC_MALLOC(x) malloc(x)
+#endif
+
+#if !defined(FC_FREE)
+#define FC_FREE(x) free(x)
+#endif
+
+typedef struct {
+  WINDOW *window;
+  char *title;
+  bool manual_sync;
+} fc_window_t;
 
 int fc_init();
 int fc_deinit();
@@ -38,15 +54,20 @@ int fc_deinit();
 unsigned fc_terminal_get_width();
 unsigned fc_terminal_get_height();
 
-WINDOW *fc_window_new(int w, int h, int x, int y, const char *title);
-void fc_window_free(WINDOW *window);
+fc_window_t *fc_window_new(int w, int h, int x, int y, const char *title);
+void fc_window_free(fc_window_t *window);
+void fc_window_sync(fc_window_t *window);
+void fc_window_clear(fc_window_t *window);
+void fc_window_set_manual_sync(fc_window_t *window, bool sync);
+bool fc_window_get_manual_sync(fc_window_t *window);
 
-void fc_window_draw_string(WINDOW *window, const char *string, int x, int y);
-void fc_window_draw_line(WINDOW *window, int x0, int y0, int x1, int y1, char c);
-void fc_window_draw_rectangle(WINDOW *window, int x1, int y1, int x2, int y2);
-void fc_window_draw_circle(WINDOW *window, int x, int y, int radius, char c);
+void fc_window_draw_string(fc_window_t *window, const char *string, int x, int y);
+void fc_window_draw_line(fc_window_t *window, int x0, int y0, int x1, int y1, char c);
+void fc_window_draw_rectangle(fc_window_t *window, int x1, int y1, int x2, int y2);
+void fc_window_draw_circle(fc_window_t *window, int x, int y, int radius, char c);
 
-void fc_window_set_color(WINDOW *window, int index);
+void fc_window_set_color(fc_window_t *window, int index);
+int fc_window_get_color(fc_window_t *window);
 
-unsigned fc_window_get_width(WINDOW *window);
-unsigned fc_window_get_height(WINDOW *window);
+unsigned fc_window_get_width(fc_window_t *window);
+unsigned fc_window_get_height(fc_window_t *window);

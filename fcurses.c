@@ -50,40 +50,94 @@ int fc_deinit()
   endwin();
 }
 
-WINDOW *fc_window_new(int w, int h, int x, int y, const char *title)
+static void fc_static_window_sync(fc_window_t *window)
 {
-  WINDOW *window = newwin(h, w, y, x);
+  if (NULL != window && !window->manual_sync)
+    wrefresh(window->window);
+}
+
+static void fc_static_window_draw_border(fc_window_t *window)
+{
+  box(window->window, 0, 0);
   
-  box(window, 0, 0);
-  wrefresh(window);
+  if (NULL != window->title)
+    fc_window_draw_string(window, window->title, (fc_window_get_width(window) - strlen(window->title)) / 2, 0);
   
-  if (NULL != title)
-    fc_window_draw_string(window, title, (fc_window_get_width(window) - strlen(title)) / 2, 0);
+  fc_static_window_sync(window);
+}
+
+fc_window_t *fc_window_new(int w, int h, int x, int y, const char *title)
+{
+  fc_window_t *window = (fc_window_t *) FC_MALLOC(sizeof(fc_window_t));
+  window->title       = (char *)        FC_MALLOC(strlen(title) * sizeof(char));
+  window->manual_sync = false;
+  
+  strcpy(window->title, title);
+  
+  window->window = newwin(h, w, y, x);
+  fc_static_window_draw_border(window);
+  fc_static_window_sync(window);
   
   return window;
 }
 
-void fc_window_free(WINDOW *window)
+void fc_window_free(fc_window_t *window)
 {
   if (NULL != window)
-    delwin(window);
-}
-
-void fc_window_draw_string(WINDOW *window, const char *string, int x, int y)
-{
-  if (NULL != window && NULL != string)
   {
-    mvwaddstr(window, y, x, string);
-    wrefresh(window);
+    delwin(window->window);
+    window->window = NULL;
+    
+    FC_FREE(window->title);
+    window->title = NULL;
+    
+    FC_FREE(window);
+    window = NULL;
   }
 }
 
-void window_get_size(WINDOW *window, unsigned *width, unsigned *height)
+void fc_window_clear(fc_window_t *window)
+{
+  if (NULL != window)
+  {
+    wclear(window->window);
+    fc_static_window_draw_border(window);
+    fc_static_window_sync(window);
+  }
+}
+
+void fc_window_set_manual_sync(fc_window_t *window, bool sync)
+{
+  if (NULL != window)
+    window->manual_sync = sync;
+}
+
+bool fc_window_get_manual_sync(fc_window_t *window)
+{
+  return NULL != window ? window->manual_sync : false;
+}
+
+void fc_window_sync(fc_window_t *window)
+{
+  if (NULL != window)
+    wrefresh(window->window);
+}
+
+void fc_window_draw_string(fc_window_t *window, const char *string, int x, int y)
+{
+  if (NULL != window && NULL != string)
+  {
+    mvwaddstr(window->window, y, x, string);
+    fc_static_window_sync(window);
+  }
+}
+
+void window_get_size(fc_window_t *window, unsigned *width, unsigned *height)
 {
   unsigned w = -1, h = -1;
   
   if (NULL != window)
-    getmaxyx(window, h, w);
+    getmaxyx(window->window, h, w);
   
   if (NULL != width)
     *width = w;
@@ -92,7 +146,7 @@ void window_get_size(WINDOW *window, unsigned *width, unsigned *height)
     *height = h;
 }
 
-unsigned fc_window_get_width(WINDOW *window)
+unsigned fc_window_get_width(fc_window_t *window)
 {
   unsigned width = 0u;
   window_get_size(window, &width, NULL);
@@ -100,7 +154,7 @@ unsigned fc_window_get_width(WINDOW *window)
   return width;
 }
 
-unsigned fc_window_get_height(WINDOW *window)
+unsigned fc_window_get_height(fc_window_t *window)
 {
   unsigned height = 0u;
   window_get_size(window, NULL, &height);
@@ -108,13 +162,21 @@ unsigned fc_window_get_height(WINDOW *window)
   return height;
 }
 
-void fc_window_set_color(WINDOW *window, int index)
+void fc_window_set_color(fc_window_t *window, int index)
 {
   if (NULL != window)
   {
-    wbkgd(window, COLOR_PAIR(index));
-    wrefresh(window);
+    wbkgd(window->window, COLOR_PAIR(index));
+    fc_static_window_sync(window);
   }
+}
+
+int fc_window_get_color(fc_window_t *window)
+{
+  if (NULL != window)
+    return PAIR_NUMBER(getbkgd(window->window));
+  
+  return -1;
 }
 
 unsigned fc_terminal_get_height()
@@ -127,7 +189,7 @@ unsigned fc_terminal_get_width()
   return COLS;
 }
 
-void fc_window_draw_line(WINDOW *window, int x0, int y0, int x1, int y1, char c)
+void fc_window_draw_line(fc_window_t *window, int x0, int y0, int x1, int y1, char c)
 {
   if (NULL != window)
   {
@@ -141,51 +203,51 @@ void fc_window_draw_line(WINDOW *window, int x0, int y0, int x1, int y1, char c)
     {
       if(p >= 0)
       {
-        mvwaddch(window, x, y, c);
+        mvwaddch(window->window, x, y, c);
         y += 1;
         p += 2*dy - 2*dx;
       }
       else
       {
-        mvwaddch(window, x, y, c);
+        mvwaddch(window->window, x, y, c);
         p += 2*dy;
       }
       x += 1;
     }
-    wrefresh(window);
+    fc_static_window_sync(window);
   }
 }
 
-void fc_window_draw_rectangle(WINDOW *window, int x1, int y1, int x2, int y2)
+void fc_window_draw_rectangle(fc_window_t *window, int x1, int y1, int x2, int y2)
 {
   if (NULL != window)
   {
-    mvwhline(window, y1, x1, 0, x2-x1);
-    mvwhline(window, y2, x1, 0, x2-x1);
-    mvwvline(window, y1, x1, 0, y2-y1);
-    mvwvline(window, y1, x2, 0, y2-y1);
-    mvwaddch(window, y1, x1, ACS_ULCORNER);
-    mvwaddch(window, y2, x1, ACS_LLCORNER);
-    mvwaddch(window, y1, x2, ACS_URCORNER);
-    mvwaddch(window, y2, x2, ACS_LRCORNER);
+    mvwhline(window->window, y1, x1, 0, x2-x1);
+    mvwhline(window->window, y2, x1, 0, x2-x1);
+    mvwvline(window->window, y1, x1, 0, y2-y1);
+    mvwvline(window->window, y1, x2, 0, y2-y1);
+    mvwaddch(window->window, y1, x1, ACS_ULCORNER);
+    mvwaddch(window->window, y2, x1, ACS_LLCORNER);
+    mvwaddch(window->window, y1, x2, ACS_URCORNER);
+    mvwaddch(window->window, y2, x2, ACS_LRCORNER);
     
-    wrefresh(window);
+    fc_static_window_sync(window);
   }
 }
 
-static void static_fc_draw_8point(WINDOW *window, int xc, int yc, int x, int y, char c)
+static void static_fc_draw_8point(fc_window_t *window, int xc, int yc, int x, int y, char c)
 {
-  mvwaddch(window, xc+x, yc+y, c);
-  mvwaddch(window, xc-x, yc+y, c);
-  mvwaddch(window, xc+x, yc-y, c);
-  mvwaddch(window, xc-x, yc-y, c);
-  mvwaddch(window, xc+y, yc+x, c);
-  mvwaddch(window, xc-y, yc+x, c);
-  mvwaddch(window, xc+y, yc-x, c);
-  mvwaddch(window, xc-y, yc-x, c);
+  mvwaddch(window->window, xc+x, yc+y, c);
+  mvwaddch(window->window, xc-x, yc+y, c);
+  mvwaddch(window->window, xc+x, yc-y, c);
+  mvwaddch(window->window, xc-x, yc-y, c);
+  mvwaddch(window->window, xc+y, yc+x, c);
+  mvwaddch(window->window, xc-y, yc+x, c);
+  mvwaddch(window->window, xc+y, yc-x, c);
+  mvwaddch(window->window, xc-y, yc-x, c);
 }
 
-void fc_window_draw_circle(WINDOW *window, int xc, int yc, int r, char c)
+void fc_window_draw_circle(fc_window_t *window, int xc, int yc, int r, char c)
 {
   int x = 0, y = r;
   int d = 3 - 2 * r;
@@ -204,5 +266,5 @@ void fc_window_draw_circle(WINDOW *window, int xc, int yc, int r, char c)
     
     static_fc_draw_8point(window, xc, yc, x, y, c);
   }
-  wrefresh(window);
+  fc_static_window_sync(window);
 }
