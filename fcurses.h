@@ -42,10 +42,15 @@
 #define FC_FREE(x) free(x)
 #endif
 
+typedef enum { FC_A_DEFAULT, FC_A_LEFT, FC_A_RIGHT } alignment_t;
+
 typedef struct {
-  WINDOW *window;
-  char *title;
+  char       *title;
+  alignment_t title_alignment;
+
   bool manual_sync;
+
+  WINDOW *window;
 } fc_window_t;
 
 int fc_init();
@@ -60,11 +65,14 @@ void fc_window_sync(fc_window_t *window);
 void fc_window_clear(fc_window_t *window);
 void fc_window_set_manual_sync(fc_window_t *window, bool sync);
 bool fc_window_get_manual_sync(fc_window_t *window);
+void fc_window_set_title_alignment(fc_window_t *window, alignment_t alignment);
+const char *fc_window_get_title_alignment(fc_window_t *window);
 
 void fc_window_draw_string(fc_window_t *window, const char *string, int x, int y);
 void fc_window_draw_line(fc_window_t *window, int x0, int y0, int x1, int y1, char c);
 void fc_window_draw_rectangle(fc_window_t *window, int x1, int y1, int x2, int y2);
 void fc_window_draw_circle(fc_window_t *window, int x, int y, int radius, char c);
+void fc_window_draw_triangle(fc_window_t *window, int x0, int y0, int x1, int y1, int x2, int y2, char c);
 
 void fc_window_set_color(fc_window_t *window, int index);
 int fc_window_get_color(fc_window_t *window);

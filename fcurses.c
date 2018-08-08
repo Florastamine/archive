@@ -61,16 +61,37 @@ static void fc_static_window_draw_border(fc_window_t *window)
   box(window->window, 0, 0);
   
   if (NULL != window->title)
-    fc_window_draw_string(window, window->title, (fc_window_get_width(window) - strlen(window->title)) / 2, 0);
+  {
+    int x = 0, y = 0;
+    switch (window->title_alignment)
+    {
+      case FC_A_DEFAULT:
+        x = (fc_window_get_width(window) - strlen(window->title)) / 2;
+        y = 0;
+        break;
+      case FC_A_LEFT:
+        x = 0;
+        y = 0;
+        break;
+      case FC_A_RIGHT:
+        x = fc_window_get_width(window) - strlen(window->title);
+        y = 0;
+        break;
+      default:
+        break;
+    }
+    fc_window_draw_string(window, window->title, x, y);
+  }
   
   fc_static_window_sync(window);
 }
 
 fc_window_t *fc_window_new(int w, int h, int x, int y, const char *title)
 {
-  fc_window_t *window = (fc_window_t *) FC_MALLOC(sizeof(fc_window_t));
-  window->title       = (char *)        FC_MALLOC(strlen(title) * sizeof(char));
-  window->manual_sync = false;
+  fc_window_t *window     = (fc_window_t *) FC_MALLOC(sizeof(fc_window_t));
+  window->title           = (char *)        FC_MALLOC(strlen(title) * sizeof(char));
+  window->title_alignment = FC_A_DEFAULT;
+  window->manual_sync     = false;
   
   strcpy(window->title, title);
   
@@ -115,6 +136,35 @@ void fc_window_set_manual_sync(fc_window_t *window, bool sync)
 bool fc_window_get_manual_sync(fc_window_t *window)
 {
   return NULL != window ? window->manual_sync : false;
+}
+
+void fc_window_set_title_alignment(fc_window_t *window, alignment_t alignment)
+{
+  if (NULL != window)
+  {
+    window->title_alignment = alignment;
+    fc_static_window_draw_border(window);
+  }
+}
+
+const char *fc_window_get_title_alignment(fc_window_t *window)
+{
+  if (NULL != window)
+  {
+    switch (window->title_alignment)
+    {
+      case FC_A_DEFAULT:
+        return "FC_A_DEFAULT";
+        break;
+      case FC_A_LEFT:
+        return "FC_A_LEFT";
+        break;
+      case FC_A_RIGHT:
+        return "FC_A_RIGHT";
+        break;
+    }
+  }
+  return "(?)";
 }
 
 void fc_window_sync(fc_window_t *window)
@@ -229,9 +279,9 @@ void fc_window_draw_line(fc_window_t *window, int x0, int y0, int x1, int y1, ch
         y = y0,
         p = 2*dy - dx;
 
-    while(x < x1)
+    while (x < x1)
     {
-      if(p >= 0)
+      if (p >= 0)
       {
         mvwaddch(window->window, x, y, c);
         y += 1;
@@ -246,6 +296,13 @@ void fc_window_draw_line(fc_window_t *window, int x0, int y0, int x1, int y1, ch
     }
     fc_static_window_sync(window);
   }
+}
+
+void fc_window_draw_triangle(fc_window_t *window, int x0, int y0, int x1, int y1, int x2, int y2, char c)
+{
+  fc_window_draw_line(window, x0, y0, x1, y1, c);
+  fc_window_draw_line(window, x0, y0, x2, y2, c);
+  fc_window_draw_line(window, x1, y1, x2, y2, c);
 }
 
 void fc_window_draw_rectangle(fc_window_t *window, int x1, int y1, int x2, int y2)
