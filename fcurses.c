@@ -269,6 +269,11 @@ unsigned fc_terminal_get_width()
   return COLS;
 }
 
+void fc_terminal_flash()
+{
+  flash();
+}
+
 void fc_window_draw_line(fc_window_t *window, int x0, int y0, int x1, int y1, char c)
 {
   if (NULL != window)

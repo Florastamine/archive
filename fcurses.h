@@ -56,6 +56,8 @@ typedef struct {
 int fc_init();
 int fc_deinit();
 
+void fc_terminal_flash();
+
 unsigned fc_terminal_get_width();
 unsigned fc_terminal_get_height();
 
