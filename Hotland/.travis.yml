@@ -1,0 +1,23 @@
+language: cpp
+compiler: 
+    - gcc 
+    - clang 
+sudo: required 
+install:
+    - export CXX="g++-5"
+addons: 
+    apt:
+        sources:
+        - ubuntu-toolchain-r-test
+        packages:
+        - g++-5
+script: 
+    - cd Source 
+    - touch main.cpp 
+    - printf "%s\n%s" "#include \"Kernel/Assertion.hpp\"" "int main(int argc, const char **argl) { HOTLAND_STATIC_ASSERT(21 + 21 == 42); return 0; }" >> main.cpp 
+    - cd ../Build/gmake 
+    - make clean && make config=debug -j2 
+os:
+    - linux 
+dist:
+    - trusty 

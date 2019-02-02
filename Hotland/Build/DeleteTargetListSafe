@@ -1,0 +1,10 @@
+*.exe 
+*.d 
+*.a 
+*.o 
+*.pdb 
+*.ilk 
+*.exp 
+*.sdf 
+*.tlog 
+*.obj 
